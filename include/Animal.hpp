@@ -1,3 +1,6 @@
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
+
 class Animal
 {
 private:
@@ -48,3 +51,5 @@ public:
 //	void set_batismo( void );
 
 };
+
+#endif

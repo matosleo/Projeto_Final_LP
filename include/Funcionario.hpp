@@ -1,3 +1,5 @@
+#ifndef FUNCIONARIO_HPP
+#define FUNCIONARIO_HPP
 
 class Funcionario
 {
@@ -64,4 +66,4 @@ public:
 	
 };
 
-
+#endif

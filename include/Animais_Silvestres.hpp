@@ -1,3 +1,6 @@
+#ifndef ANIMAIS_SILVESTRES_HPP
+#define ANIMAIS_SILVESTRES_HPP
+
 class AnfibioNativo : public Anfibio , Nativo
 {
 public:
@@ -61,3 +64,5 @@ public:
 	~AveExotico();
 	
 };
+
+#endif

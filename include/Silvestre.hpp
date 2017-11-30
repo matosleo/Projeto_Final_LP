@@ -1,3 +1,6 @@
+#ifndef SILVESTRE_HPP
+#define SILVESTRE_HPP
+
 class AnimalSilvestre
 {
 private:
@@ -43,3 +46,5 @@ public:
 	~Exotico();
 	
 };
+
+#endif

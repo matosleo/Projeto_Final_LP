@@ -1,3 +1,6 @@
+#ifndef ANIMAL_CLASSES_HPP
+#define ANIMAL_CLASSES_HPP
+
 class Anfibio : public Animal
 {
 private:
@@ -66,3 +69,5 @@ public:
 	~Ave();
 	
 };
+
+#endif

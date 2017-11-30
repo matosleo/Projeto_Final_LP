@@ -1,5 +1,5 @@
-#ifndef PET_FERA_H
-#define PET_FERA_H
+#ifndef PET_FERA_HPP
+#define PET_FERA_HPP
 
 class Pet_Fera
 {
