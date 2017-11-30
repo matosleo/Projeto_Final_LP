@@ -12,7 +12,22 @@ public:
 
 	bool cadastrar_veterinario();
 	bool cadastrar_tratador();
-	bool cadastrar_animal();
+	bool cadastrar_anfibio();
+	bool cadastrar_mamifero();
+	bool cadastrar_reptil();
+	bool cadastrar_ave();
+
+	bool remover_veterinario();
+	bool remover_tratador();
+	bool remover_anfibio();
+	bool remover_mamifero();
+	bool remover_reptil();
+	bool remover_ave();
+
+	bool alterar_anfibio();
+	bool alterar_mamifero();
+	bool alterar_reptil();
+	bool alterar_ave();
 		
 };
 
