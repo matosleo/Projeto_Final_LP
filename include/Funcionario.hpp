@@ -12,6 +12,18 @@ private:
 
 public:
 
+	Funcionario( int _id, std::string _nome, std::string _CPF, short _idade,
+				 short _tipo_sangue, short _fator_RH, std::string _especialidade )
+		: m_id 				(_id)
+		, m_nome 			(_nome) 
+		, m_CPF 			(_CPF)
+		, m_idade 			(_idade)
+		, m_tipo_sangue 	(_tipo_sangue)
+		, m_fator_RH 		(_fator_RH)
+		, m_especialidade 	(_especialidade)
+	{ /* Vazio */ }
+	virtual ~Funcionario();
+	
 	int get_id ( void );
 	std::string get_nome ( void );
 	std::string get_CPF ( void );
@@ -28,23 +40,15 @@ public:
 	short set_RH (  );
 	std::string set_espec (  );
 */
-	Funcionario( int _id, std::string _nome, std::string _CPF,
-				 short _idade, short _tipo_sangue, short _fator_RH, std::string _especialidade )
-		:
-		,
-		,
-		,
-		,
-		,
-	{ /* Vazio */ }
-	virtual ~Funcionario();
-	
 };
 
 class Veterinario : public Funcionario
 {
 public:
-	Veterinario();
+	Veterinario( int _id, std::string _nome, std::string _CPF, short _idade,
+				 short _tipo_sangue, short _fator_RH, std::string _especialidade )
+		: Funcionario( _id, _nome, _CPF, _idade, _tipo_sangue, _fator_RH, _especialidade )
+		{ /* Vazio */ }
 	~Veterinario();
 	
 };
@@ -52,7 +56,10 @@ public:
 class Tratador : public Funcionario
 {
 public:
-	Tratador();
+	Tratador( int _id, std::string _nome, std::string _CPF, short _idade,
+				 short _tipo_sangue, short _fator_RH, std::string _especialidade )
+		: Funcionario( _id, _nome, _CPF, _idade, _tipo_sangue, _fator_RH, _especialidade )
+		{ /* Vazio */ }
 	~Tratador();
 	
 };

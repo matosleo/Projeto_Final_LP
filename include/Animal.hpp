@@ -14,6 +14,17 @@ private:
 
 public:
 
+	Animal(	int _id, std::string _classe, std::string _nome, std::string _cientifico, char _sexo, 
+			float _tamanho, std::string _dieta, Veterinario _veterinario, Tratador _tratador, std::string _batismo )
+		:
+		,
+		,
+		,
+		,
+	{ /* Vazio */ }
+
+	virtual ~Animal();
+
 	int 		get_id( void );
 	std::string get_classe( void );
 	std::string get_nome( void );
@@ -35,16 +46,5 @@ public:
 	void set_veterinario( Veterinario new_id );
 	void set_tratador( Tratador new_id );
 //	void set_batismo( void );
-
-	Animal(	int _id, std::string _classe, std::string _nome, std::string _cientifico, char _sexo, 
-			float _tamanho, std::string _dieta, Veterinario _veterinario, Tratador _tratador, std::string _batismo )
-		:
-		,
-		,
-		,
-		,
-	{ /* Vazio */ }
-
-	virtual ~Animal();
 
 };
