@@ -51,6 +51,7 @@ public:
 				 short _tipo_sangue, short _fator_RH, std::string _especialidade )
 		: Funcionario( _id, _nome, _CPF, _idade, _tipo_sangue, _fator_RH, _especialidade )
 		{ /* Vazio */ }
+
 	~Veterinario();
 	
 };
@@ -62,6 +63,7 @@ public:
 				 short _tipo_sangue, short _fator_RH, std::string _especialidade )
 		: Funcionario( _id, _nome, _CPF, _idade, _tipo_sangue, _fator_RH, _especialidade )
 		{ /* Vazio */ }
+		
 	~Tratador();
 	
 };

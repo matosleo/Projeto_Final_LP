@@ -4,7 +4,7 @@
 class Animal
 {
 private:
-	int 		_id;
+	int 		m_id;
 	std::string m_classe;
 	std::string m_nome;
 	std::string m_cientifico;
@@ -19,11 +19,16 @@ public:
 
 	Animal(	int _id, std::string _classe, std::string _nome, std::string _cientifico, char _sexo, 
 			float _tamanho, std::string _dieta, Veterinario _veterinario, Tratador _tratador, std::string _batismo )
-		:
-		,
-		,
-		,
-		,
+		: m_id( _id )
+		, m_classe( _classe )
+		, m_nome( _nome )
+		, m_cientifico( _cientifico )
+		, m_sexo( _sexo )
+		, m_tamanho( _tamanho )
+		, m_dieta( _dieta )
+		, m_veterinario( _veterinario )
+		, m_tratador( _tratador )
+		, m_batismo( _batismo )
 	{ /* Vazio */ }
 
 	virtual ~Animal();

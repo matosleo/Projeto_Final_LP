@@ -10,7 +10,9 @@ public:
 
 	std::string get_ibama( void );
 
-	AnimalSilvestre();
+	AnimalSilvestre( std::string _ibama ) : ibama( _ibama )
+	{	/*	Vazio	*/	}
+
 	~AnimalSilvestre();
 	
 };
@@ -28,7 +30,12 @@ public:
 
 	void set_autorizacao( std::string new_autorizacao );
 
-	Nativo();
+	Nativo( std::string _ibama, std::string _uf_origem, std::string _autorizacao )
+		: AnimalSilvestre( _ibama )
+		, uf_origem( _uf_origem )
+		, autorizacao( _autorizacao )
+		{	/*	Vazio	*/	}
+
 	~Nativo();
 	
 };
@@ -42,7 +49,11 @@ public:
 
 	std::string get_pais_origem( void );
 
-	Exotico();
+	Exotico( std::string _ibama, std::string _pais_origem )
+		: AnimalSilvestre( _ibama )
+		, pais_origem( _pais_origem )
+		{	/*	Vazio	*/	}
+
 	~Exotico();
 	
 };
