@@ -3,7 +3,7 @@
 
 class AnimalSilvestre
 {
-private:
+protected:
 	std::string ibama;
 
 public:
@@ -19,7 +19,7 @@ public:
 
 class Nativo : public AnimalSilvestre
 {
-private:
+protected:
 	std::string uf_origem;
 	std::string autorizacao;
 
@@ -42,7 +42,7 @@ public:
 
 class Exotico : public AnimalSilvestre
 {
-private:
+protected:
 	std::string pais_origem;
 
 public:
