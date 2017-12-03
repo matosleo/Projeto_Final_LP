@@ -25,10 +25,10 @@ public:
 
 	bool cadastrar_veterinario();
 	bool cadastrar_tratador();
-	bool cadastrar_anfibio();
-	bool cadastrar_mamifero();
-	bool cadastrar_reptil();
-	bool cadastrar_ave();
+	bool cadastrar_anfibio( std::string _classe, std::string _tipo );
+	bool cadastrar_mamifero( std::string _classe, std::string _tipo );
+	bool cadastrar_reptil( std::string _classe, std::string _tipo );
+	bool cadastrar_ave( std::string _classe, std::string _tipo );
 
 	bool remover_veterinario();
 	bool remover_tratador();

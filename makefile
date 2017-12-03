@@ -30,8 +30,8 @@ $(BIN_DIR)/cadastrar: $(LIB_DIR)/libPetFera.so $(INC_DIR)/cadastro.hpp $(SRC_DIR
 	$(CC) $(CFLAGS) $(SRC_DIR)/cadastrar.cpp $(INC_DIR)/cadastro.hpp $(SRC_DIR)/cadastro.cpp -L$(LIB_DIR) $(LIBFLAGS) -o $@
 	@echo "+++ [Binario criado em $@] +++"
 
-$(BIN_DIR)/exportar: $(LIB_DIR)/libPetFera.so $(INC_DIR)/filtro.hpp $(SRC_DIR)/filtro.cpp $(SRC_DIR)/exportar.cpp
-	$(CC) $(CFLAGS) $(SRC_DIR)/exportar.cpp $(INC_DIR)/filtro.hpp $(SRC_DIR)/filtro.cpp -L$(LIB_DIR) $(LIBFLAGS) -o $@
+$(BIN_DIR)/exportar: $(LIB_DIR)/libPetFera.so $(INC_DIR)/filtro.hpp $(INC_DIR)/Animais_Silvestres.hpp $(SRC_DIR)/filtro.cpp $(SRC_DIR)/exportar.cpp
+	$(CC) $(CFLAGS) $(SRC_DIR)/exportar.cpp $(INC_DIR)/filtro.hpp $(INC_DIR)/Animais_Silvestres.hpp $(SRC_DIR)/filtro.cpp -L$(LIB_DIR) $(LIBFLAGS) -o $@
 	@echo "+++ [Binario criado em $@] +++"
 
 $(LIB_DIR)/libPetFera.a: $(INC_DIR)/Animal.hpp $(INC_DIR)/Animal_Classes.hpp $(INC_DIR)/Silvestre.hpp $(INC_DIR)/Animais_Silvestres.hpp $(INC_DIR)/Funcionario.hpp $(SRC_DIR)/Animal.cpp $(SRC_DIR)/Animal_Classes.cpp $(SRC_DIR)/Silvestre.cpp  $(SRC_DIR)/Funcionario.cpp
@@ -47,9 +47,8 @@ $(LIB_DIR)/libPetFera.so: $(INC_DIR)/Animal.hpp $(INC_DIR)/Animal_Classes.hpp $(
 	$(CC) $(CFLAGS) -fPIC -c $(SRC_DIR)/Animal.cpp -o $(OBJ_DIR)/Animal.o
 	$(CC) $(CFLAGS) -fPIC -c $(SRC_DIR)/Animal_Classes.cpp -o $(OBJ_DIR)/Animal_Classes.o
 	$(CC) $(CFLAGS) -fPIC -c $(SRC_DIR)/Silvestre.cpp -o $(OBJ_DIR)/Silvestre.o
-	$(CC) $(CFLAGS) -fPIC -c $(INC_DIR)/Animais_Silvestres.hpp -o $(OBJ_DIR)/Animais_Silvestres.o
 	$(CC) $(CFLAGS) -fPIC -c $(SRC_DIR)/Funcionario.cpp -o $(OBJ_DIR)/Funcionario.o
-	$(CC) -shared -fPIC -o $@ $(OBJ_DIR)/Animal.o $(OBJ_DIR)/Animal_Classes.o $(OBJ_DIR)/Silvestre.o $(OBJ_DIR)/Animais_Silvestres.o $(OBJ_DIR)/Funcionario.o
+	$(CC) -shared -fPIC -o $@ $(OBJ_DIR)/Animal.o $(OBJ_DIR)/Animal_Classes.o $(OBJ_DIR)/Silvestre.o $(OBJ_DIR)/Funcionario.o
 	@echo "+++ [Biblioteca dinamica criada em $@] +++"
 
 doxy:
