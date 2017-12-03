@@ -10,35 +10,17 @@
  * @date       03/12/2017
  */
 
+#include <getopt.h>
+#include <iostream>
+#include <stdlib.h>
+#include <string>
+#include <fstream>
+#include <vector>
+#include <sstream>
+
 bool termina_com(const std::string &str, const std::string &termino)
 {
 	return str.size() >= termino.size() and str.compare(str.size() - termino.size(), termino.size(), termino) == 0;
-}
-
-std::string buscar_codigo( const std::fstream &local, const std::string &alvo, size_t funcao )
-{
-	if ( alvo = "0")
-	{
-		return "0";
-	}
-	
-	std::array< std::string, 2 > profissoes = { "Veterinário", "Tratador" }
-
-	std::string linha;
-
-	while( std::getline( local, linha ) )
-	{
-		std::vector< std::string > campos = separar( linha, ';' );
-		
-		if ( campos[1] == profissoes[funcao] and campos[2] == alvo )
-		{
-			std::stringstream aux;
-			aux << campos[0];
-			std::string retorno(aux);
-			return retorno;
-		}
-	}
-	return -1;
 }
 
 std::vector< std::string > separar ( const std::string& alvo, const char &delimitador )
@@ -59,7 +41,32 @@ std::vector< std::string > separar ( const std::string& alvo, const char &delimi
 	return campos;
 }
 
-std::fstream filtrar( const std::fstream &alvo , const std::string filtro, size_t campo )
+std::string buscar_codigo( std::fstream &local, const std::string &alvo, size_t funcao )
+{
+	if ( alvo == "0")
+	{
+		return "0";
+	}
+	
+	std::vector< std::string > profissoes;
+	profissoes.push_back( "Veterinario");
+	profissoes.push_back( "Tratador");
+	std::string linha;
+
+	while( std::getline( local, linha ) )
+	{
+		std::vector< std::string > campos = separar( linha, ';' );
+		
+		if ( campos[1] == profissoes[funcao] and campos[2] == alvo )
+		{
+			return campos[0];
+		}
+	}
+	return "-1";
+}
+
+
+std::fstream filtrar( std::fstream &alvo , const std::string filtro, size_t campo )
 {
 	std::string linha;
 	std::fstream filtrado;
@@ -78,10 +85,10 @@ std::fstream filtrar( const std::fstream &alvo , const std::string filtro, size_
 int main(int argc, char const *argv[])
 {
 	bool c_flag = false, v_flag = false, t_flag = false;
-	char c;
+	int c;
 	std::string classe, veterinario, tratador, arquivo_saida;
 	opterr = 0;
-	while ((c = getopt (argc, argv, "c:v:t:")) != -1)		// parece meio estranho esse getopt...
+	while ( (c = getopt (argc, argv, "c:v:t:" )) != -1)		// parece meio estranho esse getopt...
 	{
 		switch(c)
 		{
