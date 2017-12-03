@@ -13,6 +13,8 @@
 #ifndef SILVESTRE_HPP
 #define SILVESTRE_HPP
 
+#include <string>
+
 namespace PetFera
 {
 
@@ -25,7 +27,7 @@ namespace PetFera
 
 		std::string get_ibama( void );
 
-		AnimalSilvestre( std::string _ibama ) : ibama( _ibama )
+		AnimalSilvestre( std::string _ibama ) : m_ibama( _ibama )
 		{	/*	Vazio	*/	}
 
 		~AnimalSilvestre();
@@ -47,8 +49,8 @@ namespace PetFera
 
 		Nativo( std::string _ibama, std::string _uf_origem, std::string _autorizacao )
 			: AnimalSilvestre( _ibama )
-			, uf_origem( _uf_origem )
-			, autorizacao( _autorizacao )
+			, m_uf_origem( _uf_origem )
+			, m_autorizacao( _autorizacao )
 			{	/*	Vazio	*/	}
 
 		~Nativo();
@@ -66,7 +68,7 @@ namespace PetFera
 
 		Exotico( std::string _ibama, std::string _pais_origem )
 			: AnimalSilvestre( _ibama )
-			, pais_origem( _pais_origem )
+			, m_pais_origem( _pais_origem )
 			{	/*	Vazio	*/	}
 
 		~Exotico();

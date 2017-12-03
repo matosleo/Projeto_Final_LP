@@ -13,10 +13,20 @@
 #ifndef ANIMAL_HPP
 #define ANIMAL_HPP
 
+#include "Funcionario.hpp"
+
 #include <memory>
 
-typedef std::shared_ptr< Veterinario >	V_pointer;
-typedef std::shared_ptr< Tratador >		T_pointer;
+#include <string>
+
+//using V_pointer = std::shared_ptr< PetFera::Veterinario >;
+//using T_pointer = std::shared_ptr< PetFera::Tratador >;
+
+//typedef std::shared_ptr< PetFera::Veterinario >	V_pointer;
+//typedef std::shared_ptr< PetFera::Tratador >	T_pointer;
+
+typedef PetFera::Veterinario *V_pointer;
+typedef PetFera::Tratador	 *T_pointer;
 
 namespace PetFera
 {

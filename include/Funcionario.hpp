@@ -13,9 +13,11 @@
 #ifndef FUNCIONARIO_HPP
 #define FUNCIONARIO_HPP
 
+#include <memory>
+#include <string>
+
 namespace PetFera
 {
-
 	class Funcionario
 	{
 	protected:
@@ -82,6 +84,6 @@ namespace PetFera
 		~Tratador();
 		
 	};
-
 }
+
 #endif
