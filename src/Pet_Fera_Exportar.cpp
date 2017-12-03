@@ -10,38 +10,69 @@
  * @date       03/12/2017
  */
 
-/*
-	Receber via terminal todas as informações do que será realizado
-	Se for uma classe podemos filtrar diretamente esse campo no arquivo dos animais
-	Se for um veterinario ou tratador temos que pesquisar qual o codigo referente a ele no
-		arquivo dos funcionarios e depois filtrar o arquivo dos animais com o codigo obtido
-	No momento de filtrar, tomar o cuidado de pesquisar o codigo do veterinario ou tratador
-		no campo correto, para não obter um resultado errado.
-*/
-
-bool termina_com(const std::string &str, const std::string &suffix)
+bool termina_com(const std::string &str, const std::string &termino)
 {
-    return str.size() >= suffix.size() and str.compare(str.size() - suffix.size(), suffix.size(), suffix) == 0;
+	return str.size() >= termino.size() and str.compare(str.size() - termino.size(), termino.size(), termino) == 0;
 }
 
-// Não vai dar certo... consertar...
-std::fstream filtrar( std::fstream &alvo , std::string filtro ) // acho que o retorno é melhor bool...
+std::string buscar_codigo( const std::fstream &local, const std::string &alvo, size_t funcao )
+{
+	if ( alvo = "0")
+	{
+		return "0";
+	}
+	
+	std::array< std::string, 2 > profissoes = { "Veterinário", "Tratador" }
+
+	std::string linha;
+
+	while( std::getline( local, linha ) )
+	{
+		std::vector< std::string > campos = separar( linha, ';' );
+		
+		if ( campos[1] == profissoes[funcao] and campos[2] == alvo )
+		{
+			std::stringstream aux;
+			aux << campos[0];
+			std::string retorno(aux);
+			return retorno;
+		}
+	}
+	return -1;
+}
+
+std::vector< std::string > separar ( const std::string& alvo, const char &delimitador )
+{
+	size_t start = alvo.find_first_not_of(delimitador);
+	size_t end = start;
+
+	std::vector< std::string > campos;
+
+	while ( start != std::string::npos )
+	{
+		end = alvo.find(delimitador, start);
+
+		campos.push_back(alvo.substr(start, end-start));
+		
+		start = alvo.find_first_not_of(delimitador, end);
+	}
+	return campos;
+}
+
+std::fstream filtrar( const std::fstream &alvo , const std::string filtro, size_t campo )
 {
 	std::string linha;
 	std::fstream filtrado;
 	while( std::getline( alvo, linha ) )
 	{
-		// como saber se achei realmente oque queria?
-		// uma ideia seria pular exatamente o numero de separadores
-		// necessarios para chegar no campo a ser filtrado
-		std::size_t encontrado = linha.find(filtro); // alterar...
-		if ( encontrado != std::string::npos )
+		std::vector< std::string > campos = separar( linha, ';' );
+		
+		if ( campos[campo] == filtro )
 		{
 			filtrado << linha;
 		}
 	}
-	return filtrado; 	// caso eu use bool isso claramente não vai dar certo...
-						// como retornar já filtrado? altero o original?
+	return filtrado;
 }
 
 int main(int argc, char const *argv[])
@@ -52,8 +83,8 @@ int main(int argc, char const *argv[])
 	opterr = 0;
 	while ((c = getopt (argc, argv, "c:v:t:")) != -1)		// parece meio estranho esse getopt...
 	{
-	 	switch(c)
-	 	{
+		switch(c)
+		{
 			case 'c':
 				c_flag = true;
 				classe = optarg;
@@ -134,20 +165,20 @@ int main(int argc, char const *argv[])
 		return 1;
 	}
 
+	filtrado = dados_animais;
+
 	if ( c_flag )
 	{
-		filtrado = filtrar(filtrado, classe);	// unico que talvez funcione
+		filtrado = filtrar(filtrado, classe, 1 );
 	}
 
 	if ( v_flag )
 	{
-		// tenho que passar o codigo do veterinario, não o veterinario
-		filtrado = filtrar(filtrado, veterinario);	
+		filtrado = filtrar(filtrado, buscar_codigo(dados_funcionarios, veterinario, 0), 7 );
 	}
 
 	if ( t_flag )
 	{
-		// tenho que passar o codigo do tratador, não o tratador
-		filtrado = filtrar(filtrado, tratador);
+		filtrado = filtrar(filtrado, buscar_codigo(dados_funcionarios, tratador, 1), 8 );
 	}
 }

@@ -18,38 +18,47 @@ int Animal::get_id( void )
 {
 	return m_id;
 }
+
 std::string Animal::get_classe( void )
 {
 	return m_classe;
 }
+
 std::string Animal::get_nome( void )
 {
 	return m_nome;
 }
+
 std::string Animal::get_cientifico( void )
 {
 	return m_cientifico;
 }
+
 char Animal::get_sexo( void )
 {
 	return m_sexo;
 }
+
 float Animal::get_tamanho( void )
 {
 	return m_tamanho;
 }
+
 std::string Animal::get_dieta( void )
 {
 	return m_dieta;
 }
+
 V_pointer Animal::get_veterinario( void )
 {
 	return m_veterinario;
 }
+
 T_pointer Animal::get_tratador( void )
 {
 	return m_tratador;
 }
+
 std::string Animal::get_batismo( void )
 {
 	return m_batismo;
@@ -71,12 +80,12 @@ void Animal::set_nome( std::string new_nome )
 {
 	m_nome = new_nome;
 }
-
+/*
 void Animal::set_cientifico( std::string new_cientifico )
 {
 	m_cientifico = new_cientifico;
 }
-/*
+
 void Animal::set_sexo( char new_sexo )
 {
 	m_sexo = new_sexo;

@@ -10,7 +10,9 @@
  * @date       02/12/2017
  */
 
-using namespace PetFera
+#include "Funcionario.hpp"
+
+using namespace PetFera;
 
 int Funcionario::get_id ( void )
 {
