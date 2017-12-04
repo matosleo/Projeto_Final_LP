@@ -6,14 +6,6 @@
 #include "Silvestre.hpp"
 #include "Pet_Fera_Cadastro.hpp"
 
-enum animais{
-
-	anfibio,
-	mamifero,
-	reptil,
-	ave
-
-};
 
 int main(int argc, char const *argv[])
 {
@@ -21,7 +13,6 @@ int main(int argc, char const *argv[])
 	unsigned int opcao;
 	std::string familia_animal;
 	std::string tipo_animal;
-	animais classe_animal;
 	Pet_Fera_Cadastro pet_cadastro;
 
 	do
@@ -35,13 +26,13 @@ int main(int argc, char const *argv[])
 					<< "5 - Consultar dados de animais sob responsabilidade de um Veterinario ou Tratador" << std::endl
 					<< "6 - Cadastrar Tratador" << std::endl
 					<< "7 - Cadastrar Veterinario" << std::endl
-					<< "8 - Remover Tratador do banco de dados" << std::endl;
-					<< "9 - Remover Veterinario do banco de dados" << std::endl;
-					<< "10 - Alterar dados cadastrais de um Veterinario" << std::endl;
-					<< "11 - Alterar dados cadastrais de um Tratador" << std::endl;
+					<< "8 - Remover Tratador do banco de dados" << std::endl
+					<< "9 - Remover Veterinario do banco de dados" << std::endl
+					<< "10 - Alterar dados cadastrais de um Veterinario" << std::endl
+					<< "11 - Alterar dados cadastrais de um Tratador" << std::endl
 					<< "12 - Consultar dados de um Veterinario" << std::endl
 					<< "13 - Consultar dados de um Tratador" << std::endl
-					<< "0 - Sair" << std::endl
+					<< "0 - Sair" << std::endl;
 		std::cin >> opcao;
 
 		if( opcao < 0 and opcao > 13 )
@@ -56,33 +47,9 @@ int main(int argc, char const *argv[])
 					std::cout << "Qual o tipo do animal que deseja cadastrar (Domestico, Exotico ou Nativo):" << std::endl;
 					std::cin >> tipo_animal;
 
-					classe_animal = familia_animal;
-
-					switch ( classe_animal )
-					{
-
-						case 0:
-							if( pet_cadastro.cadastrar_anfibio( familia_animal, tipo_animal ) )
-								std::cout << "Anfibio cadastrado com sucesso!" << std::endl;
-						break;
-
-						case 1:
-							//pet_cadastro.cadastrar_mamifero();
-						break;
-
-						case 2:
-							//pet_cadastro.cadastrar_reptil();
-						break;
-
-						case 3:
-							//pet_cadastro.cadastrar_ave();
-						break;
-
-						default:
-						break;
-
-					}
-
+					if( familia_animal.compare( "Anfibio" ) == 0 )
+						if( pet_cadastro.cadastrar_anfibio( familia_animal, tipo_animal ) )
+							std::cout << "Anfibio cadastrado com sucesso!" << std::endl;
 
 				break;
 

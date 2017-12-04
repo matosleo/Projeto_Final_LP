@@ -13,11 +13,15 @@
 #define PET_FERA_HPP
 
 #include <map>
+#include <iostream>
+#include "Animal.hpp"
+#include "Animal_Classes.hpp"
+#include "Animais_Silvestres.hpp"
 
 class Pet_Fera_Cadastro
 {
-	std::map * m_tabela_animais;
-	std::map * m_tabela_funcionarios;
+	std::map< int, Anfibio > m_tabela_animais;
+	std::map< int, Funcionario > m_tabela_funcionarios;
 
 public:
 	Pet_Fera_Cadastro();
