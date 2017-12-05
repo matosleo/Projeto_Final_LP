@@ -37,18 +37,19 @@ public:
 	bool cadastrar_ave( std::string _classe, std::string _tipo );
 
 	bool cadastrar_funcionario( std::string _funcao );
+	bool remover_funcionario( int _id );
 
-	bool remover_veterinario( int _id );
-	bool remover_tratador( int _id );
 	bool remover_anfibio( int _id );
 	bool remover_mamifero( int _id );
 	bool remover_reptil( int _id );
 	bool remover_ave( int _id );
 
-	bool alterar_anfibio();
-	bool alterar_mamifero();
-	bool alterar_reptil();
-	bool alterar_ave();
+	bool alterar_dados_animais( int _id );
+	bool alterar_dados_funcionarios( int _id );
+
+	bool consultar_animais( int _id );
+	bool consultar_animais_funcionario( int _id );
+	bool consultar_funcionarios( int _id );
 	
 	bool importar_dados_animais();
 	bool importar_dados_funcionarios();

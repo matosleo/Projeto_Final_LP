@@ -26,16 +26,13 @@ int main(int argc, char const *argv[])
 					<< "4 - Alterar dados cadastrais de um animal" << std::endl
 					<< "5 - Consultar dados de animais" << std::endl
 					<< "6 - Consultar dados de animais sob responsabilidade de um Veterinario ou Tratador" << std::endl
-					<< "7 - Remover Tratador do banco de dados" << std::endl
-					<< "8 - Remover Veterinario do banco de dados" << std::endl
-					<< "9 - Alterar dados cadastrais de um Veterinario" << std::endl
-					<< "10 - Alterar dados cadastrais de um Tratador" << std::endl
-					<< "11 - Consultar dados de um Veterinario" << std::endl
-					<< "12 - Consultar dados de um Tratador" << std::endl
+					<< "7 - Remover Funcionario do banco de dados" << std::endl
+					<< "8 - Alterar dados cadastrais de um Funcionario" << std::endl
+					<< "9 - Consultar dados de um Funcionario" << std::endl
 					<< "0 - Sair" << std::endl;
 		std::cin >> opcao;
 
-		if( opcao < 0 and opcao > 13 )
+		if( opcao < 0 and opcao > 9 )
 			std::cout << "\nOpcao digitada invalida! Por favor digite uma opcao valida." << std::endl << std::endl;
 		else
 			switch ( opcao )
@@ -113,11 +110,21 @@ int main(int argc, char const *argv[])
 
 				case 4:
 					
-					/*	Falta Codigo	*/
+					std::cout << "Digite o ID do animal que deseja alterar os dados:" << std::endl;
+					std::cin >> _id;
+
+					if( pet_cadastro.alterar_dados_animais( _id ) )
+						std::cout << "Dados alterados com sucesso!" << std::endl;
 
 				break;
 
 				case 5:
+
+					std::cout << "Digite o ID do animal que deseja consultar:" << std::endl;
+					std::cin >> _id;
+
+					if( pet_cadastro.consultar_animais( _id ) )
+						std::cout << "Dados consultados com sucesso!" << std::endl;
 
 					/*	Falta Codigo	*/
 					
@@ -125,14 +132,43 @@ int main(int argc, char const *argv[])
 
 				case 6:
 
+					std::cout << "Digite o ID do funcionario:" << std::endl;
+					std::cin >> _id;
+
+					if( pet_cadastro.consultar_animais_funcionario( _id ) );
+						std::cout << "Dados consultados com sucesso!" << std::endl;
 					/*	Falta Codigo	*/
 					
 				break;
 
 				case 7:
 
+					std::cout << "Digite o ID do funcionario a ser removido:" << std::endl;
+					std::cin >> _id;
+
+					if( pet_cadastro.remover_funcionario( _id ) );
+						std::cout << "Funcionario removido com sucesso!" << std::endl;
 					/*	Falta Codigo	*/
 					
+				break;
+
+				case 8:
+					std::cout << "Digite o ID do funcionario que deseja alterar os dados:" << std::endl;
+					std::cin >> _id;
+
+					if( pet_cadastro.alterar_dados_funcionarios( _id ) )
+						std::cout << "Dados alterados com sucesso!" << std::endl;
+
+				break;
+
+				case 9:
+
+					std::cout << "Digite o ID do funcionario que deseja consultar:" << std::endl;
+					std::cin >> _id;
+
+					if( pet_cadastro.consultar_funcionarios( _id ) )
+						std::cout << "Dados consultados com sucesso!" << std::endl;
+
 				break;
 
 				default:

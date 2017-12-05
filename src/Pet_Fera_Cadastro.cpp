@@ -327,15 +327,7 @@ bool Pet_Fera_Cadastro::cadastrar_funcionario( std::string _funcao )
 	return true;
 }
 
-bool Pet_Fera_Cadastro::remover_veterinario( int _id )
-{
-
-	/*	Falta implementar a remoção	*/
-
-	return true;
-}
-
-bool Pet_Fera_Cadastro::remover_tratador( int _id )
+bool Pet_Fera_Cadastro::remover_funcionario( int _id )
 {
 
 	/*	Falta implementar a remoção	*/
@@ -375,24 +367,39 @@ bool Pet_Fera_Cadastro::remover_ave( int _id )
 	return true;
 }
 
-bool Pet_Fera_Cadastro::alterar_anfibio()
+bool Pet_Fera_Cadastro::alterar_dados_animais( int _id )
 {
+
 	return true;
+
 }
 
-bool Pet_Fera_Cadastro::alterar_mamifero()
+bool Pet_Fera_Cadastro::alterar_dados_funcionarios( int _id )
 {
+
 	return true;
+
 }
 
-bool Pet_Fera_Cadastro::alterar_reptil()
+bool Pet_Fera_Cadastro::consultar_animais( int _id )
 {
+
 	return true;
+
 }
 
-bool Pet_Fera_Cadastro::alterar_ave()
+bool Pet_Fera_Cadastro::consultar_animais_funcionario( int _id )
 {
+
 	return true;
+
+}
+
+bool Pet_Fera_Cadastro::consultar_funcionarios( int _id )
+{
+
+	return true;
+
 }
 
 bool Pet_Fera_Cadastro::importar_dados_animais()
