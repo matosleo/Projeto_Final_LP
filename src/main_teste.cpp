@@ -11,7 +11,7 @@ int main(int argc, char const *argv[])
 	
 	unsigned int opcao;
 	int _id;
-	std::string especialidade_funcionario;
+	std::string funcao_funcionario;
 	std::string familia_animal;
 	std::string tipo_animal;
 	Pet_Fera_Cadastro pet_cadastro;
@@ -73,13 +73,11 @@ int main(int argc, char const *argv[])
 
 				case 2:
 
-					std::cout << "Qual a especialidade do Funcionario que deseja cadastrar (Veterinario ou Tratador):" << std::endl;
-					std::cin >> especialidade_funcionario;
+					std::cout << "Qual a funcao do Funcionario que deseja cadastrar (Veterinario ou Tratador):" << std::endl;
+					std::cin >> funcao_funcionario;
 
-					if( especialidade_funcionario.compare( "Veterinario" ) == 0 )
-						pet_cadastro.cadastrar_veterinario( especialidade_funcionario );
-					else if( especialidade_funcionario.compare( "Tratador" ) == 0 )
-						pet_cadastro.cadastrar_tratador( especialidade_funcionario );
+					if( pet_cadastro.cadastrar_funcionario( funcao_funcionario ) )
+						std::cout << "Funcionario cadastrado com sucesso!" << std::endl;
 
 				break;
 

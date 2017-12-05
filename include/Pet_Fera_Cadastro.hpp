@@ -36,8 +36,7 @@ public:
 	bool cadastrar_reptil( std::string _classe, std::string _tipo );
 	bool cadastrar_ave( std::string _classe, std::string _tipo );
 
-	bool cadastrar_veterinario( std::string _especialidade );
-	bool cadastrar_tratador( std::string _especialidade );
+	bool cadastrar_funcionario( std::string _funcao );
 
 	bool remover_veterinario( int _id );
 	bool remover_tratador( int _id );

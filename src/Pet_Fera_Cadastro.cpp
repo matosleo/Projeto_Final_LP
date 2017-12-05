@@ -295,7 +295,7 @@ bool Pet_Fera_Cadastro::cadastrar_ave( std::string _classe, std::string _tipo )
 	return true;
 }
 
-bool Pet_Fera_Cadastro::cadastrar_veterinario( std::string _especialidade )
+bool Pet_Fera_Cadastro::cadastrar_funcionario( std::string _funcao )
 {
 
 	int 		_id;
@@ -304,50 +304,24 @@ bool Pet_Fera_Cadastro::cadastrar_veterinario( std::string _especialidade )
 	short 		_idade;
 	short 		_tipo_sangue;		// A / B / AB / O
 	short 		_fator_RH;			// + / -
+	std::string _especialidade;
 
-	std::cout << "Numero de Identificacao do Veterinario (ID): ";
+	std::cout << "Numero de Identificacao do Funcionario (ID): ";
 	std::cin >> _id;
-	std::cout << "\nNome do Veterinario: ";
+	std::cout << "\nNome do Funcionario: ";
 	std::cin >> _nome;
-	std::cout << "\nCPF do Veterinario: ";
+	std::cout << "\nCPF do Funcionario: ";
 	std::cin >> _CPF;
-	std::cout << "\nIdade do Veterinario: ";
+	std::cout << "\nIdade do Funcionario: ";
 	std::cin >> _idade;
-	std::cout << "\nTipo sanguineo do Veterinario: ";
-	std::cin >> _tipo_sangue;
-	std::cout << "\nFator RH do tipo sanguineo: " << std::endl;
-	std::cin >> _fator_RH;
-
-	/*		Construir o Veterinario	e adicionalo no map 	*/
-
-
-	return true;
-}
-
-bool Pet_Fera_Cadastro::cadastrar_tratador( std::string _especialidade )
-{
-
-	int 		_id;
-	std::string _nome;
-	std::string _CPF;
-	short 		_idade;
-	short 		_tipo_sangue;		// A / B / AB / O
-	short 		_fator_RH;			// + / -
-
-	std::cout << "Numero de Identificacao do Tratador (ID): ";
-	std::cin >> _id;
-	std::cout << "\nNome do Tratador: ";
-	std::cin >> _nome;
-	std::cout << "\nCPF do Tratador: ";
-	std::cin >> _CPF;
-	std::cout << "\nIdade do Tratador: ";
-	std::cin >> _idade;
-	std::cout << "\nTipo sanguineo do Tratador: ";
+	std::cout << "\nTipo sanguineo do Funcionario: ";
 	std::cin >> _tipo_sangue;
 	std::cout << "\nFator RH do tipo sanguineo: ";
 	std::cin >> _fator_RH;
+	std::cout << "\nEspecialidade: " << std::endl;
+	std::cin >> _especialidade;
 
-	/*		Construir o Tratador e adicionalo no map		*/
+	/*		Construir o Funcionario	e adicionalo no map 	*/
 
 
 	return true;

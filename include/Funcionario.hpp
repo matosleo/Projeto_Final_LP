@@ -22,6 +22,7 @@ namespace PetFera
 	{
 	protected:
 		int 		m_id;
+		std::string m_funcao;
 		std::string m_nome;
 		std::string m_CPF;
 		short 		m_idade;
@@ -31,9 +32,10 @@ namespace PetFera
 
 	public:
 
-		Funcionario( int _id, std::string _nome, std::string _CPF, short _idade,
+		Funcionario( int _id, std::string _funcao, std::string _nome, std::string _CPF, short _idade,
 					 short _tipo_sangue, short _fator_RH, std::string _especialidade )
 			: m_id 				(_id)
+			, m_funcao 			(_funcao)
 			, m_nome 			(_nome) 
 			, m_CPF 			(_CPF)
 			, m_idade 			(_idade)
@@ -64,9 +66,9 @@ namespace PetFera
 	class Veterinario : public Funcionario
 	{
 	public:
-		Veterinario( int _id, std::string _nome, std::string _CPF, short _idade,
+		Veterinario( int _id, std::string _funcao, std::string _nome, std::string _CPF, short _idade,
 					 short _tipo_sangue, short _fator_RH, std::string _especialidade )
-			: Funcionario( _id, _nome, _CPF, _idade, _tipo_sangue, _fator_RH, _especialidade )
+			: Funcionario( _id, _funcao, _nome, _CPF, _idade, _tipo_sangue, _fator_RH, _especialidade )
 			{ /* Vazio */ }
 
 		~Veterinario(){};
@@ -76,9 +78,9 @@ namespace PetFera
 	class Tratador : public Funcionario
 	{
 	public:
-		Tratador( int _id, std::string _nome, std::string _CPF, short _idade,
+		Tratador( int _id, std::string _funcao, std::string _nome, std::string _CPF, short _idade,
 					 short _tipo_sangue, short _fator_RH, std::string _especialidade )
-			: Funcionario( _id, _nome, _CPF, _idade, _tipo_sangue, _fator_RH, _especialidade )
+			: Funcionario( _id, _funcao, _nome, _CPF, _idade, _tipo_sangue, _fator_RH, _especialidade )
 			{ /* Vazio */ }
 			
 		~Tratador(){};
