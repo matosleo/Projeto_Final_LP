@@ -110,16 +110,6 @@ std::string Pet_Fera_Cadastro::cadastro_exotico( std::string & dados )
 
 }
 
-bool Pet_Fera_Cadastro::cadastrar_veterinario()
-{
-	return true;
-}
-
-bool Pet_Fera_Cadastro::cadastrar_tratador()
-{
-	return true;
-}
-
 bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tipo )
 {
 
@@ -141,21 +131,26 @@ bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 	if( _tipo.compare( "Domestico" ) == 0 )
 	{
 
-		//	Precisa tratar a string dados_comuns e instanciar o objeto;
+
+		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
 
 	
 	} else if( _tipo.compare( "Nativo" ) == 0 )
 	{
 
+		dados_comuns.append( ";" );
 		dados_comuns = cadastro_nativo( dados_comuns );
 
-		//	Precisa tratar a string dados_comuns e instanciar o objeto;
+
+		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
 
 	} else if( _tipo.compare( "Exotico" ) == 0 )
 	{
 
+		dados_comuns.append( ";" );
 		dados_comuns = cadastro_exotico( dados_comuns );
-		//	Precisa tratar a string dados_comuns e instanciar o objeto;
+
+		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
 
 	}
 
@@ -165,46 +160,250 @@ bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 
 bool Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _tipo )
 {
+
+	std::string dados_comuns;
+
+	std::string _cor_pelo;
+
+	dados_comuns = cadastro_comum( _classe );
+	
+	std::cout << "\nCor do pelo do animal: ";
+	std::getline( std::cin, _cor_pelo );
+	dados_comuns.append( _cor_pelo );
+	
+
+	if( _tipo.compare( "Domestico" ) == 0 )
+	{
+
+
+		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
+
+	
+	} else if( _tipo.compare( "Nativo" ) == 0 )
+	{
+
+		dados_comuns.append( ";" );
+		dados_comuns = cadastro_nativo( dados_comuns );
+
+		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
+
+	} else if( _tipo.compare( "Exotico" ) == 0 )
+	{
+
+		dados_comuns.append( ";" );
+		dados_comuns = cadastro_exotico( dados_comuns );
+
+		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
+
+	}
+
 	return true;
 }
 
 bool Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo )
 {
+
+	std::string dados_comuns;
+
+	std::string	_venenoso;
+	std::string _tipo_veneno;
+
+	dados_comuns = cadastro_comum( _classe );
+	
+	std::cout << "\nAnimal venenoso ( sim ou nao ): ";
+	std::getline( std::cin, _venenoso );
+	dados_comuns.append( _venenoso.append( ";" ) );
+
+	if( _venenoso.compare( "sim" ) == 0 )
+	{
+		
+		std::cout << "\nTipo do veneno: ";
+		std::getline( std::cin, _tipo_veneno );
+		dados_comuns.append( _tipo_veneno );
+
+	} else
+	{
+		_tipo_veneno = "nenhum";
+		dados_comuns.append( _tipo_veneno );
+	}
+	
+
+	if( _tipo.compare( "Domestico" ) == 0 )
+	{
+
+
+		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
+
+	
+	} else if( _tipo.compare( "Nativo" ) == 0 )
+	{
+
+		dados_comuns.append( ";" );
+		dados_comuns = cadastro_nativo( dados_comuns );
+
+		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
+
+	} else if( _tipo.compare( "Exotico" ) == 0 )
+	{
+
+		dados_comuns.append( ";" );
+		dados_comuns = cadastro_exotico( dados_comuns );
+
+		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
+
+	}
+
 	return true;
 }
 
 bool Pet_Fera_Cadastro::cadastrar_ave( std::string _classe, std::string _tipo )
 {
+
+	std::string dados_comuns;
+
+	std::string	_tamanho_bico;
+	std::string _envergadura;
+
+	dados_comuns = cadastro_comum( _classe );
+	
+	std::cout << "\nTamanho do bico do animal: ";
+	std::getline( std::cin, _tamanho_bico );
+	dados_comuns.append( _tamanho_bico.append( ";" ) );	
+
+	std::cout << "\nEnvergadura do animal: ";
+	std::getline( std::cin, _envergadura );
+	dados_comuns.append( _envergadura );	
+
+	if( _tipo.compare( "Domestico" ) == 0 )
+	{
+
+		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
+
+	
+	} else if( _tipo.compare( "Nativo" ) == 0 )
+	{
+
+		dados_comuns.append( ";" );
+		dados_comuns = cadastro_nativo( dados_comuns );
+
+		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
+
+	} else if( _tipo.compare( "Exotico" ) == 0 )
+	{
+
+		dados_comuns.append( ";" );
+		dados_comuns = cadastro_exotico( dados_comuns );
+
+		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
+
+	}
+
 	return true;
 }
 
-bool Pet_Fera_Cadastro::remover_veterinario()
+bool Pet_Fera_Cadastro::cadastrar_veterinario( std::string _especialidade )
 {
+
+	int 		_id;
+	std::string _nome;
+	std::string _CPF;
+	short 		_idade;
+	short 		_tipo_sangue;		// A / B / AB / O
+	short 		_fator_RH;			// + / -
+
+	std::cout << "Numero de Identificacao do Veterinario (ID): ";
+	std::cin >> _id;
+	std::cout << "\nNome do Veterinario: ";
+	std::cin >> _nome;
+	std::cout << "\nCPF do Veterinario: ";
+	std::cin >> _CPF;
+	std::cout << "\nIdade do Veterinario: ";
+	std::cin >> _idade;
+	std::cout << "\nTipo sanguineo do Veterinario: ";
+	std::cin >> _tipo_sangue;
+	std::cout << "\nFator RH do tipo sanguineo: " << std::endl;
+	std::cin >> _fator_RH;
+
+	/*		Construir o Veterinario	e adicionalo no map 	*/
+
+
 	return true;
 }
 
-bool Pet_Fera_Cadastro::remover_tratador()
+bool Pet_Fera_Cadastro::cadastrar_tratador( std::string _especialidade )
 {
+
+	int 		_id;
+	std::string _nome;
+	std::string _CPF;
+	short 		_idade;
+	short 		_tipo_sangue;		// A / B / AB / O
+	short 		_fator_RH;			// + / -
+
+	std::cout << "Numero de Identificacao do Tratador (ID): ";
+	std::cin >> _id;
+	std::cout << "\nNome do Tratador: ";
+	std::cin >> _nome;
+	std::cout << "\nCPF do Tratador: ";
+	std::cin >> _CPF;
+	std::cout << "\nIdade do Tratador: ";
+	std::cin >> _idade;
+	std::cout << "\nTipo sanguineo do Tratador: ";
+	std::cin >> _tipo_sangue;
+	std::cout << "\nFator RH do tipo sanguineo: ";
+	std::cin >> _fator_RH;
+
+	/*		Construir o Tratador e adicionalo no map		*/
+
+
 	return true;
 }
 
-bool Pet_Fera_Cadastro::remover_anfibio()
+bool Pet_Fera_Cadastro::remover_veterinario( int _id )
 {
+
+	/*	Falta implementar a remoção	*/
+
 	return true;
 }
 
-bool Pet_Fera_Cadastro::remover_mamifero()
+bool Pet_Fera_Cadastro::remover_tratador( int _id )
 {
+
+	/*	Falta implementar a remoção	*/
+
 	return true;
 }
 
-bool Pet_Fera_Cadastro::remover_reptil()
+bool Pet_Fera_Cadastro::remover_anfibio( int _id )
 {
+
+	/*	Falta implementar a remoção	*/
+
 	return true;
 }
 
-bool Pet_Fera_Cadastro::remover_ave()
+bool Pet_Fera_Cadastro::remover_mamifero( int _id )
 {
+
+	/*	Falta implementar a remoção	*/
+
+	return true;
+}
+
+bool Pet_Fera_Cadastro::remover_reptil( int _id )
+{
+
+	/*	Falta implementar a remoção	*/
+
+	return true;
+}
+
+bool Pet_Fera_Cadastro::remover_ave( int _id )
+{
+
+	/*	Falta implementar a remoção	*/
+
 	return true;
 }
 

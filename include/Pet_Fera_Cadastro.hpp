@@ -31,19 +31,20 @@ public:
 	std::string cadastro_nativo( std::string & dados );
 	std::string cadastro_exotico( std::string & dados );
 
-	bool cadastrar_veterinario();
-	bool cadastrar_tratador();
 	bool cadastrar_anfibio( std::string _classe, std::string _tipo );
 	bool cadastrar_mamifero( std::string _classe, std::string _tipo );
 	bool cadastrar_reptil( std::string _classe, std::string _tipo );
 	bool cadastrar_ave( std::string _classe, std::string _tipo );
 
-	bool remover_veterinario();
-	bool remover_tratador();
-	bool remover_anfibio();
-	bool remover_mamifero();
-	bool remover_reptil();
-	bool remover_ave();
+	bool cadastrar_veterinario( std::string _especialidade );
+	bool cadastrar_tratador( std::string _especialidade );
+
+	bool remover_veterinario( int _id );
+	bool remover_tratador( int _id );
+	bool remover_anfibio( int _id );
+	bool remover_mamifero( int _id );
+	bool remover_reptil( int _id );
+	bool remover_ave( int _id );
 
 	bool alterar_anfibio();
 	bool alterar_mamifero();
