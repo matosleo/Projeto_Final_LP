@@ -10,6 +10,7 @@
  */
 
 #include "Pet_Fera_Cadastro.hpp"
+//#include <tuple>
 using namespace PetFera;
 
 Pet_Fera_Cadastro::Pet_Fera_Cadastro()
@@ -21,7 +22,25 @@ Pet_Fera_Cadastro::~Pet_Fera_Cadastro()
 {
 
 }
+/*
+std::vector< std::string > Pet_Fera_Cadastro::separar ( const std::string& alvo, const char &delimitador )
+{
+	size_t start = alvo.find_first_not_of(delimitador);
+	size_t end = start;
 
+	std::vector< std::string > campos;
+
+	while ( start != std::string::npos )
+	{
+		end = alvo.find(delimitador, start);
+
+		campos.push_back(alvo.substr(start, end-start));
+		
+		start = alvo.find_first_not_of(delimitador, end);
+	}
+	return campos;
+}
+*/
 std::string Pet_Fera_Cadastro::cadastro_comum( std::string _classe, std::string _tipo )
 {
 	std::cin.clear();
@@ -111,7 +130,63 @@ std::string Pet_Fera_Cadastro::cadastro_exotico( std::string & dados )
 	return dados;
 
 }
+/*
+std::tuple< int, std::string, std::string, std::string, std::string, char, float, std::string, V_pointer, T_pointer, std::string >
+Pet_Fera_Cadastro::converte_cadastro_comum( const std::string & dados_comuns )
+{
 
+	std::vector< std::string > campos_separados = separar( dados_comuns, ';' );
+
+	int 		_id;
+	std::string _classe = campos_registro[1];
+	std::string _tipo = campos_registro[2];
+	std::string _nome = campos_registro[3];
+	std::string _cientifico = campos_registro[4];
+	char 		_sexo = campos_registro[5];
+	float 		_tamanho;
+	std::string _dieta = campos_registro[7];
+	V_pointer 	_veterinario = nullptr;
+	T_pointer	_tratador = nullptr;
+	std::string _batismo = campos_registro[10];
+
+	std::stringstream temp = campos_registro[0];
+	temp >> _id;
+
+	temp = campos_registro[6];
+	temp >> _tamanho;
+
+	return std::make_tuple( _id, _classe, _tipo, _nome, _cientifico, _sexo, _tamanho, _dieta, _veterinario, _tratador, _batismo );
+
+}
+
+std::tuple< std::string, std::string, std::string >
+Pet_Fera_Cadastro::converte_cadastro_nativo( const std::string & dados_comuns )
+{
+
+	std::vector< std::string > campos_separados = separar( dados_comuns, ';' );
+
+	std::string _ibama = campos_registro[11];
+	std::string _uf_origem = campos_registro[12];
+	std::string _autorizacao = campos_registro[13];
+
+	return std::make_tuple( _ibama, _uf_origem, _autorizacao );
+
+}
+
+std::tuple< std::string, std::string >
+Pet_Fera_Cadastro::converte_cadastro_exotico( const std::string & dados_comuns )
+{
+
+	std::vector< std::string > campos_separados = separar( dados_comuns, ';' );
+
+	std::string _ibama = campos_registro[11];
+	std::string _pais_origem = campos_registro[14];
+	
+
+	return std::make_tuple( _ibama, _pais_origem );
+
+}
+*/
 bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tipo )
 {
 
@@ -123,16 +198,29 @@ bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 	dados_comuns = cadastro_comum( _classe, _tipo );
 	
 	std::cout << "\nTotal de mudas: ";
-	std::getline( std::cin, _total_mudas );
-	dados_comuns.append( _total_mudas.append( ";" ) );
-
+	std::getline( std::cin, _total_mudas ); //std::cin >> _total_mudas;
+	
 	std::cout << "\nData da ultima muda (DD/MM/AAAA): ";
-	std::getline( std::cin, _ultima_muda );
+	std::getline( std::cin, _ultima_muda ); //std::cin >> _ultima_muda;
+
+
+	dados_comuns.append( _total_mudas.append( ";" ) );
 	dados_comuns.append( _ultima_muda.append( ";" ) );
+
+	//	std::cout << dados_comuns << std::endl;
 
 	if( _tipo.compare( "Domestico" ) == 0 )
 	{
 
+
+		//std::tuple< int, std::string, std::string, std::string, std::string, char, float, std::string, V_pointer, T_pointer, std::string >
+		//td = converte_cadastro_comum( dados_comuns );
+
+		//Animal * anfibio_domestico = new Anfibio( std::get<0>(td), std::get<1>(td), std::get<2>(td), std::get<3>(td)
+//												, std::get<4>(td), std::get<5>(td), std::get<6>(td), std::get<7>(td)
+//												, std::get<8>(td), std::get<9>(td), std::get<10>(td) );
+//
+		//m_tabela_animais -> insert( std::get<0>(td), anfibio_domestico );
 
 		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
 
@@ -141,7 +229,8 @@ bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 	{
 
 		dados_comuns = cadastro_nativo( dados_comuns );
-
+		
+		AnfibioNativo anfibio ( dados_comuns );
 
 		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
 
@@ -330,36 +419,10 @@ bool Pet_Fera_Cadastro::cadastrar_funcionario( std::string _funcao )
 bool Pet_Fera_Cadastro::remover_funcionario( int _id )
 {
 
-	/*	Falta implementar a remoção	*/
-
 	return true;
 }
 
-bool Pet_Fera_Cadastro::remover_anfibio( int _id )
-{
-
-	/*	Falta implementar a remoção	*/
-
-	return true;
-}
-
-bool Pet_Fera_Cadastro::remover_mamifero( int _id )
-{
-
-	/*	Falta implementar a remoção	*/
-
-	return true;
-}
-
-bool Pet_Fera_Cadastro::remover_reptil( int _id )
-{
-
-	/*	Falta implementar a remoção	*/
-
-	return true;
-}
-
-bool Pet_Fera_Cadastro::remover_ave( int _id )
+bool Pet_Fera_Cadastro::remover_animal( int _id )
 {
 
 	/*	Falta implementar a remoção	*/
@@ -424,10 +487,10 @@ bool Pet_Fera_Cadastro::exportar_dados_funcionarios()
 
 unsigned int Pet_Fera_Cadastro::quantidade_animais_cadastrados( void )
 {
-	return m_tabela_animais.size();
+	return m_tabela_animais -> size();
 }
 
 unsigned int Pet_Fera_Cadastro::quantidade_funcionarios_cadastrados( void )
 {
-	return m_tabela_funcionarios.size();
+	return m_tabela_funcionarios -> size();
 }

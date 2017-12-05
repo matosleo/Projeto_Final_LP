@@ -40,9 +40,9 @@ int main(int argc, char const *argv[])
 
 				case 1:
 
-					std::cout << "Qual a classe do animal que deseja cadastrar (Anfibio, Mamifero, Reptil ou Ave):" << std::endl;
+					std::cout << "Digite a classe do animal que deseja cadastrar (Anfibio, Mamifero, Reptil ou Ave):" << std::endl;
 					std::cin >> familia_animal;
-					std::cout << "Qual o tipo do animal que deseja cadastrar (Domestico, Exotico ou Nativo):" << std::endl;
+					std::cout << "Digite o tipo do animal que deseja cadastrar (Domestico, Exotico ou Nativo):" << std::endl;
 					std::cin >> tipo_animal;
 
 					if( familia_animal.compare( "Anfibio" ) == 0 )
@@ -70,7 +70,7 @@ int main(int argc, char const *argv[])
 
 				case 2:
 
-					std::cout << "Qual a funcao do Funcionario que deseja cadastrar (Veterinario ou Tratador):" << std::endl;
+					std::cout << "Digite a funcao do Funcionario que deseja cadastrar (Veterinario ou Tratador):" << std::endl;
 					std::cin >> funcao_funcionario;
 
 					if( pet_cadastro.cadastrar_funcionario( funcao_funcionario ) )
@@ -80,31 +80,12 @@ int main(int argc, char const *argv[])
 
 				case 3:
 					
-					std::cout << "Qual a classe do animal que deseja remover (Anfibio, Mamifero, Reptil ou Ave):" << std::endl;
-					std::cin >> familia_animal;
-					std::cout << "Qual o ID do animal a ser removido:" << std::endl;
+					std::cout << "Digite o ID do animal a ser removido:" << std::endl;
 					std::cin >> _id;
 
-					if( familia_animal.compare( "Anfibio" ) == 0 )
-					{
-						if( pet_cadastro.remover_anfibio( _id ) )
-							std::cout << "Anfibio removido com sucesso!" << std::endl;
-					}
-					else if( familia_animal.compare( "Mamifero" ) == 0 )
-					{
-						if( pet_cadastro.remover_mamifero( _id ) )
-							std::cout << "Mamifero removido com sucesso!" << std::endl;
-					}
-					else if( familia_animal.compare( "Reptil" ) == 0 )
-					{
-						if( pet_cadastro.remover_reptil( _id ) )
-							std::cout << "Reptil removido com sucesso!" << std::endl;
-					}					
-					else if( familia_animal.compare( "Ave" ) == 0 )
-					{
-						if( pet_cadastro.remover_ave( _id ) )
-							std::cout << "Ave removido com sucesso!" << std::endl;
-					}
+						if( pet_cadastro.remover_animal( _id ) )
+							std::cout << "Animal removido com sucesso!" << std::endl;
+					
 
 				break;
 

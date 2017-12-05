@@ -9,10 +9,13 @@
  * @date       03/12/2017
  */
 
+
 #ifndef PET_FERA_HPP
 #define PET_FERA_HPP
 
 #include <map>
+#include <vector>
+//#include <tuple>
 #include <iostream>
 #include "Animal.hpp"
 #include "Animal_Classes.hpp"
@@ -20,8 +23,8 @@
 
 class Pet_Fera_Cadastro
 {
-	std::map< int, Anfibio > m_tabela_animais;
-	std::map< int, Funcionario > m_tabela_funcionarios;
+	std::map< int, Animal > * m_tabela_animais;
+	std::map< int, Funcionario > * m_tabela_funcionarios;
 
 public:
 	Pet_Fera_Cadastro();
@@ -31,6 +34,17 @@ public:
 	std::string cadastro_nativo( std::string & dados );
 	std::string cadastro_exotico( std::string & dados );
 
+	std::vector< std::string > separar ( const std::string& alvo, const char &delimitador );
+
+	/*std::tuple< int, std::string, std::string, std::string,	std::string, char, float, std::string, V_pointer, T_pointer, std::string >
+	converte_cadastro_comum( const std::string & dados_comuns );
+
+	std::tuple< std::string, std::string, std::string >
+	converte_cadastro_nativo( const std::string & dados_comuns );
+
+	std::tuple< std::string, std::string >
+	converte_cadastro_exotico( const std::string & dados_comuns );
+*/
 	bool cadastrar_anfibio( std::string _classe, std::string _tipo );
 	bool cadastrar_mamifero( std::string _classe, std::string _tipo );
 	bool cadastrar_reptil( std::string _classe, std::string _tipo );
@@ -39,10 +53,7 @@ public:
 	bool cadastrar_funcionario( std::string _funcao );
 	bool remover_funcionario( int _id );
 
-	bool remover_anfibio( int _id );
-	bool remover_mamifero( int _id );
-	bool remover_reptil( int _id );
-	bool remover_ave( int _id );
+	bool remover_animal( int _id );
 
 	bool alterar_dados_animais( int _id );
 	bool alterar_dados_funcionarios( int _id );

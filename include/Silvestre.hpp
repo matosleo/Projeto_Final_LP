@@ -30,7 +30,7 @@ namespace PetFera
 		AnimalSilvestre( std::string _ibama ) : m_ibama( _ibama )
 		{	/*	Vazio	*/	}
 
-		~AnimalSilvestre();
+		virtual ~AnimalSilvestre();
 		
 	};
 
@@ -53,7 +53,7 @@ namespace PetFera
 			, m_autorizacao( _autorizacao )
 			{	/*	Vazio	*/	}
 
-		~Nativo();
+		virtual ~Nativo(){};
 		
 	};
 

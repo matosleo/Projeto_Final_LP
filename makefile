@@ -14,7 +14,7 @@ DOC_DIR=./doc
 
 RM = rm -rf
 CC = g++
-CFLAGS = -Wall -pedantic -std=c++1y -ansi -I$(INC_DIR)
+CFLAGS = -Wall -pedantic -std=c++11 -ansi -I$(INC_DIR)
 AR = ar
 LIBFLAGS = -lPetFera
 
@@ -30,7 +30,7 @@ debug: CFLAGS += -g -O0 -pg
 #	$(CC) $(CFLAGS) $(SRC_DIR)/cadastrar.cpp $(INC_DIR)/cadastro.hpp $(SRC_DIR)/cadastro.cpp -L$(LIB_DIR) $(LIBFLAGS) -o $@
 #	@echo "+++ [Binario criado em $@] +++"
 $(BIN_DIR)/teste: $(LIB_DIR)/libPetFera.so $(INC_DIR)/Pet_Fera_Cadastro.hpp $(SRC_DIR)/Pet_Fera_Cadastro.cpp $(SRC_DIR)/main_teste.cpp
-	$(CC) $(CFLAGS) $(SRC_DIR)/main_teste.cpp $(INC_DIR)/Pet_Fera_Cadastro.hpp $(SRC_DIR)/Pet_Fera_Cadastro.cpp -L$(LIB_DIR) $(LIBFLAGS) -o $@
+	$(CC) $(CFLAGS) $(SRC_DIR)/main_teste.cpp $(CFLAGS) $(INC_DIR)/Pet_Fera_Cadastro.hpp $(SRC_DIR)/Pet_Fera_Cadastro.cpp -L$(LIB_DIR) $(LIBFLAGS) -o $@
 	@echo "+++ [Binario criado em $@] +++"
 
 $(BIN_DIR)/exportar: $(LIB_DIR)/libPetFera.so $(INC_DIR)/filtro.hpp $(INC_DIR)/Animais_Silvestres.hpp $(SRC_DIR)/filtro.cpp $(SRC_DIR)/exportar.cpp

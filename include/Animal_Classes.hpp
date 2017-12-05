@@ -40,7 +40,7 @@ namespace PetFera
 			, m_total_mudas( _total_mudas ), m_ultima_muda( _ultima_muda )
 			{	/*	Vazio	*/	}
 
-		~Anfibio(){};
+		virtual ~Anfibio(){};
 		
 	};
 
