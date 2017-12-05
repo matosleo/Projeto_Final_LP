@@ -41,7 +41,7 @@ namespace PetFera
 			, m_fator_RH 		(_fator_RH)
 			, m_especialidade 	(_especialidade)
 		{ /* Vazio */ }
-		virtual ~Funcionario();
+		virtual ~Funcionario(){};
 		
 		int get_id ( void );
 		std::string get_nome ( void );
@@ -69,7 +69,7 @@ namespace PetFera
 			: Funcionario( _id, _nome, _CPF, _idade, _tipo_sangue, _fator_RH, _especialidade )
 			{ /* Vazio */ }
 
-		~Veterinario();
+		~Veterinario(){};
 		
 	};
 
@@ -81,7 +81,7 @@ namespace PetFera
 			: Funcionario( _id, _nome, _CPF, _idade, _tipo_sangue, _fator_RH, _especialidade )
 			{ /* Vazio */ }
 			
-		~Tratador();
+		~Tratador(){};
 		
 	};
 }

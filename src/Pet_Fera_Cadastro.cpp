@@ -10,7 +10,6 @@
  */
 
 #include "Pet_Fera_Cadastro.hpp"
-#include "main_teste.cpp"
 using namespace PetFera;
 
 Pet_Fera_Cadastro::Pet_Fera_Cadastro()
@@ -23,8 +22,10 @@ Pet_Fera_Cadastro::~Pet_Fera_Cadastro()
 
 }
 
-std::string Pet_Fera_Cadastro::cadastro_comum( std::string _classe )
+std::string Pet_Fera_Cadastro::cadastro_comum( std::string _classe, std::string _tipo )
 {
+	std::cin.clear();
+	std::cin.ignore( 200, '\n' );
 
 	std::string _id;
 	std::string _nome;
@@ -59,6 +60,7 @@ std::string Pet_Fera_Cadastro::cadastro_comum( std::string _classe )
 
 	dados.append( _id.append( ";" ) );
 	dados.append( _classe.append( ";" ) );
+	dados.append( _tipo.append( ";" ) );
 	dados.append( _nome.append( ";" ) );
 	dados.append( _cientifico.append( ";" ) );
 	dados.append( _sexo.append( ";" ) );
@@ -86,7 +88,7 @@ std::string Pet_Fera_Cadastro::cadastro_nativo( std::string & dados )
 
 	dados.append( _ibama.append( ";" ) );
 	dados.append( _uf_origem.append( ";" ) );
-	dados.append( _autorizacao );
+	dados.append( _autorizacao.append( ";" ) );
 
 	return dados;
 
@@ -104,7 +106,7 @@ std::string Pet_Fera_Cadastro::cadastro_exotico( std::string & dados )
 	std::getline( std::cin, _pais_origem );
 
 	dados.append( _ibama.append( ";" ) );
-	dados.append( _pais_origem );
+	dados.append( _pais_origem.append( ";" ) );
 
 	return dados;
 
@@ -118,7 +120,7 @@ bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 	std::string	_total_mudas;
 	std::string _ultima_muda;
 
-	dados_comuns = cadastro_comum( _classe );
+	dados_comuns = cadastro_comum( _classe, _tipo );
 	
 	std::cout << "\nTotal de mudas: ";
 	std::getline( std::cin, _total_mudas );
@@ -126,7 +128,7 @@ bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 
 	std::cout << "\nData da ultima muda (DD/MM/AAAA): ";
 	std::getline( std::cin, _ultima_muda );
-	dados_comuns.append( _ultima_muda );
+	dados_comuns.append( _ultima_muda.append( ";" ) );
 
 	if( _tipo.compare( "Domestico" ) == 0 )
 	{
@@ -138,7 +140,6 @@ bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 	} else if( _tipo.compare( "Nativo" ) == 0 )
 	{
 
-		dados_comuns.append( ";" );
 		dados_comuns = cadastro_nativo( dados_comuns );
 
 
@@ -147,7 +148,6 @@ bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 	} else if( _tipo.compare( "Exotico" ) == 0 )
 	{
 
-		dados_comuns.append( ";" );
 		dados_comuns = cadastro_exotico( dados_comuns );
 
 		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
@@ -165,7 +165,7 @@ bool Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _ti
 
 	std::string _cor_pelo;
 
-	dados_comuns = cadastro_comum( _classe );
+	dados_comuns = cadastro_comum( _classe, _tipo );
 	
 	std::cout << "\nCor do pelo do animal: ";
 	std::getline( std::cin, _cor_pelo );
@@ -182,7 +182,6 @@ bool Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _ti
 	} else if( _tipo.compare( "Nativo" ) == 0 )
 	{
 
-		dados_comuns.append( ";" );
 		dados_comuns = cadastro_nativo( dados_comuns );
 
 		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
@@ -190,7 +189,6 @@ bool Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _ti
 	} else if( _tipo.compare( "Exotico" ) == 0 )
 	{
 
-		dados_comuns.append( ";" );
 		dados_comuns = cadastro_exotico( dados_comuns );
 
 		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
@@ -208,7 +206,7 @@ bool Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 	std::string	_venenoso;
 	std::string _tipo_veneno;
 
-	dados_comuns = cadastro_comum( _classe );
+	dados_comuns = cadastro_comum( _classe, _tipo );
 	
 	std::cout << "\nAnimal venenoso ( sim ou nao ): ";
 	std::getline( std::cin, _venenoso );
@@ -238,7 +236,6 @@ bool Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 	} else if( _tipo.compare( "Nativo" ) == 0 )
 	{
 
-		dados_comuns.append( ";" );
 		dados_comuns = cadastro_nativo( dados_comuns );
 
 		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
@@ -246,7 +243,6 @@ bool Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 	} else if( _tipo.compare( "Exotico" ) == 0 )
 	{
 
-		dados_comuns.append( ";" );
 		dados_comuns = cadastro_exotico( dados_comuns );
 
 		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
@@ -264,7 +260,7 @@ bool Pet_Fera_Cadastro::cadastrar_ave( std::string _classe, std::string _tipo )
 	std::string	_tamanho_bico;
 	std::string _envergadura;
 
-	dados_comuns = cadastro_comum( _classe );
+	dados_comuns = cadastro_comum( _classe, _tipo );
 	
 	std::cout << "\nTamanho do bico do animal: ";
 	std::getline( std::cin, _tamanho_bico );
@@ -283,7 +279,6 @@ bool Pet_Fera_Cadastro::cadastrar_ave( std::string _classe, std::string _tipo )
 	} else if( _tipo.compare( "Nativo" ) == 0 )
 	{
 
-		dados_comuns.append( ";" );
 		dados_comuns = cadastro_nativo( dados_comuns );
 
 		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
@@ -291,7 +286,6 @@ bool Pet_Fera_Cadastro::cadastrar_ave( std::string _classe, std::string _tipo )
 	} else if( _tipo.compare( "Exotico" ) == 0 )
 	{
 
-		dados_comuns.append( ";" );
 		dados_comuns = cadastro_exotico( dados_comuns );
 
 		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
