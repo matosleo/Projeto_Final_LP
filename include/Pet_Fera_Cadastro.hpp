@@ -27,6 +27,10 @@ public:
 	Pet_Fera_Cadastro();
 	~Pet_Fera_Cadastro();
 
+	std::string cadastro_comum( std::string _classe );
+	std::string cadastro_nativo( std::string & dados );
+	std::string cadastro_exotico( std::string & dados );
+
 	bool cadastrar_veterinario();
 	bool cadastrar_tratador();
 	bool cadastrar_anfibio( std::string _classe, std::string _tipo );
