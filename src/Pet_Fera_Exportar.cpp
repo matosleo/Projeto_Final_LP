@@ -65,43 +65,77 @@ std::string buscar_codigo( std::fstream &local, const std::string &alvo, size_t 
 	return "-1";
 }
 
-
-std::fstream filtrar( std::fstream &alvo , const std::string filtro, size_t campo )
+std::vector< std::string > filtrar( std::vector< std::string > &alvo, const std::string filtro, size_t campo )
 {
 	std::string linha;
-	std::fstream filtrado;
-	while( std::getline( alvo, linha ) )
+	std::vector< std::string > retorno;
+	if ( filtro == "" )
 	{
-		std::vector< std::string > campos = separar( linha, ';' );
-		
-		if ( campos[campo] == filtro )
+		for ( std::vector< std::string >::iterator i = alvo.begin(); i != alvo.end(); ++i)
 		{
-			filtrado << linha;
+			retorno.push_back(*i);
 		}
 	}
-	return filtrado;
+	else
+	{
+		for ( std::vector< std::string >::iterator i = alvo.begin(); i != alvo.end(); ++i)
+		{
+			std::vector< std::string > campos = separar( *i, ';' );
+			if ( campos[campo] == filtro )
+			{
+				retorno.push_back(*i);
+			}
+		}		
+	}
+	return retorno;
 }
 
-int main(int argc, char const *argv[])
+/*
+void filtrar( std::fstream &alvo, std::fstream &resultado, const std::string filtro, size_t campo )
 {
-	bool c_flag = false, v_flag = false, t_flag = false;
+	std::string linha;
+	if ( filtro == "" )
+	{
+		while( std::getline( alvo, linha ) )
+		{
+			resultado << linha << std::endl;
+		}
+	}
+	else
+	{
+		while( std::getline( alvo, linha ) )
+		{
+			std::vector< std::string > campos = separar( linha, ';' );
+			if ( campos[campo] == filtro )
+			{
+				resultado << linha << std::endl;
+			}
+		}		
+	}	
+}
+*/
+int main(int argc, char **argv )
+{
+	int c_flag = 0, v_flag = 0, t_flag = 0;
 	int c;
-	std::string classe, veterinario, tratador, arquivo_saida;
+	std::string classe, veterinario, tratador;
+	const char * arquivo_saida;
+	char temp[] = {'c',':','v',':','t',':'};
 	opterr = 0;
-	while ( (c = getopt (argc, argv, "c:v:t:" )) != -1)		// parece meio estranho esse getopt...
+	while ( (c = getopt (argc, argv, temp )) != -1 )
 	{
 		switch(c)
 		{
 			case 'c':
-				c_flag = true;
+				c_flag = 1;
 				classe = optarg;
 				break;
 			case 'v':
-				v_flag = true;
+				v_flag = 1;
 				veterinario = optarg;
 				break;
 			case 't':
-				v_flag = true;
+				v_flag = 1;
 				tratador = optarg;
 				break;
 			case '?':
@@ -172,20 +206,30 @@ int main(int argc, char const *argv[])
 		return 1;
 	}
 
-	filtrado = dados_animais;
+	std::string linha;
+	std::vector< std::string > filtrando;
+	while(std::getline(dados_animais, linha))
+	{
+		filtrando.push_back(linha);
+	}
 
 	if ( c_flag )
 	{
-		filtrado = filtrar(filtrado, classe, 1 );
+		filtrando = filtrar(filtrando, classe, 1 );
 	}
 
 	if ( v_flag )
 	{
-		filtrado = filtrar(filtrado, buscar_codigo(dados_funcionarios, veterinario, 0), 7 );
+		filtrando = filtrar(filtrando, buscar_codigo(dados_funcionarios, veterinario, 0), 7 );
 	}
 
 	if ( t_flag )
 	{
-		filtrado = filtrar(filtrado, buscar_codigo(dados_funcionarios, tratador, 1), 8 );
+		filtrando = filtrar(filtrando, buscar_codigo(dados_funcionarios, tratador, 1), 8 );
+	}
+
+	for (std::vector< std::string >::iterator i = filtrando.begin(); i != filtrando.end(); ++i)
+	{
+		filtrado << *i << std::endl;
 	}
 }
