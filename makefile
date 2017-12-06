@@ -33,9 +33,13 @@ $(BIN_DIR)/teste: $(LIB_DIR)/libPetFera.so $(INC_DIR)/Pet_Fera_Cadastro.hpp $(SR
 	$(CC) $(CFLAGS) $(SRC_DIR)/main_teste.cpp $(CFLAGS) $(INC_DIR)/Pet_Fera_Cadastro.hpp $(SRC_DIR)/Pet_Fera_Cadastro.cpp -L$(LIB_DIR) $(LIBFLAGS) -o $@
 	@echo "+++ [Binario criado em $@] +++"
 
-$(BIN_DIR)/exportar: $(LIB_DIR)/libPetFera.so $(INC_DIR)/filtro.hpp $(INC_DIR)/Animais_Silvestres.hpp $(SRC_DIR)/filtro.cpp $(SRC_DIR)/exportar.cpp
-	$(CC) $(CFLAGS) $(SRC_DIR)/exportar.cpp $(INC_DIR)/filtro.hpp $(INC_DIR)/Animais_Silvestres.hpp $(SRC_DIR)/filtro.cpp -L$(LIB_DIR) $(LIBFLAGS) -o $@
+$(BIN_DIR)/Pet_Fera_Exportar: $(LIB_DIR)/libPetFera.so $(SRC_DIR)/Pet_Fera_Exportar.cpp
+	$(CC) $(CFLAGS) $(SRC_DIR)/Pet_Fera_Exportar.cpp -L$(LIB_DIR) $(LIBFLAGS) -o $@
 	@echo "+++ [Binario criado em $@] +++"
+
+#$(BIN_DIR)/exportar: $(LIB_DIR)/libPetFera.so $(INC_DIR)/filtro.hpp $(INC_DIR)/Animais_Silvestres.hpp $(SRC_DIR)/filtro.cpp $(SRC_DIR)/exportar.cpp
+#	$(CC) $(CFLAGS) $(SRC_DIR)/exportar.cpp $(INC_DIR)/filtro.hpp $(INC_DIR)/Animais_Silvestres.hpp $(SRC_DIR)/filtro.cpp -L$(LIB_DIR) $(LIBFLAGS) -o $@
+#	@echo "+++ [Binario criado em $@] +++"
 
 $(LIB_DIR)/libPetFera.a: $(INC_DIR)/Animal.hpp $(INC_DIR)/Animal_Classes.hpp $(INC_DIR)/Silvestre.hpp $(INC_DIR)/Animais_Silvestres.hpp $(INC_DIR)/Funcionario.hpp $(SRC_DIR)/Animal.cpp $(SRC_DIR)/Animal_Classes.cpp $(SRC_DIR)/Silvestre.cpp  $(SRC_DIR)/Funcionario.cpp
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/Animal.cpp -o $(OBJ_DIR)/Animal.o
