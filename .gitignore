@@ -9,7 +9,7 @@ bin/*
 doc/*
 
 #Ignora o diretorio de testes
-data/*
+#data/*
 
 #Ignora o gmon.out
 gmon.out
