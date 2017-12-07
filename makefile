@@ -23,6 +23,7 @@ LIBFLAGS = -lPetFera
 linux: dir $(BIN_DIR)/teste $(BIN_DIR)/exportar 
 
 debug: CFLAGS += -g -O0 -pg
+debug: $(BIN_DIR)/teste
 
 # LINUX
 
