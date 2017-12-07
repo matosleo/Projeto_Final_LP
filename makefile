@@ -29,8 +29,8 @@ debug: CFLAGS += -g -O0 -pg
 #$(BIN_DIR)/cadastrar: $(LIB_DIR)/libPetFera.so $(INC_DIR)/cadastro.hpp $(SRC_DIR)/cadastro.cpp $(SRC_DIR)/cadastrar.cpp
 #	$(CC) $(CFLAGS) $(SRC_DIR)/cadastrar.cpp $(INC_DIR)/cadastro.hpp $(SRC_DIR)/cadastro.cpp -L$(LIB_DIR) $(LIBFLAGS) -o $@
 #	@echo "+++ [Binario criado em $@] +++"
-$(BIN_DIR)/teste: $(LIB_DIR)/libPetFera.so $(INC_DIR)/Pet_Fera_Cadastro.hpp $(SRC_DIR)/Pet_Fera_Cadastro.cpp $(SRC_DIR)/main_teste.cpp
-	$(CC) $(CFLAGS) $(SRC_DIR)/main_teste.cpp $(SRC_DIR)/Pet_Fera_Cadastro.cpp -L$(LIB_DIR) $(LIBFLAGS) -o $@
+$(BIN_DIR)/teste: $(LIB_DIR)/libPetFera.so $(SRC_DIR)/main_teste.cpp
+	$(CC) $(CFLAGS) $(SRC_DIR)/main_teste.cpp -L$(LIB_DIR) $(LIBFLAGS) -o $@
 	@echo "+++ [Binario criado em $@] +++"
 
 $(BIN_DIR)/exportar: $(SRC_DIR)/Pet_Fera_Exportar.cpp $(INC_DIR)/Pet_Fera_Exportar.hpp
@@ -56,7 +56,7 @@ $(BIN_DIR)/exportar: $(SRC_DIR)/Pet_Fera_Exportar.cpp $(INC_DIR)/Pet_Fera_Export
 #	$(AR) -cru $@ $(OBJ_DIR)/Animal.o $(OBJ_DIR)/Anfibio.o $(OBJ_DIR)/Aves.o $(OBJ_DIR)/Mamifero.o $(OBJ_DIR)/Reptil.o $(OBJ_DIR)/Silvestre.o $(OBJ_DIR)/AnfibioExotico.o $(OBJ_DIR)/AnfibioNativo.o $(OBJ_DIR)/MamiferoExotico.o $(OBJ_DIR)/MamiferoNativo.o $(OBJ_DIR)/ReptilExotico.o $(OBJ_DIR)/ReptilNativo.o $(OBJ_DIR)/AveExotico.o $(OBJ_DIR)/AveNativo.o $(OBJ_DIR)/Funcionario.o
 #	@echo "+++ [Biblioteca estatica criada em $@] +++"
 
-$(LIB_DIR)/libPetFera.so: $(INC_DIR)/Animal.hpp $(INC_DIR)/Animal_Classes.hpp $(INC_DIR)/Silvestre.hpp $(INC_DIR)/Funcionario.hpp $(SRC_DIR)/Animal.cpp $(SRC_DIR)/Anfibio.cpp $(SRC_DIR)/Aves.cpp $(SRC_DIR)/Mamifero.cpp $(SRC_DIR)/Reptil.cpp $(SRC_DIR)/Silvestre.cpp $(SRC_DIR)/Funcionario.cpp
+$(LIB_DIR)/libPetFera.so: $(INC_DIR)/Animal.hpp $(INC_DIR)/Animal_Classes.hpp $(INC_DIR)/Silvestre.hpp $(INC_DIR)/Funcionario.hpp $(SRC_DIR)/Animal.cpp $(SRC_DIR)/Anfibio.cpp $(SRC_DIR)/Aves.cpp $(SRC_DIR)/Mamifero.cpp $(SRC_DIR)/Reptil.cpp $(SRC_DIR)/Silvestre.cpp $(SRC_DIR)/Funcionario.cpp $(INC_DIR)/Pet_Fera_Cadastro.hpp $(SRC_DIR)/Pet_Fera_Cadastro.cpp 
 	$(CC) $(CFLAGS) -fPIC -c $(SRC_DIR)/Animal.cpp -o $(OBJ_DIR)/Animal.o
 	$(CC) $(CFLAGS) -fPIC -c $(SRC_DIR)/Anfibio.cpp -o $(OBJ_DIR)/Anfibio.o
 	$(CC) $(CFLAGS) -fPIC -c $(SRC_DIR)/Aves.cpp -o $(OBJ_DIR)/Aves.o
@@ -72,7 +72,8 @@ $(LIB_DIR)/libPetFera.so: $(INC_DIR)/Animal.hpp $(INC_DIR)/Animal_Classes.hpp $(
 	$(CC) $(CFLAGS) -fPIC -c $(SRC_DIR)/AveExotico.cpp -o $(OBJ_DIR)/AveExotico.o
 	$(CC) $(CFLAGS) -fPIC -c $(SRC_DIR)/AveNativo.cpp -o $(OBJ_DIR)/AveNativo.o
 	$(CC) $(CFLAGS) -fPIC -c $(SRC_DIR)/Funcionario.cpp -o $(OBJ_DIR)/Funcionario.o
-	$(CC) -shared -fPIC -o $@ $(OBJ_DIR)/Animal.o $(OBJ_DIR)/Anfibio.o $(OBJ_DIR)/Aves.o $(OBJ_DIR)/Mamifero.o $(OBJ_DIR)/Reptil.o $(OBJ_DIR)/Silvestre.o $(OBJ_DIR)/AnfibioExotico.o $(OBJ_DIR)/AnfibioNativo.o $(OBJ_DIR)/MamiferoExotico.o $(OBJ_DIR)/MamiferoNativo.o $(OBJ_DIR)/ReptilExotico.o $(OBJ_DIR)/ReptilNativo.o $(OBJ_DIR)/AveExotico.o $(OBJ_DIR)/AveNativo.o $(OBJ_DIR)/Funcionario.o
+	$(CC) $(CFLAGS) -fPIC -c $(SRC_DIR)/Pet_Fera_Cadastro.cpp -o $(OBJ_DIR)/Pet_Fera_Cadastro.o
+	$(CC) -shared -fPIC -o $@ $(OBJ_DIR)/Animal.o $(OBJ_DIR)/Anfibio.o $(OBJ_DIR)/Aves.o $(OBJ_DIR)/Mamifero.o $(OBJ_DIR)/Reptil.o $(OBJ_DIR)/Silvestre.o $(OBJ_DIR)/AnfibioExotico.o $(OBJ_DIR)/AnfibioNativo.o $(OBJ_DIR)/MamiferoExotico.o $(OBJ_DIR)/MamiferoNativo.o $(OBJ_DIR)/ReptilExotico.o $(OBJ_DIR)/ReptilNativo.o $(OBJ_DIR)/AveExotico.o $(OBJ_DIR)/AveNativo.o $(OBJ_DIR)/Funcionario.o $(OBJ_DIR)/Pet_Fera_Cadastro.o
 	@echo "+++ [Biblioteca dinamica criada em $@] +++"
 
 doxy:
