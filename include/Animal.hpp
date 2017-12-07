@@ -25,8 +25,8 @@
 //typedef std::shared_ptr< PetFera::Veterinario >	V_pointer;
 //typedef std::shared_ptr< PetFera::Tratador >	T_pointer;
 
-typedef PetFera::Veterinario *V_pointer;
-typedef PetFera::Tratador	 *T_pointer;
+typedef PetFera::Veterinario* V_pointer;
+typedef PetFera::Tratador*	  T_pointer;
 
 namespace PetFera
 {
@@ -36,6 +36,7 @@ namespace PetFera
 
 		int 		m_id;
 		std::string m_classe;
+		std::string m_tipo;
 		std::string m_nome;
 		std::string m_cientifico;
 		char 		m_sexo;
@@ -47,10 +48,11 @@ namespace PetFera
 
 	public:
 
-		Animal(	int _id, std::string _classe, std::string _nome, std::string _cientifico, char _sexo, 
+		Animal(	int _id, std::string _classe, std::string _tipo, std::string _nome, std::string _cientifico, char _sexo, 
 				float _tamanho, std::string _dieta, V_pointer _veterinario, T_pointer _tratador, std::string _batismo )
 			: m_id( _id )
 			, m_classe( _classe )
+			, m_tipo( _tipo )
 			, m_nome( _nome )
 			, m_cientifico( _cientifico )
 			, m_sexo( _sexo )
@@ -65,6 +67,7 @@ namespace PetFera
 
 		int 		get_id( void );
 		std::string get_classe( void );
+//		std::string get_tipo( void );
 		std::string get_nome( void );
 		std::string get_cientifico( void );
 		char 		get_sexo( void );
@@ -75,7 +78,7 @@ namespace PetFera
 		std::string get_batismo( void );
 
 //		void set_id( int new_id );
-//		void set_classe( void );
+//		void set_classe( std::string new_clasee );
 		void set_nome( std::string new_nome );
 //		void set_cientifico( void );
 //		void set_sexo( void );

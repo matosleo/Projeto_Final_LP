@@ -10,6 +10,9 @@
  * @date       06/12/2017
  */
 
+#ifndef PETFERA_AUX_HPP
+#define PETFERA_AUX_HPP
+
 #include <string>
 #include <fstream>
 #include <vector>
@@ -85,3 +88,5 @@ std::vector< std::string > filtrar( std::vector< std::string > &alvo, const std:
 	}
 	return retorno;
 }
+
+#endif
