@@ -12,7 +12,7 @@
 
 #ifndef ANIMAL_HPP
 #define ANIMAL_HPP
-
+#include <iostream>
 #include "Funcionario.hpp"
 
 #include <memory>
