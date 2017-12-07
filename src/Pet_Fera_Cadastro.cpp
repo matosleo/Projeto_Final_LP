@@ -10,6 +10,7 @@
  */
 
 #include "Pet_Fera_Cadastro.hpp"
+#include <utility>
 //#include <tuple>
 using namespace PetFera;
 
@@ -21,75 +22,6 @@ Pet_Fera_Cadastro::Pet_Fera_Cadastro()
 Pet_Fera_Cadastro::~Pet_Fera_Cadastro()
 {
 
-}
-/*
-std::vector< std::string > Pet_Fera_Cadastro::separar ( const std::string& alvo, const char &delimitador )
-{
-	size_t start = alvo.find_first_not_of(delimitador);
-	size_t end = start;
-
-	std::vector< std::string > campos;
-
-	while ( start != std::string::npos )
-	{
-		end = alvo.find(delimitador, start);
-
-		campos.push_back(alvo.substr(start, end-start));
-		
-		start = alvo.find_first_not_of(delimitador, end);
-	}
-	return campos;
-}
-*/
-std::string Pet_Fera_Cadastro::cadastro_comum( std::string _classe, std::string _tipo )
-{
-	std::cin.clear();
-	std::cin.ignore( 200, '\n' );
-
-	std::string _id;
-	std::string _nome;
-	std::string _cientifico;
-	std::string	_sexo;
-	std::string	_tamanho;
-	std::string _dieta;
-	std::string	_id_veterinario;
-	std::string	_id_tratador;
-	std::string _batismo;
-
-	std::cout << "Numero de Identificacao do Animal (ID): ";
-	std::getline( std::cin, _id);
-	std::cout << "\nNome: ";
-	std::getline( std::cin, _nome );
-	std::cout << "\nNome Cientifico: ";
-	std::getline( std::cin, _cientifico ),
-	std::cout << "\nSexo: ";
-	std::getline( std::cin, _sexo);
-	std::cout << "\nTamanho: ";
-	std::getline( std::cin, _tamanho );
-	std::cout << "\nDieta: ";
-	std::getline( std::cin, _dieta );
-	std::cout << "\nID do Veterinario responsavel: ";
-	std::getline( std::cin, _id_veterinario );
-	std::cout << "\nID do Tratador responsavel: ";
-	std::getline( std::cin, _id_tratador );
-	std::cout << "\nNome de batismo: ";
-	std::getline( std::cin, _batismo );
-
-	std::string dados;
-
-	dados.append( _id.append( ";" ) );
-	dados.append( _classe.append( ";" ) );
-	dados.append( _tipo.append( ";" ) );
-	dados.append( _nome.append( ";" ) );
-	dados.append( _cientifico.append( ";" ) );
-	dados.append( _sexo.append( ";" ) );
-	dados.append( _tamanho.append( ";" ) );
-	dados.append( _dieta.append( ";" ) );
-	dados.append( _id_veterinario.append( ";" ) );
-	dados.append( _id_tratador.append( ";" ) );
-	dados.append( _batismo.append( ";" ) );
-
-	return dados;
 }
 
 std::string Pet_Fera_Cadastro::cadastro_nativo( std::string & dados )
@@ -190,24 +122,53 @@ Pet_Fera_Cadastro::converte_cadastro_exotico( const std::string & dados_comuns )
 bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tipo )
 {
 
-	std::string dados_comuns;
 
-	std::string	_total_mudas;
+	
+	int 		_id;
+	std::string _nome;
+	std::string _cientifico;
+	char 		_sexo;
+	float 		_tamanho;
+	std::string _dieta;
+	int 		_id_veterinario;
+	int			_id_tratador;
+	std::string _batismo;
+	int			_total_mudas;
 	std::string _ultima_muda;
 
-	dados_comuns = cadastro_comum( _classe, _tipo );
-	
+	std::cout << "Numero de Identificacao do Animal (ID): ";
+	std::cin >> _id;
+	std::cout << "\nNome: ";
+	std::cin >> _nome;
+	std::cout << "\nNome Cientifico: ";
+	std::cin >> _cientifico;
+	std::cout << "\nSexo: ";
+	std::cin >> _sexo;
+	std::cout << "\nTamanho: ";
+	std::cin >> _tamanho;
+	std::cout << "\nDieta: ";
+	std::cin >> _dieta;
+	std::cout << "\nID do Veterinario responsavel: ";
+	std::cin >> _id_veterinario;
+	std::cout << "\nID do Tratador responsavel: ";
+	std::cin >> _id_tratador;
+	std::cout << "\nNome de batismo: ";
+	std::cin >> _batismo;	
 	std::cout << "\nTotal de mudas: ";
-	std::getline( std::cin, _total_mudas ); //std::cin >> _total_mudas;
-	
+	std::cin >> _total_mudas;
 	std::cout << "\nData da ultima muda (DD/MM/AAAA): ";
-	std::getline( std::cin, _ultima_muda ); //std::cin >> _ultima_muda;
+	std::cin >> _ultima_muda;
 
+	Tratador * tratador_resp;
+	Veterinario * veterinario_resp;
 
-	dados_comuns.append( _total_mudas.append( ";" ) );
-	dados_comuns.append( _ultima_muda.append( ";" ) );
+	/*	Assumir que todo animal a ser cadastrado tem que ter um tratador e um veterinario associado	*/
 
-	//	std::cout << dados_comuns << std::endl;
+	if( m_tabela_tratador.find( _id_tratador ) != m_tabela_tratador.end() )
+		tratador_resp = m_tabela_tratador[ _id_tratador ];
+
+	if( m_tabela_veterinario.find( _id_veterinario ) != m_tabela_veterinario.end() )
+		veterinario_resp = m_tabela_veterinario[ _id_veterinario ];
 
 	if( _tipo.compare( "Domestico" ) == 0 )
 	{
@@ -216,11 +177,11 @@ bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 		//std::tuple< int, std::string, std::string, std::string, std::string, char, float, std::string, V_pointer, T_pointer, std::string >
 		//td = converte_cadastro_comum( dados_comuns );
 
-		//Animal * anfibio_domestico = new Anfibio( std::get<0>(td), std::get<1>(td), std::get<2>(td), std::get<3>(td)
-//												, std::get<4>(td), std::get<5>(td), std::get<6>(td), std::get<7>(td)
-//												, std::get<8>(td), std::get<9>(td), std::get<10>(td) );
-//
-		//m_tabela_animais -> insert( std::get<0>(td), anfibio_domestico );
+		Anfibio * anfibio_domestico = new Anfibio( _id, _classe, _tipo, _nome, _cientifico
+													, _sexo, _tamanho, _dieta, veterinario_resp
+													, tratador_resp, _batismo, _total_mudas, _ultima_muda);
+
+		m_tabela_anfibio.insert( std::pair<int, Anfibio*> ( _id, anfibio_domestico ) );
 
 		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
 
@@ -228,16 +189,14 @@ bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 	} else if( _tipo.compare( "Nativo" ) == 0 )
 	{
 
-		dados_comuns = cadastro_nativo( dados_comuns );
 		
-		AnfibioNativo anfibio ( dados_comuns );
 
 		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
 
 	} else if( _tipo.compare( "Exotico" ) == 0 )
 	{
 
-		dados_comuns = cadastro_exotico( dados_comuns );
+		
 
 		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
 
@@ -250,20 +209,59 @@ bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 bool Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _tipo )
 {
 
-	std::string dados_comuns;
-
+	int 		_id;
+	std::string _nome;
+	std::string _cientifico;
+	char 		_sexo;
+	float 		_tamanho;
+	std::string _dieta;
+	int 		_id_veterinario;
+	int			_id_tratador;
+	std::string _batismo;
 	std::string _cor_pelo;
 
-	dados_comuns = cadastro_comum( _classe, _tipo );
-	
+	std::cout << "Numero de Identificacao do Animal (ID): ";
+	std::cin >> _id;
+	std::cout << "\nNome: ";
+	std::cin >> _nome;
+	std::cout << "\nNome Cientifico: ";
+	std::cin >> _cientifico;
+	std::cout << "\nSexo: ";
+	std::cin >> _sexo;
+	std::cout << "\nTamanho: ";
+	std::cin >> _tamanho;
+	std::cout << "\nDieta: ";
+	std::cin >> _dieta;
+	std::cout << "\nID do Veterinario responsavel: ";
+	std::cin >> _id_veterinario;
+	std::cout << "\nID do Tratador responsavel: ";
+	std::cin >> _id_tratador;
+	std::cout << "\nNome de batismo: ";
+	std::cin >> _batismo;	
 	std::cout << "\nCor do pelo do animal: ";
-	std::getline( std::cin, _cor_pelo );
-	dados_comuns.append( _cor_pelo );
+	std::cin >> _cor_pelo;
+
+	Tratador * tratador_resp;
+	Veterinario * veterinario_resp;
+
+	/*	Assumir que todo animal a ser cadastrado tem que ter um tratador e um veterinario associado	*/
+
+	if( m_tabela_tratador.find( _id_tratador ) != m_tabela_tratador.end() )
+		tratador_resp = m_tabela_tratador[ _id_tratador ];
+
+	if( m_tabela_veterinario.find( _id_veterinario ) != m_tabela_veterinario.end() )
+		veterinario_resp = m_tabela_veterinario[ _id_veterinario ];
+	
 	
 
 	if( _tipo.compare( "Domestico" ) == 0 )
 	{
 
+		Mamifero * mamifero_domestico = new Mamifero( _id, _classe, _tipo, _nome, _cientifico
+													, _sexo, _tamanho, _dieta, veterinario_resp
+													, tratador_resp, _batismo, _cor_pelo);
+
+		m_tabela_mamifero.insert( std::pair<int, Mamifero*> ( _id, mamifero_domestico ) );
 
 		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
 
@@ -271,14 +269,14 @@ bool Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _ti
 	} else if( _tipo.compare( "Nativo" ) == 0 )
 	{
 
-		dados_comuns = cadastro_nativo( dados_comuns );
+		
 
 		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
 
 	} else if( _tipo.compare( "Exotico" ) == 0 )
 	{
 
-		dados_comuns = cadastro_exotico( dados_comuns );
+		
 
 		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
 
@@ -290,29 +288,63 @@ bool Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _ti
 bool Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo )
 {
 
-	std::string dados_comuns;
-
+	int 		_id;
+	std::string _nome;
+	std::string _cientifico;
+	char 		_sexo;
+	float 		_tamanho;
+	std::string _dieta;
+	int 		_id_veterinario;
+	int			_id_tratador;
+	std::string _batismo;
 	std::string	_venenoso;
 	std::string _tipo_veneno;
+	bool possui_veneno = false;
 
-	dados_comuns = cadastro_comum( _classe, _tipo );
-	
+	std::cout << "Numero de Identificacao do Animal (ID): ";
+	std::cin >> _id;
+	std::cout << "\nNome: ";
+	std::cin >> _nome;
+	std::cout << "\nNome Cientifico: ";
+	std::cin >> _cientifico;
+	std::cout << "\nSexo: ";
+	std::cin >> _sexo;
+	std::cout << "\nTamanho: ";
+	std::cin >> _tamanho;
+	std::cout << "\nDieta: ";
+	std::cin >> _dieta;
+	std::cout << "\nID do Veterinario responsavel: ";
+	std::cin >> _id_veterinario;
+	std::cout << "\nID do Tratador responsavel: ";
+	std::cin >> _id_tratador;
+	std::cout << "\nNome de batismo: ";
+	std::cin >> _batismo;	
 	std::cout << "\nAnimal venenoso ( sim ou nao ): ";
-	std::getline( std::cin, _venenoso );
-	dados_comuns.append( _venenoso.append( ";" ) );
+	std::cin >> _venenoso;
 
 	if( _venenoso.compare( "sim" ) == 0 )
 	{
 		
 		std::cout << "\nTipo do veneno: ";
-		std::getline( std::cin, _tipo_veneno );
-		dados_comuns.append( _tipo_veneno );
+		std::cin >> _tipo_veneno;
+		possui_veneno = true;
 
 	} else
 	{
 		_tipo_veneno = "nenhum";
-		dados_comuns.append( _tipo_veneno );
+		
 	}
+
+	Tratador * tratador_resp;
+	Veterinario * veterinario_resp;
+
+	/*	Assumir que todo animal a ser cadastrado tem que ter um tratador e um veterinario associado	*/
+
+	if( m_tabela_tratador.find( _id_tratador ) != m_tabela_tratador.end() )
+		tratador_resp = m_tabela_tratador[ _id_tratador ];
+
+	if( m_tabela_veterinario.find( _id_veterinario ) != m_tabela_veterinario.end() )
+		veterinario_resp = m_tabela_veterinario[ _id_veterinario ];
 	
 
 	if( _tipo.compare( "Domestico" ) == 0 )
@@ -321,18 +353,24 @@ bool Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 
 		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
 
+		Reptil * reptil_domestico = new Reptil( _id, _classe, _tipo, _nome, _cientifico
+													, _sexo, _tamanho, _dieta, veterinario_resp
+													, tratador_resp, _batismo, possui_veneno, _tipo_veneno);
+
+		m_tabela_reptil.insert( std::pair<int, Reptil*> ( _id, reptil_domestico ) );
+
 	
 	} else if( _tipo.compare( "Nativo" ) == 0 )
 	{
 
-		dados_comuns = cadastro_nativo( dados_comuns );
+		
 
 		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
 
 	} else if( _tipo.compare( "Exotico" ) == 0 )
 	{
 
-		dados_comuns = cadastro_exotico( dados_comuns );
+		
 
 		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
 
@@ -344,38 +382,74 @@ bool Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 bool Pet_Fera_Cadastro::cadastrar_ave( std::string _classe, std::string _tipo )
 {
 
-	std::string dados_comuns;
+	int 		_id;
+	std::string _nome;
+	std::string _cientifico;
+	char 		_sexo;
+	float 		_tamanho;
+	std::string _dieta;
+	int 		_id_veterinario;
+	int			_id_tratador;
+	std::string _batismo;
+	float		_tamanho_bico;
+	float 		_envergadura;
 
-	std::string	_tamanho_bico;
-	std::string _envergadura;
-
-	dados_comuns = cadastro_comum( _classe, _tipo );
 	
+	std::cout << "Numero de Identificacao do Animal (ID): ";
+	std::cin >> _id;
+	std::cout << "\nNome: ";
+	std::cin >> _nome;
+	std::cout << "\nNome Cientifico: ";
+	std::cin >> _cientifico;
+	std::cout << "\nSexo: ";
+	std::cin >> _sexo;
+	std::cout << "\nTamanho: ";
+	std::cin >> _tamanho;
+	std::cout << "\nDieta: ";
+	std::cin >> _dieta;
+	std::cout << "\nID do Veterinario responsavel: ";
+	std::cin >> _id_veterinario;
+	std::cout << "\nID do Tratador responsavel: ";
+	std::cin >> _id_tratador;
+	std::cout << "\nNome de batismo: ";
+	std::cin >> _batismo;
 	std::cout << "\nTamanho do bico do animal: ";
-	std::getline( std::cin, _tamanho_bico );
-	dados_comuns.append( _tamanho_bico.append( ";" ) );	
-
+	std::cin >> _tamanho_bico;
 	std::cout << "\nEnvergadura do animal: ";
-	std::getline( std::cin, _envergadura );
-	dados_comuns.append( _envergadura );	
+	std::cin >> _envergadura;
+
+	Tratador * tratador_resp;
+	Veterinario * veterinario_resp;
+
+	/*	Assumir que todo animal a ser cadastrado tem que ter um tratador e um veterinario associado	*/
+
+	if( m_tabela_tratador.find( _id_tratador ) != m_tabela_tratador.end() )
+		tratador_resp = m_tabela_tratador[ _id_tratador ];
+
+	if( m_tabela_veterinario.find( _id_veterinario ) != m_tabela_veterinario.end() )
+		veterinario_resp = m_tabela_veterinario[ _id_veterinario ];
 
 	if( _tipo.compare( "Domestico" ) == 0 )
 	{
 
 		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
 
+		Ave * ave_domestico = new Ave( _id, _classe, _tipo, _nome, _cientifico
+													, _sexo, _tamanho, _dieta, veterinario_resp
+													, tratador_resp, _batismo, _tamanho_bico, _envergadura);
+
+		m_tabela_ave.insert( std::pair<int, Ave*> ( _id, ave_domestico ) );
+
 	
 	} else if( _tipo.compare( "Nativo" ) == 0 )
 	{
 
-		dados_comuns = cadastro_nativo( dados_comuns );
+		
 
 		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
 
 	} else if( _tipo.compare( "Exotico" ) == 0 )
 	{
-
-		dados_comuns = cadastro_exotico( dados_comuns );
 
 		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
 
@@ -412,6 +486,19 @@ bool Pet_Fera_Cadastro::cadastrar_funcionario( std::string _funcao )
 
 	/*		Construir o Funcionario	e adicionalo no map 	*/
 
+	if( _funcao.compare( "Tratador" ) == 0  )
+	{
+
+		Tratador * novo_tratador = new Tratador( _id, _funcao, _nome, _CPF, _idade, _tipo_sangue, _fator_RH, _especialidade );
+		m_tabela_tratador.insert( std::pair<int, Tratador*> ( _id, novo_tratador ) );
+
+	} else if ( _funcao.compare( "Veterinario" ) == 0  )
+	{
+
+		Veterinario * novo_veterinario = new Veterinario( _id, _funcao, _nome, _CPF, _idade, _tipo_sangue, _fator_RH, _especialidade );
+		m_tabela_veterinario.insert( std::pair<int, Veterinario*> ( _id, novo_veterinario ) );
+
+	}
 
 	return true;
 }
@@ -487,10 +574,12 @@ bool Pet_Fera_Cadastro::exportar_dados_funcionarios()
 
 unsigned int Pet_Fera_Cadastro::quantidade_animais_cadastrados( void )
 {
-	return m_tabela_animais -> size();
+
+	return ( m_tabela_anfibio.size() + m_tabela_mamifero.size() + m_tabela_reptil.size() + m_tabela_ave.size() );
+
 }
 
 unsigned int Pet_Fera_Cadastro::quantidade_funcionarios_cadastrados( void )
 {
-	return m_tabela_funcionarios -> size();
+	return m_tabela_veterinario.size() + m_tabela_tratador.size();
 }

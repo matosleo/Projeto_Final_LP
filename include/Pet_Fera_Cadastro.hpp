@@ -23,14 +23,18 @@
 
 class Pet_Fera_Cadastro
 {
-	std::map< int, Animal > * m_tabela_animais;
-	std::map< int, Funcionario > * m_tabela_funcionarios;
-
+	std::map< int, Anfibio* > m_tabela_anfibio;
+	std::map< int, Mamifero* > m_tabela_mamifero;
+	std::map< int, Reptil* > m_tabela_reptil;
+	std::map< int, Ave* > m_tabela_ave;
+	//std::map< int, Funcionario > * m_tabela_funcionarios;
+	std::map< int, Veterinario* > m_tabela_veterinario;
+	std::map< int, Tratador* > m_tabela_tratador;
 public:
 	Pet_Fera_Cadastro();
 	~Pet_Fera_Cadastro();
 
-	std::string cadastro_comum( std::string _classe, std::string _tipo );
+	
 	std::string cadastro_nativo( std::string & dados );
 	std::string cadastro_exotico( std::string & dados );
 

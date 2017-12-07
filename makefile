@@ -14,7 +14,7 @@ DOC_DIR=./doc
 
 RM = rm -rf
 CC = g++
-CFLAGS = -Wall -pedantic -std=c++11 -ansi -I$(INC_DIR)
+CFLAGS = -Wall -pedantic -std=c++1y -ansi -I$(INC_DIR)
 AR = ar
 LIBFLAGS = -lPetFera
 

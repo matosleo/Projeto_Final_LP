@@ -90,20 +90,20 @@ namespace PetFera
 	class Ave : public Animal
 	{
 	protected:
-		int m_tamanho_bico;
-		int m_envergadura;
+		float m_tamanho_bico;
+		float m_envergadura;
 
 	public:
 
-		int get_tamanho_bico( void );
-		int get_envergadura( void );
+		float get_tamanho_bico( void );
+		float get_envergadura( void );
 
 		void set_tamanho_bico( int new_tamanho_bico );
 		void set_envergadura( int new_envergadura );
 
 		Ave( int _id, std::string _classe, std::string _tipo, std::string _nome, std::string _cientifico, char _sexo, 
 				float _tamanho, std::string _dieta, V_pointer _veterinario, T_pointer _tratador, std::string _batismo,
-				int _tamanho_bico, int _envergadura ) 
+				float _tamanho_bico, float _envergadura ) 
 			: Animal( _id, _classe, _tipo, _nome, _cientifico, _sexo, _tamanho, _dieta, _veterinario, _tratador, _batismo )
 			, m_tamanho_bico( _tamanho_bico ), m_envergadura( _envergadura )
 			{	/*	Vazio	*/	}

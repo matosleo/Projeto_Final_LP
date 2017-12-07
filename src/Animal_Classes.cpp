@@ -53,11 +53,11 @@ std::string Reptil::get_tipo_veneno( void )
 	return m_tipo_veneno;
 }
 
-int Ave::get_tamanho_bico( void )
+float Ave::get_tamanho_bico( void )
 {
 	return m_tamanho_bico;
 }
-int Ave::get_envergadura( void )
+float Ave::get_envergadura( void )
 {
 	return m_envergadura;
 }
