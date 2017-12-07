@@ -13,7 +13,7 @@
 #ifndef AVE_NATIVO_HPP
 #define AVE_NATIVO_HPP
 
-#include "Animal_Classes.hpp"
+#include "Ave.hpp"
 #include "Silvestre.hpp"
 #include <sstream>
 #include <vector>

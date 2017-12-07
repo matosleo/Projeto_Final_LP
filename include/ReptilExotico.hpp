@@ -13,7 +13,7 @@
 #ifndef REPTIL_EXOTICO_HPP
 #define REPTIL_EXOTICO_HPP
 
-#include "Animal_Classes.hpp"
+#include "Reptil.hpp"
 #include "Silvestre.hpp"
 #include <sstream>
 #include <vector>

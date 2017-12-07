@@ -20,7 +20,10 @@
 
 #include "Pet_Fera_Exportar.hpp"
 #include "Animal.hpp"
-#include "Animal_Classes.hpp"
+#include "Ave.hpp"
+#include "Anfibio.hpp"
+#include "Mamifero.hpp"
+#include "Reptil.hpp"
 #include "AnfibioExotico.hpp"
 #include "AnfibioNativo.hpp"
 #include "MamiferoExotico.hpp"

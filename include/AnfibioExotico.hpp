@@ -13,7 +13,7 @@
 #ifndef ANFIBIO_EXOTICO_HPP
 #define ANFIBIO_EXOTICO_HPP
 
-#include "Animal_Classes.hpp"
+#include "Anfibio.hpp"
 #include "Silvestre.hpp"
 #include <sstream>
 #include <vector>

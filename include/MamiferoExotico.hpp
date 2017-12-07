@@ -13,7 +13,7 @@
 #ifndef MAMIFERO_EXOTICO_HPP
 #define MAMIFERO_EXOTICO_HPP
 
-#include "Animal_Classes.hpp"
+#include "Mamifero.hpp"
 #include "Silvestre.hpp"
 #include <sstream>
 #include <vector>

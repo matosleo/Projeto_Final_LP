@@ -13,7 +13,7 @@
 #ifndef REPTIL_NATIVO_HPP
 #define REPTIL_NATIVO_HPP
 
-#include "Animal_Classes.hpp"
+#include "Reptil.hpp"
 #include "Silvestre.hpp"
 #include <sstream>
 #include <vector>
