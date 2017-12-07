@@ -27,8 +27,6 @@ Pet_Fera_Cadastro::~Pet_Fera_Cadastro()
 bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tipo )
 {
 
-
-	
 	int 		_id;
 	std::string _nome;
 	std::string _cientifico;
@@ -82,7 +80,7 @@ bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 	if( _tipo.compare( "Domestico" ) == 0 )
 	{
 
-		Anfibio * anfibio_domestico = new Anfibio( _id, _classe, _tipo, _nome, _cientifico
+		Anfibio * anfibio_domestico = new Anfibio( _id, _classe, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
 													, tratador_resp, _batismo, _total_mudas, _ultima_muda);
 
@@ -99,7 +97,7 @@ bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 		std::cout << "\nAutorizacao do Ibama: ";
 		std::cin >> _autorizacao;
 
-		Anfibio * anfibio_nativo = new AnfibioNativo( _id, _classe, _tipo, _nome, _cientifico
+		Anfibio * anfibio_nativo = new AnfibioNativo( _id, _classe, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
 													, tratador_resp, _batismo, _total_mudas, _ultima_muda
 													, _ibama, _uf_origem, _autorizacao );
@@ -115,7 +113,7 @@ bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 		std::cout << "\nPais de Origem: ";
 		std::cin >> _pais_origem;
 
-		Anfibio * anfibio_exotico = new AnfibioExotico( _id, _classe, _tipo, _nome, _cientifico
+		Anfibio * anfibio_exotico = new AnfibioExotico( _id, _classe, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
 													, tratador_resp, _batismo, _total_mudas, _ultima_muda
 													, _ibama, _pais_origem );
@@ -184,7 +182,7 @@ bool Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _ti
 	if( _tipo.compare( "Domestico" ) == 0 )
 	{
 
-		Mamifero * mamifero_domestico = new Mamifero( _id, _classe, _tipo, _nome, _cientifico
+		Mamifero * mamifero_domestico = new Mamifero( _id, _classe, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
 													, tratador_resp, _batismo, _cor_pelo);
 
@@ -202,7 +200,7 @@ bool Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _ti
 		std::cout << "\nAutorizacao do Ibama: ";
 		std::cin >> _autorizacao;
 
-		Mamifero * mamifero_nativo = new MamiferoNativo( _id, _classe, _tipo, _nome, _cientifico
+		Mamifero * mamifero_nativo = new MamiferoNativo( _id, _classe, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
 													, tratador_resp, _batismo, _cor_pelo
 													, _ibama, _uf_origem, _autorizacao );
@@ -219,7 +217,7 @@ bool Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _ti
 		std::cout << "\nPais de Origem: ";
 		std::cin >> _pais_origem;
 
-		Mamifero * mamifero_exotico = new MamiferoExotico( _id, _classe, _tipo, _nome, _cientifico
+		Mamifero * mamifero_exotico = new MamiferoExotico( _id, _classe, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
 													, tratador_resp, _batismo, _cor_pelo
 													, _ibama, _pais_origem );
@@ -303,7 +301,7 @@ bool Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 
 
 
-		Reptil * reptil_domestico = new Reptil( _id, _classe, _tipo, _nome, _cientifico
+		Reptil * reptil_domestico = new Reptil( _id, _classe, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
 													, tratador_resp, _batismo, possui_veneno, _tipo_veneno);
 
@@ -320,7 +318,7 @@ bool Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 		std::cout << "\nAutorizacao do Ibama: ";
 		std::cin >> _autorizacao;
 
-		Reptil * reptil_nativo = new ReptilNativo( _id, _classe, _tipo, _nome, _cientifico
+		Reptil * reptil_nativo = new ReptilNativo( _id, _classe, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
 													, tratador_resp, _batismo, possui_veneno, _tipo_veneno
 													, _ibama, _uf_origem, _autorizacao );
@@ -337,7 +335,7 @@ bool Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 		std::cout << "\nPais de Origem: ";
 		std::cin >> _pais_origem;
 		
-		Reptil * reptil_exotico = new ReptilExotico( _id, _classe, _tipo, _nome, _cientifico
+		Reptil * reptil_exotico = new ReptilExotico( _id, _classe, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
 													, tratador_resp, _batismo, possui_veneno, _tipo_veneno
 													, _ibama, _pais_origem );
@@ -408,7 +406,7 @@ bool Pet_Fera_Cadastro::cadastrar_ave( std::string _classe, std::string _tipo )
 	{
 
 
-		Ave * ave_domestico = new Ave( _id, _classe, _tipo, _nome, _cientifico
+		Ave * ave_domestico = new Ave( _id, _classe, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
 													, tratador_resp, _batismo, _tamanho_bico, _envergadura);
 
@@ -425,7 +423,7 @@ bool Pet_Fera_Cadastro::cadastrar_ave( std::string _classe, std::string _tipo )
 		std::cout << "\nAutorizacao do Ibama: ";
 		std::cin >> _autorizacao;
 
-		Ave * ave_nativo = new AveNativo( _id, _classe, _tipo, _nome, _cientifico
+		Ave * ave_nativo = new AveNativo( _id, _classe, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
 													, tratador_resp, _batismo, _tamanho_bico, _envergadura
 													, _ibama, _uf_origem, _autorizacao );
@@ -442,7 +440,7 @@ bool Pet_Fera_Cadastro::cadastrar_ave( std::string _classe, std::string _tipo )
 		std::cout << "\nPais de Origem: ";
 		std::cin >> _pais_origem;
 
-		Ave * ave_exotico = new AveExotico( _id, _classe, _tipo, _nome, _cientifico
+		Ave * ave_exotico = new AveExotico( _id, _classe, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
 													, tratador_resp, _batismo, _tamanho_bico, _envergadura
 													, _ibama, _pais_origem );
@@ -512,7 +510,7 @@ bool Pet_Fera_Cadastro::consultar_animais( int _id, std::string _classe )
 		{
 
 			std::cout << "Dados do Animal procurado: " << std::endl;
-			std::cout << it->second << std::endl;
+			std::cout << *(it->second) << std::endl;
 
 			return true;
 
@@ -530,7 +528,7 @@ bool Pet_Fera_Cadastro::consultar_animais( int _id, std::string _classe )
 		{
 
 			std::cout << "Dados do Animal procurado: " << std::endl;
-			std::cout << it->second << std::endl;
+			std::cout << *(it->second) << std::endl;
 
 			return true;
 
@@ -548,7 +546,7 @@ bool Pet_Fera_Cadastro::consultar_animais( int _id, std::string _classe )
 		{
 
 			std::cout << "Dados do Animal procurado: " << std::endl;
-			std::cout << it->second << std::endl;
+			std::cout << *(it->second) << std::endl;
 
 			return true;
 
@@ -566,7 +564,7 @@ bool Pet_Fera_Cadastro::consultar_animais( int _id, std::string _classe )
 		{
 
 			std::cout << "Dados do Animal procurado: " << std::endl;
-			std::cout << it->second << std::endl;
+			std::cout << *(it->second) << std::endl;
 
 			return true;
 
@@ -759,9 +757,7 @@ bool Pet_Fera_Cadastro::consultar_funcionarios( int _id, std::string _funcao )
 			std::cout << "Funcionario nao encontrado" << std::endl;
 
 	}
-
 	return false;
-
 }
 
 /*		Não Testado		*/
