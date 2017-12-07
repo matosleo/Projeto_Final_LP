@@ -1,6 +1,9 @@
 #include <iostream>
 #include "Animal.hpp"
-#include "Animal_Classes.hpp"
+#include "Ave.hpp"
+#include "Anfibio.hpp"
+#include "Mamifero.hpp"
+#include "Reptil.hpp"
 #include "Funcionario.hpp"
 #include "Silvestre.hpp"
 #include "Pet_Fera_Cadastro.hpp"
@@ -14,6 +17,17 @@ int main(int argc, char const *argv[])
 	std::string familia_animal;
 	std::string tipo_animal;
 	Pet_Fera_Cadastro pet_cadastro;
+
+	std::ifstream dados_animais;
+	dados_animais.open ("data/dados_animais.csv");
+
+	if(dados_animais.bad())
+	{
+		std::cerr << "O arquivo com informações dos animais não pode ser aberto" << std::endl;
+		std::cerr << "Abortando execução do programa" << std::endl;
+		return 1;
+	}
+	pet_cadastro.importar_dados_animais( dados_animais );
 
 	do
 	{

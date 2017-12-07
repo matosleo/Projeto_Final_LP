@@ -10,7 +10,7 @@
  * @date       07/12/2017
  */
 
-#include "Animal_Classes.hpp"
+#include "Mamifero.hpp"
 
 #include <iostream>
 using namespace PetFera;

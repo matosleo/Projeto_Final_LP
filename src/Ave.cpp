@@ -1,5 +1,5 @@
 /**
- * @file Aves.hpp
+ * @file Ave.hpp
  * @brief      Implementação da classe Ave do namespace PetFera, seus
  *             atributos e métodos
  * @details    
@@ -10,7 +10,7 @@
  * @date       07/12/2017
  */
 
-#include "Animal_Classes.hpp"
+#include "Ave.hpp"
 
 #include <iostream>
 using namespace PetFera;
