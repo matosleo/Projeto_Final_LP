@@ -14,7 +14,7 @@
 #include <sstream>
 
 using namespace PetFera;
-
+/*
 AnfibioNativo::AnfibioNativo( std::string & campos_registro )
 {
 
@@ -46,8 +46,7 @@ AnfibioNativo::AnfibioNativo( std::string & campos_registro )
 	std::stringstream temp3(campos_separados[11]);
 	temp3 >> _total_mudas;
 
-	Anfibio( _id, _classe, _tipo, _nome, _cientifico, _sexo, _tamanho, _dieta, _veterinario, _tratador
-						, _batismo, _total_mudas, _ultima_muda );
+	Anfibio( _id, _classe, _tipo, _nome, _cientifico, _sexo, _tamanho, _dieta, _veterinario, _tratador, _batismo, _total_mudas, _ultima_muda );
 	Nativo( _ibama, _uf_origem, _autorizacao );
 
-}
+}*/

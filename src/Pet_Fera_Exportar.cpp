@@ -1,125 +1,29 @@
 /**
  * @file Pet_Fera_Exportar.cpp
  * @brief      Implementação de um programa auxiliar para o Pet_Fera que
- *             perminte filtrar e exportar os dados dos animais
+ *             permite filtrar e exportar os dados dos animais
  * @details    
  *
  * @author     Gleydvan Macedo
  * @author     João Vítor Venceslau Coelho
  * @since      03/12/2017
- * @date       03/12/2017
+ * @date       07/12/2017
  */
 
 #include <getopt.h>
 #include <iostream>
-#include <stdlib.h>
 #include <string>
 #include <fstream>
 #include <vector>
-#include <sstream>
 
-bool termina_com(const std::string &str, const std::string &termino)
-{
-	return str.size() >= termino.size() and str.compare(str.size() - termino.size(), termino.size(), termino) == 0;
-}
+#include "Pet_Fera_Exportar.hpp"
 
-std::vector< std::string > separar ( const std::string& alvo, const char &delimitador )
-{
-	size_t start = alvo.find_first_not_of(delimitador);
-	size_t end = start;
-
-	std::vector< std::string > campos;
-
-	while ( start != std::string::npos )
-	{
-		end = alvo.find(delimitador, start);
-
-		campos.push_back(alvo.substr(start, end-start));
-		
-		start = alvo.find_first_not_of(delimitador, end);
-	}
-	return campos;
-}
-
-std::string buscar_codigo( std::fstream &local, const std::string &alvo, size_t funcao )
-{
-	if ( alvo == "0")
-	{
-		return "0";
-	}
-	
-	std::vector< std::string > profissoes;
-	profissoes.push_back( "Veterinario");
-	profissoes.push_back( "Tratador");
-	std::string linha;
-
-	while( std::getline( local, linha ) )
-	{
-		std::vector< std::string > campos = separar( linha, ';' );
-		
-		if ( campos[1] == profissoes[funcao] and campos[2] == alvo )
-		{
-			return campos[0];
-		}
-	}
-	return "-1";
-}
-
-std::vector< std::string > filtrar( std::vector< std::string > &alvo, const std::string filtro, size_t campo )
-{
-	std::string linha;
-	std::vector< std::string > retorno;
-	if ( filtro == "" )
-	{
-		for ( std::vector< std::string >::iterator i = alvo.begin(); i != alvo.end(); ++i)
-		{
-			retorno.push_back(*i);
-		}
-	}
-	else
-	{
-		for ( std::vector< std::string >::iterator i = alvo.begin(); i != alvo.end(); ++i)
-		{
-			std::vector< std::string > campos = separar( *i, ';' );
-			if ( campos[campo] == filtro )
-			{
-				retorno.push_back(*i);
-			}
-		}		
-	}
-	return retorno;
-}
-
-/*
-void filtrar( std::fstream &alvo, std::fstream &resultado, const std::string filtro, size_t campo )
-{
-	std::string linha;
-	if ( filtro == "" )
-	{
-		while( std::getline( alvo, linha ) )
-		{
-			resultado << linha << std::endl;
-		}
-	}
-	else
-	{
-		while( std::getline( alvo, linha ) )
-		{
-			std::vector< std::string > campos = separar( linha, ';' );
-			if ( campos[campo] == filtro )
-			{
-				resultado << linha << std::endl;
-			}
-		}		
-	}	
-}
-*/
 int main(int argc, char **argv )
 {
 	int c_flag = 0, v_flag = 0, t_flag = 0;
 	int c;
 	std::string classe, veterinario, tratador;
-	const char * arquivo_saida;
+	std::string arquivo_saida;
 	char temp[] = {'c',':','v',':','t',':'};
 	opterr = 0;
 	while ( (c = getopt (argc, argv, temp )) != -1 )
@@ -176,7 +80,7 @@ int main(int argc, char **argv )
 		return 1;
 	}
 
-	std::fstream dados_animais;
+	std::ifstream dados_animais;
 	dados_animais.open ("data/dados_animais.csv");
 
 	if(dados_animais.bad())
@@ -186,7 +90,7 @@ int main(int argc, char **argv )
 		return 1;
 	}
 
-	std::fstream dados_funcionarios;
+	std::ifstream dados_funcionarios;
 	dados_funcionarios.open ("data/dados_funcionarios.csv");
 
 	if(dados_funcionarios.bad())
@@ -196,8 +100,7 @@ int main(int argc, char **argv )
 		return 1;
 	}
 
-	std::fstream filtrado;
-	filtrado.open (arquivo_saida);
+	std::ofstream filtrado( arquivo_saida.c_str(), std::ofstream::trunc );
 
 	if(filtrado.bad())
 	{
@@ -232,4 +135,12 @@ int main(int argc, char **argv )
 	{
 		filtrado << *i << std::endl;
 	}
+
+	std::cout << "Dados Filtrados com sucesso" << std::endl;
+	
+	dados_animais.close();
+	dados_funcionarios.close();
+	filtrado.close();
+
+	return 0;
 }
