@@ -20,7 +20,7 @@ LIBFLAGS = -lPetFera
 
 .PHONY: all clean distclean doxy
 
-linux: dir $(BIN_DIR)/teste $(BIN_DIR)/Pet_Fera_Exportar 
+linux: dir $(BIN_DIR)/teste $(BIN_DIR)/exportar 
 
 debug: CFLAGS += -g -O0 -pg
 
@@ -33,7 +33,7 @@ $(BIN_DIR)/teste: $(LIB_DIR)/libPetFera.so $(INC_DIR)/Pet_Fera_Cadastro.hpp $(SR
 	$(CC) $(CFLAGS) $(SRC_DIR)/main_teste.cpp $(SRC_DIR)/Pet_Fera_Cadastro.cpp -L$(LIB_DIR) $(LIBFLAGS) -o $@
 	@echo "+++ [Binario criado em $@] +++"
 
-$(BIN_DIR)/Pet_Fera_Exportar: $(SRC_DIR)/Pet_Fera_Exportar.cpp $(INC_DIR)/Pet_Fera_Exportar.hpp
+$(BIN_DIR)/exportar: $(SRC_DIR)/Pet_Fera_Exportar.cpp $(INC_DIR)/Pet_Fera_Exportar.hpp
 	$(CC) $(CFLAGS) $(SRC_DIR)/Pet_Fera_Exportar.cpp -o $@
 	@echo "+++ [Binario criado em $@] +++"
 
@@ -44,7 +44,7 @@ $(LIB_DIR)/libPetFera.a: $(INC_DIR)/Animal.hpp $(INC_DIR)/Animal_Classes.hpp $(I
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/Mamifero.cpp -o $(OBJ_DIR)/Mamifero.o
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/Reptil.cpp -o $(OBJ_DIR)/Reptil.o
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/Silvestre.cpp -o $(OBJ_DIR)/Silvestre.o
-#	$(CC) $(CFLAGS) -c $(SRC_DIR)/Animais_Silvestres.cpp -o $(OBJ_DIR)/Animais_Silvestres.o
+	$(CC) $(CFLAGS) -c $(SRC_DIR)/Animais_Silvestres.cpp -o $(OBJ_DIR)/Animais_Silvestres.o
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/Funcionario.cpp -o $(OBJ_DIR)/Funcionario.o
 	$(AR) -cru $@ $(OBJ_DIR)/Animal.o $(OBJ_DIR)/Anfibio.o $(OBJ_DIR)/Aves.o $(OBJ_DIR)/Mamifero.o $(OBJ_DIR)/Reptil.o $(OBJ_DIR)/Silvestre.o $(OBJ_DIR)/Animais_Silvestres.o $(OBJ_DIR)/Funcionario.o
 	@echo "+++ [Biblioteca estatica criada em $@] +++"
