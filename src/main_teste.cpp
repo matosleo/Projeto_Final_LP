@@ -1,5 +1,4 @@
 #include <iostream>
-#include "Animais_Silvestres.hpp"
 #include "Animal.hpp"
 #include "Animal_Classes.hpp"
 #include "Funcionario.hpp"
@@ -8,7 +7,6 @@
 
 int main(int argc, char const *argv[])
 {
-	
 	int opcao;
 	bool key = true;
 	int _id;
@@ -19,7 +17,6 @@ int main(int argc, char const *argv[])
 
 	do
 	{
-
 		std::cout << "Por favor digite uma das opcoes abaixo:" << std::endl
 					<< "1 - Cadastrar animal a ser comercializado" << std::endl
 					<< "2 - Cadastrar Funcionario" << std::endl
