@@ -13,10 +13,12 @@
 #ifndef PET_FERA_HPP
 #define PET_FERA_HPP
 
+#include <fstream>
 #include <map>
 #include <vector>
 #include <tuple>
 #include <iostream>
+#include "Pet_Fera_Exportar.hpp"
 #include "Animal.hpp"
 #include "Animal_Classes.hpp"
 #include "Animais_Silvestres.hpp"
@@ -51,7 +53,7 @@ public:
 	bool alterar_dados_animais( int _id, std::string _classe );
 	bool alterar_dados_funcionarios( int _id, std::string _funcao );
 	
-	bool importar_dados_animais();
+	bool importar_dados_animais( std::ifstream& dados_animais );
 	bool importar_dados_funcionarios();
 
 	bool exportar_dados_animais();
