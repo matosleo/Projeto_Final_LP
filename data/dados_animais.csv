@@ -1,4 +1,4 @@
-ID;Classe;Tipo;Nome;Nome Cientifico;Sexo;Tamanho;Dieta;Veterinario;Tratador;Batismo;Tamanho do Bico;Envergadura;Total Mudas;Ultima Muda;Cor do Pelo;Venenoso;Tipo Veneno;Ibama;UF / Pais;AutorizaçaÞo
+ID;Classe;Tipo;Nome;Nome Cientifico;Sexo;Tamanho;Dieta;Veterinario;Tratador;Batismo;Tamanho do Bico;Envergadura;Total Mudas;Ultima Muda;Cor do Pelo;Venenoso;Tipo Veneno;Ibama;UF / Pais;Autorizacao
 1;Mammalia;Exotico;Leao;Panthera leo;M;2;Carne;1;1;Simba;-;-;-;-;-;-;-;-;-;-
 2;Mammalia;Nativo;Onca-pintada;Panthera onca;F;2;Carne;1;1;Fiona;-;-;-;-;-;-;-;-;-;-
 3;Mammalia;Exotico;Leopardo;Panthera pardus;M;2;Carne;1;1;Leonardo;-;-;-;-;-;-;-;-;-;-
