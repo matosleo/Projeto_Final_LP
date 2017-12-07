@@ -11,6 +11,7 @@
  */
 
 #include "Animal.hpp"
+#include <iostream>
 
 using namespace PetFera;
 
@@ -116,3 +117,19 @@ void Animal::set_batismo( std::string new_batismo )
 	m_batismo = new_batismo;
 }
 */
+
+std::ostream& Animal::print( std::ostream & _os )
+{
+	_os << "ID: " << m_id << std::endl
+		<< "Classe: " << m_classe << std::endl
+		<< "Nome: " << m_nome << std::endl
+		<< "Nome Cientifico: " << m_cientifico << std::endl
+		<< "Sexo: " << ((m_sexo == 'M') ? "Masculino": "Feminino") << std::endl
+		<< "Tamanho: " << m_tamanho << std::endl
+		<< "Principal componente da Dieta: " << m_dieta << std::endl
+		<< "Veterinário responsável: " << m_veterinario->get_nome() << std::endl
+		<< "Tratador responsável: " << m_tratador->get_nome() << std::endl
+		<< "Nome de Batismo: " << m_batismo << std::endl;
+
+	return _os;
+}
