@@ -889,8 +889,129 @@ bool Pet_Fera_Cadastro::alterar_dados_funcionarios( int _id, std::string _funcao
 
 }
 
-bool Pet_Fera_Cadastro::importar_dados_animais()
+bool Pet_Fera_Cadastro::importar_dados_animais( std::ifstream& dados_animais )
 {
+	std::string linha;
+	std::vector< std::string > campos;
+	while( std::getline( dados_animais, linha))
+	{
+		if(linha == "")
+		{
+			continue;
+		}
+		campos = separar( linha,';' );
+
+		Veterinario* veterinario	= nullptr;
+		Tratador* 	 tratador		= nullptr;
+
+		for (std::map<int, Veterinario*>::iterator it = m_tabela_veterinario.begin(); it != m_tabela_veterinario.end(); ++it)
+		{
+			if( it->second->get_id() == std::stoi(campos[8]) )
+			{
+				veterinario = it->second;
+			}
+		}
+
+		for (std::map<int, Tratador*>::iterator it = m_tabela_tratador.begin(); it != m_tabela_tratador.end(); ++it)
+		{
+			if( it->second->get_id() == std::stoi(campos[9]) )
+			{
+				tratador = it->second;
+			}
+		}
+
+		if( campos[1] == "Anfibio" and campos[2] == "Domestico" )
+		{
+			m_tabela_anfibio.insert( std::pair<int, Animal*>(std::stoi(campos[0]), new Anfibio( std::stoi(campos[0]),
+			campos[1], campos[2], campos[3], campos[4], campos[5][0], std::stof(campos[6]),
+			campos[7], veterinario!=nullptr?veterinario:0, tratador!=nullptr?tratador:0,
+			campos[10], std::stoi(campos[13]), campos[14] ) ) );
+		}
+		else if( campos[1] == "Anfibio" and campos[2] == "Exotico" )
+		{
+			m_tabela_anfibio.insert( std::pair<int, Animal*>(std::stoi(campos[0]), new AnfibioExotico( std::stoi(campos[0]),
+			campos[1], campos[2], campos[3], campos[4], campos[5][0], std::stof(campos[6]),
+			campos[7], veterinario!=nullptr?veterinario:0, tratador!=nullptr?tratador:0,
+			campos[10], std::stoi(campos[13]), campos[14], campos[18], campos[19]  ) ) );
+		}
+		else if( campos[1] == "Anfibio" and campos[2] == "Nativo")
+		{
+			m_tabela_anfibio.insert( std::pair<int, Animal*>(std::stoi(campos[0]), new AnfibioNativo( std::stoi(campos[0]),
+			campos[1], campos[2], campos[3], campos[4], campos[5][0], std::stof(campos[6]),
+			campos[7], veterinario!=nullptr?veterinario:0, tratador!=nullptr?tratador:0,
+			campos[10], std::stoi(campos[13]), campos[14], campos[18], campos[19], campos[20] ) ) );
+		}
+		else if( campos[1] == "Mamifero" and campos[2] == "Domestico" )
+		{
+			m_tabela_mamifero.insert( std::pair<int, Animal*>(std::stoi(campos[0]), new Mamifero( std::stoi(campos[0]),
+			campos[1], campos[2], campos[3], campos[4], campos[5][0], std::stof(campos[6]),
+			campos[7], veterinario!=nullptr?veterinario:0, tratador!=nullptr?tratador:0,
+			campos[10], campos[15] ) ) );
+		}
+		else if( campos[1] == "Mamifero" and campos[2] == "Exotico")
+		{
+			m_tabela_mamifero.insert( std::pair<int, Animal*>(std::stoi(campos[0]), new MamiferoExotico( std::stoi(campos[0]),
+			campos[1], campos[2], campos[3], campos[4], campos[5][0], std::stof(campos[6]),
+			campos[7], veterinario!=nullptr?veterinario:0, tratador!=nullptr?tratador:0,
+			campos[10], campos[15], campos[18], campos[19]  ) ) );
+		}
+		else if( campos[1] == "Mamifero" and campos[2] == "Nativo")
+		{
+			m_tabela_mamifero.insert( std::pair<int, Animal*>(std::stoi(campos[0]), new MamiferoNativo( std::stoi(campos[0]),
+			campos[1], campos[2], campos[3], campos[4], campos[5][0], std::stof(campos[6]),
+			campos[7], veterinario!=nullptr?veterinario:0, tratador!=nullptr?tratador:0,
+			campos[10], campos[15], campos[18], campos[19], campos[20]  ) ) );
+		}
+		else if( campos[1] == "Reptil" and campos[2] == "Domestico" )
+		{
+			m_tabela_reptil.insert(	pair<int, Animal*>(std::stoi(campos[0]), new Reptil( std::stoi(campos[0]),
+			campos[1], campos[2], campos[3], campos[4], campos[5][0], std::stof(campos[6]),
+			campos[7], veterinario!=nullptr?veterinario:0, tratador!=nullptr?tratador:0,
+			campos[10], campos[16]=="Sim", campos[17] ) ) );
+		}
+		else if( campos[1] == "Reptil" and campos[2] == "Exotico")
+		{
+			m_tabela_reptil.insert(	pair<int, Animal*>(std::stoi(campos[0]), new ReptilExotico( std::stoi(campos[0]),
+			campos[1], campos[2], campos[3], campos[4], campos[5][0], std::stof(campos[6]),
+			campos[7], veterinario!=nullptr?veterinario:0, tratador!=nullptr?tratador:0,
+			campos[10], campos[16]=="Sim", campos[17], campos[18], campos[19]  ) ) );
+		}
+		else if( campos[1] == "Reptil" and campos[2] == "Nativo")
+		{
+			m_tabela_reptil.insert( std::pair<int, Animal*>(std::stoi(campos[0]), new ReptilNativo( std::stoi(campos[0]),
+			campos[1], campos[2], campos[3], campos[4], campos[5][0], std::stof(campos[6]),
+			campos[7], veterinario!=nullptr?veterinario:0, tratador!=nullptr?tratador:0,
+			campos[10], campos[16]=="Sim", campos[17], campos[18], campos[19], campos[20] ) ) );
+		}
+		else if( campos[1] == "Ave" and campos[2] == "Domestico" )
+		{
+			m_tabela_ave.insert( std::pair<int, Animal*>(std::stoi(campos[0]), new Ave( std::stoi(campos[0]),
+			campos[1], campos[2], campos[3], campos[4], campos[5][0], std::stof(campos[6]),
+			campos[7], veterinario!=nullptr?veterinario:0, tratador!=nullptr?tratador:0,
+			campos[10], std::stof(campos[11]), std::stof(campos[12]) ) ) );
+		}
+		else if( campos[1] == "Ave" and campos[2] == "Exotico")
+		{
+			m_tabela_ave.insert( std::pair<int, Animal*>(std::stoi(campos[0]), new AveExotico( std::stoi(campos[0]),
+			campos[1], campos[2], campos[3], campos[4], campos[5][0], std::stof(campos[6]),
+			campos[7], veterinario!=nullptr?veterinario:0, tratador!=nullptr?tratador:0,
+			campos[10], std::stof(campos[11]), std::stof(campos[12]) ), campos[18], campos[19]  ) );
+		}				
+		else if( campos[1] == "Ave" and campos[2] == "Nativo")
+		{
+			m_tabela_ave.insert( std::pair<int, Animal*>(std::stoi(campos[0]), new AveNativo( std::stoi(campos[0]),
+			campos[1], campos[2], campos[3], campos[4], campos[5][0], std::stof(campos[6]),
+			campos[7], veterinario!=nullptr?veterinario:0, tratador!=nullptr?tratador:0,
+			campos[10], std::stof(campos[11]), std::stof(campos[12]) ), campos[18], campos[19], campos[20]  ) );
+		}
+		else
+		{
+			// Possível local para lançar uma execeção!!
+			std::cerr << "CSV não está no formato correto." << std::endl;
+			std::cerr << "Fechando o programa." << std::endl;
+			std::exit(1);
+		}
+	}
 	return true;
 }
 
