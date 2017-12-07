@@ -30,7 +30,7 @@ namespace PetFera
 		AnimalSilvestre( std::string _ibama ) : m_ibama( _ibama )
 		{	/*	Vazio	*/	}
 
-		virtual ~AnimalSilvestre();
+		virtual ~AnimalSilvestre(){};
 		
 	};
 
@@ -71,7 +71,7 @@ namespace PetFera
 			, m_pais_origem( _pais_origem )
 			{	/*	Vazio	*/	}
 
-		~Exotico();
+		virtual ~Exotico(){};
 		
 	};
 }

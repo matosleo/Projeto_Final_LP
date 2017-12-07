@@ -9,7 +9,8 @@
 int main(int argc, char const *argv[])
 {
 	
-	unsigned int opcao;
+	int opcao;
+	bool key = true;
 	int _id;
 	std::string funcao_funcionario;
 	std::string familia_animal;
@@ -32,11 +33,16 @@ int main(int argc, char const *argv[])
 					<< "0 - Sair" << std::endl;
 		std::cin >> opcao;
 
-		if( opcao < 0 and opcao > 9 )
+		if( opcao < 0 or opcao > 9 )
 			std::cout << "\nOpcao digitada invalida! Por favor digite uma opcao valida." << std::endl << std::endl;
 		else
 			switch ( opcao )
 			{
+				case 0:
+
+					key = false;
+
+				break;
 
 				case 1:
 
@@ -157,7 +163,7 @@ int main(int argc, char const *argv[])
 			}
 
 
-	} while ( opcao != 0 );
+	} while ( key );
 
 	std::cout << "Obrigado por utilizar nossos servicos!" << std::endl;
 

@@ -107,7 +107,7 @@ namespace PetFera
 			, Exotico( _ibama, _pais_origem )
 			{	/*	Vazio	*/	}
 
-		~AnfibioExotico();
+		virtual ~AnfibioExotico(){};
 		
 	};
 
@@ -122,7 +122,7 @@ namespace PetFera
 			, Nativo( _ibama, _uf_origem, _autorizacao )
 			{	/*	Vazio	*/	}
 
-		~MamiferoNativo();
+		virtual ~MamiferoNativo(){};
 		
 	};
 
@@ -137,7 +137,7 @@ namespace PetFera
 			, Exotico( _ibama, _pais_origem )
 			{	/*	Vazio	*/	}
 
-		~MamiferoExotico();
+		virtual ~MamiferoExotico(){};
 		
 	};
 
@@ -153,7 +153,7 @@ namespace PetFera
 			, Nativo( _ibama, _uf_origem, _autorizacao )
 			{	/*	Vazio	*/	}
 
-		~ReptilNativo();
+		virtual ~ReptilNativo(){};
 		
 	};
 
@@ -168,7 +168,7 @@ namespace PetFera
 			, Exotico( _ibama, _pais_origem )
 			{	/*	Vazio	*/	}
 
-		~ReptilExotico();
+		virtual ~ReptilExotico(){};
 		
 	};
 
@@ -183,7 +183,7 @@ namespace PetFera
 			, Nativo( _ibama, _uf_origem, _autorizacao )
 			{	/*	Vazio	*/	}
 
-		~AveNativo();
+		virtual ~AveNativo(){};
 		
 	};
 
@@ -198,7 +198,7 @@ namespace PetFera
 			, Exotico( _ibama, _pais_origem )
 			{	/*	Vazio	*/	}
 
-		~AveExotico();
+		virtual ~AveExotico(){};
 		
 	};
 }

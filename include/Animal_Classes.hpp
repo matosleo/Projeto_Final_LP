@@ -61,7 +61,7 @@ namespace PetFera
 			, m_cor_pelo( _cor_pelo )
 			{	/*	Vazio	*/	}
 
-		~Mamifero(){};
+		virtual ~Mamifero(){};
 		
 	};
 
@@ -83,7 +83,7 @@ namespace PetFera
 			, m_venenoso( _venenoso ), m_tipo_veneno( _tipo_veneno )
 			{	/*	Vazio	*/	}
 
-		~Reptil(){};
+		virtual ~Reptil(){};
 		
 	};
 
@@ -108,7 +108,7 @@ namespace PetFera
 			, m_tamanho_bico( _tamanho_bico ), m_envergadura( _envergadura )
 			{	/*	Vazio	*/	}
 
-		~Ave(){};
+		virtual ~Ave(){};
 		
 	};
 

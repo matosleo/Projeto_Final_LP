@@ -10,7 +10,6 @@
  */
 
 #include "Pet_Fera_Cadastro.hpp"
-#include <utility>
 //#include <tuple>
 using namespace PetFera;
 
@@ -135,6 +134,10 @@ bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 	std::string _batismo;
 	int			_total_mudas;
 	std::string _ultima_muda;
+	std::string _ibama;
+	std::string _uf_origem;
+	std::string _autorizacao;
+	std::string _pais_origem;
 
 	std::cout << "Numero de Identificacao do Animal (ID): ";
 	std::cin >> _id;
@@ -189,14 +192,36 @@ bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 	} else if( _tipo.compare( "Nativo" ) == 0 )
 	{
 
-		
+		std::cout << "\nID do Ibama: ";
+		std::cin >> _ibama;
+		std::cout << "\nEstado de Origem: ";
+		std::cin >> _uf_origem;
+		std::cout << "\nAutorizacao do Ibama: ";
+		std::cin >> _autorizacao;
+
+		Anfibio * anfibio_nativo = new AnfibioNativo( _id, _classe, _tipo, _nome, _cientifico
+													, _sexo, _tamanho, _dieta, veterinario_resp
+													, tratador_resp, _batismo, _total_mudas, _ultima_muda
+													, _ibama, _uf_origem, _autorizacao );
+
+		m_tabela_anfibio.insert( std::pair<int, Anfibio*> ( _id, anfibio_nativo ) );
 
 		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
 
 	} else if( _tipo.compare( "Exotico" ) == 0 )
 	{
 
-		
+		std::cout << "\nID do Ibama: ";
+		std::cin >> _ibama;
+		std::cout << "\nPais de Origem: ";
+		std::cin >> _pais_origem;
+
+		Anfibio * anfibio_exotico = new AnfibioExotico( _id, _classe, _tipo, _nome, _cientifico
+													, _sexo, _tamanho, _dieta, veterinario_resp
+													, tratador_resp, _batismo, _total_mudas, _ultima_muda
+													, _ibama, _pais_origem );
+
+		m_tabela_anfibio.insert( std::pair<int, Anfibio*> ( _id, anfibio_exotico ) );		
 
 		/*	Precisa tratar a string dados_comuns, instanciar o objeto e adicionalo no map	*/
 
