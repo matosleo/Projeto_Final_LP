@@ -80,7 +80,7 @@ bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 	if( _tipo.compare( "Domestico" ) == 0 )
 	{
 
-		Anfibio * anfibio_domestico = new Anfibio( _id, _classe, _nome, _cientifico
+		Anfibio * anfibio_domestico = new Anfibio( _id, _classe, _tipo, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
 													, tratador_resp, _batismo, _total_mudas, _ultima_muda);
 
@@ -97,7 +97,7 @@ bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 		std::cout << "\nAutorizacao do Ibama: ";
 		std::cin >> _autorizacao;
 
-		Anfibio * anfibio_nativo = new AnfibioNativo( _id, _classe, _nome, _cientifico
+		Anfibio * anfibio_nativo = new AnfibioNativo( _id, _classe, _tipo, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
 													, tratador_resp, _batismo, _total_mudas, _ultima_muda
 													, _ibama, _uf_origem, _autorizacao );
@@ -113,7 +113,7 @@ bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 		std::cout << "\nPais de Origem: ";
 		std::cin >> _pais_origem;
 
-		Anfibio * anfibio_exotico = new AnfibioExotico( _id, _classe, _nome, _cientifico
+		Anfibio * anfibio_exotico = new AnfibioExotico( _id, _classe, _tipo, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
 													, tratador_resp, _batismo, _total_mudas, _ultima_muda
 													, _ibama, _pais_origem );
@@ -182,7 +182,7 @@ bool Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _ti
 	if( _tipo.compare( "Domestico" ) == 0 )
 	{
 
-		Mamifero * mamifero_domestico = new Mamifero( _id, _classe, _nome, _cientifico
+		Mamifero * mamifero_domestico = new Mamifero( _id, _classe, _tipo, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
 													, tratador_resp, _batismo, _cor_pelo);
 
@@ -200,7 +200,7 @@ bool Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _ti
 		std::cout << "\nAutorizacao do Ibama: ";
 		std::cin >> _autorizacao;
 
-		Mamifero * mamifero_nativo = new MamiferoNativo( _id, _classe, _nome, _cientifico
+		Mamifero * mamifero_nativo = new MamiferoNativo( _id, _classe, _tipo, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
 													, tratador_resp, _batismo, _cor_pelo
 													, _ibama, _uf_origem, _autorizacao );
@@ -217,7 +217,7 @@ bool Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _ti
 		std::cout << "\nPais de Origem: ";
 		std::cin >> _pais_origem;
 
-		Mamifero * mamifero_exotico = new MamiferoExotico( _id, _classe, _nome, _cientifico
+		Mamifero * mamifero_exotico = new MamiferoExotico( _id, _classe, _tipo, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
 													, tratador_resp, _batismo, _cor_pelo
 													, _ibama, _pais_origem );
@@ -301,7 +301,7 @@ bool Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 
 
 
-		Reptil * reptil_domestico = new Reptil( _id, _classe, _nome, _cientifico
+		Reptil * reptil_domestico = new Reptil( _id, _classe, _tipo, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
 													, tratador_resp, _batismo, possui_veneno, _tipo_veneno);
 
@@ -318,7 +318,7 @@ bool Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 		std::cout << "\nAutorizacao do Ibama: ";
 		std::cin >> _autorizacao;
 
-		Reptil * reptil_nativo = new ReptilNativo( _id, _classe, _nome, _cientifico
+		Reptil * reptil_nativo = new ReptilNativo( _id, _classe, _tipo, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
 													, tratador_resp, _batismo, possui_veneno, _tipo_veneno
 													, _ibama, _uf_origem, _autorizacao );
@@ -335,7 +335,7 @@ bool Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 		std::cout << "\nPais de Origem: ";
 		std::cin >> _pais_origem;
 		
-		Reptil * reptil_exotico = new ReptilExotico( _id, _classe, _nome, _cientifico
+		Reptil * reptil_exotico = new ReptilExotico( _id, _classe, _tipo, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
 													, tratador_resp, _batismo, possui_veneno, _tipo_veneno
 													, _ibama, _pais_origem );
@@ -406,7 +406,7 @@ bool Pet_Fera_Cadastro::cadastrar_ave( std::string _classe, std::string _tipo )
 	{
 
 
-		Ave * ave_domestico = new Ave( _id, _classe, _nome, _cientifico
+		Ave * ave_domestico = new Ave( _id, _classe, _tipo, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
 													, tratador_resp, _batismo, _tamanho_bico, _envergadura);
 
@@ -423,7 +423,7 @@ bool Pet_Fera_Cadastro::cadastrar_ave( std::string _classe, std::string _tipo )
 		std::cout << "\nAutorizacao do Ibama: ";
 		std::cin >> _autorizacao;
 
-		Ave * ave_nativo = new AveNativo( _id, _classe, _nome, _cientifico
+		Ave * ave_nativo = new AveNativo( _id, _classe, _tipo, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
 													, tratador_resp, _batismo, _tamanho_bico, _envergadura
 													, _ibama, _uf_origem, _autorizacao );
@@ -440,7 +440,7 @@ bool Pet_Fera_Cadastro::cadastrar_ave( std::string _classe, std::string _tipo )
 		std::cout << "\nPais de Origem: ";
 		std::cin >> _pais_origem;
 
-		Ave * ave_exotico = new AveExotico( _id, _classe, _nome, _cientifico
+		Ave * ave_exotico = new AveExotico( _id, _classe, _tipo, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
 													, tratador_resp, _batismo, _tamanho_bico, _envergadura
 													, _ibama, _pais_origem );
@@ -922,91 +922,91 @@ bool Pet_Fera_Cadastro::importar_dados_animais( std::ifstream& dados_animais )
 
 		if( campos[1] == "Anfibio" and campos[2] == "Domestico" )
 		{
-			m_tabela_anfibio.insert( std::pair<int, Animal*>(std::stoi(campos[0]), new Anfibio( std::stoi(campos[0]),
+			m_tabela_anfibio.insert( std::pair<int, Anfibio*>(std::stoi(campos[0]), new Anfibio( std::stoi(campos[0]),
 			campos[1], campos[2], campos[3], campos[4], campos[5][0], std::stof(campos[6]),
 			campos[7], veterinario!=nullptr?veterinario:0, tratador!=nullptr?tratador:0,
 			campos[10], std::stoi(campos[13]), campos[14] ) ) );
 		}
 		else if( campos[1] == "Anfibio" and campos[2] == "Exotico" )
 		{
-			m_tabela_anfibio.insert( std::pair<int, Animal*>(std::stoi(campos[0]), new AnfibioExotico( std::stoi(campos[0]),
+			m_tabela_anfibio.insert( std::pair<int, Anfibio*>(std::stoi(campos[0]), new AnfibioExotico( std::stoi(campos[0]),
 			campos[1], campos[2], campos[3], campos[4], campos[5][0], std::stof(campos[6]),
 			campos[7], veterinario!=nullptr?veterinario:0, tratador!=nullptr?tratador:0,
 			campos[10], std::stoi(campos[13]), campos[14], campos[18], campos[19]  ) ) );
 		}
 		else if( campos[1] == "Anfibio" and campos[2] == "Nativo")
 		{
-			m_tabela_anfibio.insert( std::pair<int, Animal*>(std::stoi(campos[0]), new AnfibioNativo( std::stoi(campos[0]),
+			m_tabela_anfibio.insert( std::pair<int, Anfibio*>(std::stoi(campos[0]), new AnfibioNativo( std::stoi(campos[0]),
 			campos[1], campos[2], campos[3], campos[4], campos[5][0], std::stof(campos[6]),
 			campos[7], veterinario!=nullptr?veterinario:0, tratador!=nullptr?tratador:0,
 			campos[10], std::stoi(campos[13]), campos[14], campos[18], campos[19], campos[20] ) ) );
 		}
 		else if( campos[1] == "Mamifero" and campos[2] == "Domestico" )
 		{
-			m_tabela_mamifero.insert( std::pair<int, Animal*>(std::stoi(campos[0]), new Mamifero( std::stoi(campos[0]),
+			m_tabela_mamifero.insert( std::pair<int, Mamifero*>(std::stoi(campos[0]), new Mamifero( std::stoi(campos[0]),
 			campos[1], campos[2], campos[3], campos[4], campos[5][0], std::stof(campos[6]),
 			campos[7], veterinario!=nullptr?veterinario:0, tratador!=nullptr?tratador:0,
 			campos[10], campos[15] ) ) );
 		}
 		else if( campos[1] == "Mamifero" and campos[2] == "Exotico")
 		{
-			m_tabela_mamifero.insert( std::pair<int, Animal*>(std::stoi(campos[0]), new MamiferoExotico( std::stoi(campos[0]),
+			m_tabela_mamifero.insert( std::pair<int, Mamifero*>(std::stoi(campos[0]), new MamiferoExotico( std::stoi(campos[0]),
 			campos[1], campos[2], campos[3], campos[4], campos[5][0], std::stof(campos[6]),
 			campos[7], veterinario!=nullptr?veterinario:0, tratador!=nullptr?tratador:0,
 			campos[10], campos[15], campos[18], campos[19]  ) ) );
 		}
 		else if( campos[1] == "Mamifero" and campos[2] == "Nativo")
 		{
-			m_tabela_mamifero.insert( std::pair<int, Animal*>(std::stoi(campos[0]), new MamiferoNativo( std::stoi(campos[0]),
+			m_tabela_mamifero.insert( std::pair<int, Mamifero*>(std::stoi(campos[0]), new MamiferoNativo( std::stoi(campos[0]),
 			campos[1], campos[2], campos[3], campos[4], campos[5][0], std::stof(campos[6]),
 			campos[7], veterinario!=nullptr?veterinario:0, tratador!=nullptr?tratador:0,
 			campos[10], campos[15], campos[18], campos[19], campos[20]  ) ) );
 		}
 		else if( campos[1] == "Reptil" and campos[2] == "Domestico" )
 		{
-			m_tabela_reptil.insert(	pair<int, Animal*>(std::stoi(campos[0]), new Reptil( std::stoi(campos[0]),
+			m_tabela_reptil.insert(	std::pair<int, Reptil*>(std::stoi(campos[0]), new Reptil( std::stoi(campos[0]),
 			campos[1], campos[2], campos[3], campos[4], campos[5][0], std::stof(campos[6]),
 			campos[7], veterinario!=nullptr?veterinario:0, tratador!=nullptr?tratador:0,
 			campos[10], campos[16]=="Sim", campos[17] ) ) );
 		}
 		else if( campos[1] == "Reptil" and campos[2] == "Exotico")
 		{
-			m_tabela_reptil.insert(	pair<int, Animal*>(std::stoi(campos[0]), new ReptilExotico( std::stoi(campos[0]),
+			m_tabela_reptil.insert(	std::pair<int, Reptil*>(std::stoi(campos[0]), new ReptilExotico( std::stoi(campos[0]),
 			campos[1], campos[2], campos[3], campos[4], campos[5][0], std::stof(campos[6]),
 			campos[7], veterinario!=nullptr?veterinario:0, tratador!=nullptr?tratador:0,
 			campos[10], campos[16]=="Sim", campos[17], campos[18], campos[19]  ) ) );
 		}
 		else if( campos[1] == "Reptil" and campos[2] == "Nativo")
 		{
-			m_tabela_reptil.insert( std::pair<int, Animal*>(std::stoi(campos[0]), new ReptilNativo( std::stoi(campos[0]),
+			m_tabela_reptil.insert( std::pair<int, Reptil*>(std::stoi(campos[0]), new ReptilNativo( std::stoi(campos[0]),
 			campos[1], campos[2], campos[3], campos[4], campos[5][0], std::stof(campos[6]),
 			campos[7], veterinario!=nullptr?veterinario:0, tratador!=nullptr?tratador:0,
 			campos[10], campos[16]=="Sim", campos[17], campos[18], campos[19], campos[20] ) ) );
 		}
 		else if( campos[1] == "Ave" and campos[2] == "Domestico" )
 		{
-			m_tabela_ave.insert( std::pair<int, Animal*>(std::stoi(campos[0]), new Ave( std::stoi(campos[0]),
+			m_tabela_ave.insert( std::pair<int, Ave*>(std::stoi(campos[0]), new Ave( std::stoi(campos[0]),
 			campos[1], campos[2], campos[3], campos[4], campos[5][0], std::stof(campos[6]),
 			campos[7], veterinario!=nullptr?veterinario:0, tratador!=nullptr?tratador:0,
 			campos[10], std::stof(campos[11]), std::stof(campos[12]) ) ) );
 		}
 		else if( campos[1] == "Ave" and campos[2] == "Exotico")
 		{
-			m_tabela_ave.insert( std::pair<int, Animal*>(std::stoi(campos[0]), new AveExotico( std::stoi(campos[0]),
+			m_tabela_ave.insert( std::pair<int, Ave*>(std::stoi(campos[0]), new AveExotico( std::stoi(campos[0]),
 			campos[1], campos[2], campos[3], campos[4], campos[5][0], std::stof(campos[6]),
 			campos[7], veterinario!=nullptr?veterinario:0, tratador!=nullptr?tratador:0,
-			campos[10], std::stof(campos[11]), std::stof(campos[12]) ), campos[18], campos[19]  ) );
+			campos[10], std::stof(campos[11]), std::stof(campos[12]), campos[18], campos[19] ) ) );
 		}				
 		else if( campos[1] == "Ave" and campos[2] == "Nativo")
 		{
-			m_tabela_ave.insert( std::pair<int, Animal*>(std::stoi(campos[0]), new AveNativo( std::stoi(campos[0]),
+			m_tabela_ave.insert( std::pair<int, Ave*>(std::stoi(campos[0]), new AveNativo( std::stoi(campos[0]),
 			campos[1], campos[2], campos[3], campos[4], campos[5][0], std::stof(campos[6]),
 			campos[7], veterinario!=nullptr?veterinario:0, tratador!=nullptr?tratador:0,
-			campos[10], std::stof(campos[11]), std::stof(campos[12]) ), campos[18], campos[19], campos[20]  ) );
+			campos[10], std::stof(campos[11]), std::stof(campos[12]), campos[18], campos[19], campos[20] ) ) );
 		}
 		else
 		{
-			// Possível local para lançar uma execeção!!
+			// Possível local para lançar uma exceção!!
 			std::cerr << "CSV não está no formato correto." << std::endl;
 			std::cerr << "Fechando o programa." << std::endl;
 			std::exit(1);
