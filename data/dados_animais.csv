@@ -1,20 +1,21 @@
-1;Mammalia;Leao;Panthera leo;M;2;Carne;1;1;Simba
-2;Mammalia;Onca-pintada;Panthera onca;F;2;Carne;1;1;Fiona
-3;Mammalia;Leopardo;Panthera pardus;M;2;Carne;1;1;Leonardo
-4;Mammalia;Tigre;Panthera tigris;M;2;Carne;1;1;Timao
-5;Mammalia;Canguru;Macropus rufus;M;2;Grama;2;2;Jack
-6;Aves;Papagaio;Amazona aestiva;F;0.38;Frutas;3;3;Pandora
-7;Aves;Cacatua;Cacatua;F;0.42;Frutas;3;3;Clarice
-8;Aves;Galinha;Gallus gallus domesticus;F;0.42;Milho;3;3;Pipa
-9;Aves;Urubu;Coragyps atratus;M;0.42;Carni√ßa;9;9;Willian
-10;Reptilia;Tartaruga gigante de galapagos;Chelonoidis nigra;M;2;Folha;4;4;Harriet
-11;Reptilia;Naja;Naja naja;M;2;Carne;5;5;Sebastiao
-12;Reptilia;Dragao-de-komodo;Varanus komodoensis;F;2,5;Carne;5;5;Maria
-13;Reptilia;Camaleao;Chamaeleo zeylanicus;M;0,04;Insetos;6;6;Zayn
-14;Mammalia;Arminho;Mustela erminea;M;0,33;Carne;7;7;Arnold
-15;Mammalia;Gerbo;Meriones unguiculatus;M;0,8;Sementes;8;8;Gregorio
-16;Mammalia;Feneco;Vulpes zerda;F;0,4;Carne;8;8;Sthephany
-17;Aves;Kiwi;Apteryx;M;0.36;Insetos;3;3;Kevin
-18;Amphibia;Sapo-comum;Bufo bufo;M;0,1;Moscas;10;10;Godofredo
-19;Amphibia;salamandra-comum;Salamandra salamandra gallaica;F;0,17;Insetos;10;10;Wanda
-20;Amphibia;perereca;Hypochondrialis Phyllomedusa;M;0,04;Insetos;10;10;Ptolomeu
+ID;Classe;Tipo;Nome;Nome Cientifico;Sexo;Tamanho;Dieta;Veterinario;Tratador;Batismo;Tamanho do Bico;Envergadura;Total Mudas;Ultima Muda;Cor do Pelo;Venenoso;Tipo Veneno;Ibama;UF / Pais;AutorizaÁaﬁo
+1;Mammalia;Exotico;Leao;Panthera leo;M;2;Carne;1;1;Simba;-;-;-;-;-;-;-;-;-;-
+2;Mammalia;Nativo;Onca-pintada;Panthera onca;F;2;Carne;1;1;Fiona;-;-;-;-;-;-;-;-;-;-
+3;Mammalia;Exotico;Leopardo;Panthera pardus;M;2;Carne;1;1;Leonardo;-;-;-;-;-;-;-;-;-;-
+4;Mammalia;Exotico;Tigre;Panthera tigris;M;2;Carne;1;1;Timao;-;-;-;-;-;-;-;-;-;-
+5;Mammalia;Exotico;Canguru;Macropus rufus;M;2;Grama;2;2;Jack;-;-;-;-;-;-;-;-;-;-
+6;Aves;Nativo;Papagaio;Amazona aestiva;F;0.38;Frutas;3;3;Pandora;-;-;-;-;-;-;-;-;-;-
+7;Aves;Exotico;Cacatua;Cacatua;F;0.42;Frutas;3;3;Clarice;-;-;-;-;-;-;-;-;-;-
+8;Aves;Domestico;Galinha;Gallus gallus domesticus;F;0.42;Milho;3;3;Pipa;-;-;-;-;-;-;-;-;-;-
+9;Aves;Nativo;Urubu;Coragyps atratus;M;0.42;Carne;9;9;Willian;-;-;-;-;-;-;-;-;-;-
+10;Reptilia;Exotico;Tartaruga gigante de galapagos;Chelonoidis nigra;M;2;Folha;4;4;Harriet;-;-;-;-;-;-;-;-;-;-
+11;Reptilia;Exotico;Naja;Naja naja;M;2;Carne;5;5;Sebastiao;-;-;-;-;-;-;-;-;-;-
+12;Reptilia;Exotico;Dragao-de-komodo;Varanus komodoensis;F;2,5;Carne;5;5;Maria;-;-;-;-;-;-;-;-;-;-
+13;Reptilia;Nativo;Camaleao;Chamaeleo zeylanicus;M;0,04;Insetos;6;6;Zayn;-;-;-;-;-;-;-;-;-;-
+14;Mammalia;Exotico;Arminho;Mustela erminea;M;0,33;Carne;7;7;Arnold;-;-;-;-;-;-;-;-;-;-
+15;Mammalia;Exotico;Gerbo;Meriones unguiculatus;M;0,8;Sementes;8;8;Gregorio;-;-;-;-;-;-;-;-;-;-
+16;Mammalia;Exotico;Feneco;Vulpes zerda;F;0,4;Carne;8;8;Sthephany;-;-;-;-;-;-;-;-;-;-
+17;Aves;Exotico;Kiwi;Apteryx;M;0.36;Insetos;3;3;Kevin;-;-;-;-;-;-;-;-;-;-
+18;Amphibia;Domestico;Sapo-comum;Bufo bufo;M;0,1;Moscas;10;10;Godofredo;-;-;-;-;-;-;-;-;-;-
+19;Amphibia;Nativo;Salamandra-comum;Salamandra salamandra gallaica;F;0,17;Insetos;10;10;Wanda;-;-;-;-;-;-;-;-;-;-
+20;Amphibia;Domestico;Perereca;Hypochondrialis Phyllomedusa;M;0,04;Insetos;10;10;Ptolomeu;-;-;-;-;-;-;-;-;-;-
