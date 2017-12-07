@@ -9,7 +9,6 @@
  * @date       03/12/2017
  */
 
-
 #ifndef PET_FERA_HPP
 #define PET_FERA_HPP
 
@@ -22,7 +21,14 @@
 #include "Pet_Fera_Exportar.hpp"
 #include "Animal.hpp"
 #include "Animal_Classes.hpp"
-#include "Animais_Silvestres.hpp"
+#include "AnfibioExotico.hpp"
+#include "AnfibioNativo.hpp"
+#include "MamiferoExotico.hpp"
+#include "MamiferoNativo.hpp"
+#include "ReptilExotico.hpp"
+#include "ReptilNativo.hpp"
+#include "AveExotico.hpp"
+#include "AveNativo.hpp"
 
 class Pet_Fera_Cadastro
 {
