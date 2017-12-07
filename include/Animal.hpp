@@ -36,7 +36,6 @@ namespace PetFera
 
 		int 		m_id;
 		std::string m_classe;
-		std::string m_tipo;
 		std::string m_nome;
 		std::string m_cientifico;
 		char 		m_sexo;
@@ -48,11 +47,10 @@ namespace PetFera
 
 	public:
 
-		Animal(	int _id, std::string _classe, std::string _tipo, std::string _nome, std::string _cientifico, char _sexo, 
+		Animal(	int _id, std::string _classe, std::string _nome, std::string _cientifico, char _sexo, 
 				float _tamanho, std::string _dieta, V_pointer _veterinario, T_pointer _tratador, std::string _batismo )
 			: m_id( _id )
 			, m_classe( _classe )
-			, m_tipo( _tipo )
 			, m_nome( _nome )
 			, m_cientifico( _cientifico )
 			, m_sexo( _sexo )
@@ -86,6 +84,14 @@ namespace PetFera
 		void set_veterinario( V_pointer new_veterinario );
 		void set_tratador( T_pointer new_tratador );
 //		void set_batismo( void );
+
+		virtual std::ostream& print( std::ostream & _os );
+
+		inline friend std::ostream & operator << ( std::ostream & _os , Animal & _animal ) 
+		{
+			_animal.print( _os );
+			return _os;
+		}
 
 	};
 

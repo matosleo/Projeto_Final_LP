@@ -15,7 +15,7 @@
 
 #include <map>
 #include <vector>
-//#include <tuple>
+#include <tuple>
 #include <iostream>
 #include "Animal.hpp"
 #include "Animal_Classes.hpp"
