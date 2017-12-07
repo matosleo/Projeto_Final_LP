@@ -34,37 +34,22 @@ public:
 	Pet_Fera_Cadastro();
 	~Pet_Fera_Cadastro();
 
-	
-	std::string cadastro_nativo( std::string & dados );
-	std::string cadastro_exotico( std::string & dados );
-
-	std::vector< std::string > separar ( const std::string& alvo, const char &delimitador );
-
-	/*std::tuple< int, std::string, std::string, std::string,	std::string, char, float, std::string, V_pointer, T_pointer, std::string >
-	converte_cadastro_comum( const std::string & dados_comuns );
-
-	std::tuple< std::string, std::string, std::string >
-	converte_cadastro_nativo( const std::string & dados_comuns );
-
-	std::tuple< std::string, std::string >
-	converte_cadastro_exotico( const std::string & dados_comuns );
-*/
 	bool cadastrar_anfibio( std::string _classe, std::string _tipo );
 	bool cadastrar_mamifero( std::string _classe, std::string _tipo );
 	bool cadastrar_reptil( std::string _classe, std::string _tipo );
 	bool cadastrar_ave( std::string _classe, std::string _tipo );
 
 	bool cadastrar_funcionario( std::string _funcao );
-	bool remover_funcionario( int _id );
 
-	bool remover_animal( int _id );
+	bool consultar_animais( int _id, std::string _classe );
+	bool consultar_animais_funcionario( int _id, std::string _funcao );
+	bool consultar_funcionarios( int _id, std::string _funcao );
 
-	bool alterar_dados_animais( int _id );
-	bool alterar_dados_funcionarios( int _id );
+	bool remover_funcionario( int _id, std::string _funcao );
+	bool remover_animal( int _id, std::string _classe );
 
-	bool consultar_animais( int _id );
-	bool consultar_animais_funcionario( int _id );
-	bool consultar_funcionarios( int _id );
+	bool alterar_dados_animais( int _id, std::string _classe );
+	bool alterar_dados_funcionarios( int _id, std::string _funcao );
 	
 	bool importar_dados_animais();
 	bool importar_dados_funcionarios();

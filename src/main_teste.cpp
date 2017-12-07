@@ -88,8 +88,10 @@ int main(int argc, char const *argv[])
 					
 					std::cout << "Digite o ID do animal a ser removido:" << std::endl;
 					std::cin >> _id;
+					std::cout << "Digite a classe do animal que deseja remover (Anfibio, Mamifero, Reptil ou Ave):" << std::endl;
+					std::cin >> familia_animal;
 
-						if( pet_cadastro.remover_animal( _id ) )
+						if( pet_cadastro.remover_animal( _id, familia_animal ) )
 							std::cout << "Animal removido com sucesso!" << std::endl;
 					
 
@@ -99,8 +101,10 @@ int main(int argc, char const *argv[])
 					
 					std::cout << "Digite o ID do animal que deseja alterar os dados:" << std::endl;
 					std::cin >> _id;
+					std::cout << "Digite a classe do animal que deseja alterar os dados (Anfibio, Mamifero, Reptil ou Ave):" << std::endl;
+					std::cin >> familia_animal;
 
-					if( pet_cadastro.alterar_dados_animais( _id ) )
+					if( pet_cadastro.alterar_dados_animais( _id, familia_animal ) )
 						std::cout << "Dados alterados com sucesso!" << std::endl;
 
 				break;
@@ -109,8 +113,10 @@ int main(int argc, char const *argv[])
 
 					std::cout << "Digite o ID do animal que deseja consultar:" << std::endl;
 					std::cin >> _id;
+					std::cout << "Digite a classe do animal que deseja consultar (Anfibio, Mamifero, Reptil ou Ave):" << std::endl;
+					std::cin >> familia_animal;
 
-					if( pet_cadastro.consultar_animais( _id ) )
+					if( pet_cadastro.consultar_animais( _id, familia_animal ) )
 						std::cout << "Dados consultados com sucesso!" << std::endl;
 
 					/*	Falta Codigo	*/
@@ -121,8 +127,10 @@ int main(int argc, char const *argv[])
 
 					std::cout << "Digite o ID do funcionario:" << std::endl;
 					std::cin >> _id;
+					std::cout << "Digite a funcao do Funcionario que deseja consultar (Veterinario ou Tratador):" << std::endl;
+					std::cin >> funcao_funcionario;
 
-					if( pet_cadastro.consultar_animais_funcionario( _id ) );
+					if( pet_cadastro.consultar_animais_funcionario( _id, funcao_funcionario ) );
 						std::cout << "Dados consultados com sucesso!" << std::endl;
 					/*	Falta Codigo	*/
 					
@@ -132,8 +140,10 @@ int main(int argc, char const *argv[])
 
 					std::cout << "Digite o ID do funcionario a ser removido:" << std::endl;
 					std::cin >> _id;
+					std::cout << "Digite a funcao do Funcionario que deseja remover (Veterinario ou Tratador):" << std::endl;
+					std::cin >> funcao_funcionario;
 
-					if( pet_cadastro.remover_funcionario( _id ) );
+					if( pet_cadastro.remover_funcionario( _id, funcao_funcionario ) );
 						std::cout << "Funcionario removido com sucesso!" << std::endl;
 					/*	Falta Codigo	*/
 					
@@ -142,8 +152,10 @@ int main(int argc, char const *argv[])
 				case 8:
 					std::cout << "Digite o ID do funcionario que deseja alterar os dados:" << std::endl;
 					std::cin >> _id;
+					std::cout << "Digite a funcao do Funcionario que deseja alterar os dados (Veterinario ou Tratador):" << std::endl;
+					std::cin >> funcao_funcionario;
 
-					if( pet_cadastro.alterar_dados_funcionarios( _id ) )
+					if( pet_cadastro.alterar_dados_funcionarios( _id, funcao_funcionario ) )
 						std::cout << "Dados alterados com sucesso!" << std::endl;
 
 				break;
@@ -152,8 +164,10 @@ int main(int argc, char const *argv[])
 
 					std::cout << "Digite o ID do funcionario que deseja consultar:" << std::endl;
 					std::cin >> _id;
+					std::cout << "Digite a funcao do Funcionario que deseja consultar (Veterinario ou Tratador):" << std::endl;
+					std::cin >> funcao_funcionario;
 
-					if( pet_cadastro.consultar_funcionarios( _id ) )
+					if( pet_cadastro.consultar_funcionarios( _id, funcao_funcionario ) )
 						std::cout << "Dados consultados com sucesso!" << std::endl;
 
 				break;
