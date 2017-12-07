@@ -929,7 +929,7 @@ bool Pet_Fera_Cadastro::importar_dados_animais( std::ifstream& dados_animais )
 				tratador = it->second;
 			}
 		}
-
+		std::cout << campos[6] << "  " << campos[11] << "  " <<  campos[11] << std::endl;
 		if( campos[1] == "Amphibia" and campos[2] == "Domestico" )
 		{
 			m_tabela_anfibio.insert( std::pair<int, Anfibio*>(std::stoi(campos[0]), new Anfibio( std::stoi(campos[0]),
