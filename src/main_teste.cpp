@@ -17,6 +17,19 @@ int main(int argc, char const *argv[])
 	std::string tipo_animal;
 	Pet_Fera_Cadastro pet_cadastro;
 
+	std::ifstream dados_funcionarios;
+	dados_funcionarios.open ("data/dados_funcionarios.csv");
+
+	if(dados_funcionarios.bad())
+	{
+		std::cerr << "O arquivo com informações dos funcionarios não pode ser aberto" << std::endl;
+		std::cerr << "Abortando execução do programa" << std::endl;
+		return 1;
+	}
+	pet_cadastro.importar_dados_funcionarios( dados_funcionarios );
+	dados_funcionarios.close();
+
+
 	std::ifstream dados_animais;
 	dados_animais.open ("data/dados_animais.csv");
 
@@ -27,6 +40,7 @@ int main(int argc, char const *argv[])
 		return 1;
 	}
 	pet_cadastro.importar_dados_animais( dados_animais );
+	dados_animais.close();
 
 	do
 	{
@@ -162,8 +176,12 @@ int main(int argc, char const *argv[])
 
 			}
 
-
 	} while ( opcao != 0 );
+
+
+	std::ofstream dados_animais_exportar;
+	dados_animais_exportar.open ("data/dados_animais.csv");
+	pet_cadastro.exportar_dados_animais( dados_animais_exportar );
 
 	std::cout << "Obrigado por utilizar nossos servicos!" << std::endl;
 

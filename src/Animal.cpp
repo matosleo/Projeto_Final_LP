@@ -25,6 +25,11 @@ std::string Animal::get_classe( void )
 	return m_classe;
 }
 
+std::string Animal::get_tipo( void )
+{
+	return m_tipo;
+}
+
 std::string Animal::get_nome( void )
 {
 	return m_nome;

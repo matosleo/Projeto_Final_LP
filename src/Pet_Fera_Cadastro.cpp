@@ -458,8 +458,8 @@ void Pet_Fera_Cadastro::cadastrar_funcionario( std::string _funcao )
 	std::string _nome;
 	std::string _CPF;
 	short 		_idade;
-	short 		_tipo_sangue;		// A / B / AB / O
-	short 		_fator_RH;			// + / -
+	std::string	_tipo_sangue;		// A / B / AB / O
+	char 		_fator_RH;			// + / -
 	std::string _especialidade;
 
 	std::cout << "Numero de Identificacao do Funcionario (ID): ";
@@ -885,7 +885,7 @@ void Pet_Fera_Cadastro::alterar_dados_funcionarios( int _id )
 
 /*	Ajeitar Importação de Dados!	*/
 
-bool Pet_Fera_Cadastro::importar_dados_animais( std::ifstream& dados_animais )
+void Pet_Fera_Cadastro::importar_dados_animais( std::ifstream& dados_animais )
 {
 	std::string linha;
 	std::vector< std::string > campos;
@@ -923,7 +923,6 @@ bool Pet_Fera_Cadastro::importar_dados_animais( std::ifstream& dados_animais )
 			}
 		}
 
-		std::cout << campos[6] << "  " << campos[11] << "  " <<  campos[11] << std::endl;
 		if( campos[1] == "Amphibia" and campos[2] == "Domestico" )
 		{
 			m_tabela_anfibio.insert( std::pair<int, Anfibio*>(std::stoi(campos[0]), new Anfibio( std::stoi(campos[0]),
@@ -1018,22 +1017,344 @@ bool Pet_Fera_Cadastro::importar_dados_animais( std::ifstream& dados_animais )
 			std::exit(1);
 		}
 	}
-	return true;
 }
 
-bool Pet_Fera_Cadastro::importar_dados_funcionarios()
+void Pet_Fera_Cadastro::importar_dados_funcionarios( std::ifstream& dados_funcionarios )
 {
-	return true;
+	std::string linha;
+	std::vector< std::string > campos;
+	std::getline(dados_funcionarios, linha);
+	if (linha != "ID;Profissao;Nome;CPF;Idade;Tipo Sanguineo;Fator RH;Especialidade")
+	{
+		std::cerr << linha << std::endl;
+		//Outro bom momento para lançar uma exceçao!
+		std::cerr << "CSV não está no formato correto." << std::endl;
+		std::cerr << "Fechando o programa." << std::endl;
+		std::cerr << "1" << std::endl;
+		std::exit(1);
+	}
+	while( std::getline( dados_funcionarios, linha))
+	{
+		if(linha == "")
+		{
+			continue;
+		}
+		campos = separar( linha,';' );
+
+		if(campos[1] == "Veterinario")
+		{
+			m_tabela_funcionario.insert( std::pair<int, Veterinario*>(std::stoi(campos[0]),
+			new Veterinario( std::stoi(campos[0]), campos[1], campos[2], campos[3],
+			(short)std::stoi(campos[4]), campos[5], campos[6][0], campos[7] ) ) );
+		}
+		else if(campos[1] == "Tratador")
+		{
+			m_tabela_funcionario.insert( std::pair<int, Tratador*>(std::stoi(campos[0]),
+			new Tratador( std::stoi(campos[0]), campos[1], campos[2], campos[3],
+			(short)std::stoi(campos[4]), campos[5], campos[6][0], campos[7] ) ) );
+		}
+		else
+		{
+			std::cerr << campos[1] << std::endl;
+			// Possível local para lançar uma exceção!!
+			std::cerr << "CSV não está no formato correto." << std::endl;
+			std::cerr << "Fechando o programa." << std::endl;
+			std::cerr << "2" << std::endl;
+			std::exit(1);
+		}
+	}
 }
 
-bool Pet_Fera_Cadastro::exportar_dados_animais()
+template < typename T >
+std::string Pet_Fera_Cadastro::to_string( T target )
 {
-	return true;
+	std::stringstream ss;
+	ss << target;
+	return ss.str();
 }
 
-bool Pet_Fera_Cadastro::exportar_dados_funcionarios()
+void Pet_Fera_Cadastro::exportar_dados_animais( std::ofstream& dados_animais )
 {
-	return true;
+	dados_animais << "ID;Classe;Tipo;Nome;Nome Cientifico;Sexo;Tamanho;Dieta;Veterinario;Tratador;Batismo;Tamanho do Bico;Envergadura;Total Mudas;Ultima Muda;Cor do Pelo;Venenoso;Tipo Veneno;Ibama;UF / Pais;Autorizacao" << std::endl;
+	std::string linha;
+	std::vector< std::string > campos;
+
+	for ( auto it = m_tabela_anfibio.begin(); it != m_tabela_anfibio.end(); ++it )
+	{
+		campos.clear();
+		campos.push_back(to_string(it->second->get_id()));		// 0
+		campos.push_back(it->second->get_classe());				// 1
+		campos.push_back(it->second->get_tipo());				// 2
+		campos.push_back(it->second->get_nome());				// 3
+		campos.push_back(it->second->get_cientifico());			// 4
+		campos.push_back(to_string(it->second->get_sexo()));		// 5
+		campos.push_back(to_string(it->second->get_tamanho()));	// 6
+		campos.push_back(it->second->get_dieta());				// 7
+		if (it->second->get_veterinario() == nullptr)			// 8
+			campos.push_back("0");
+		else
+			campos.push_back(to_string(it->second->get_veterinario()->get_id()));
+		if (it->second->get_tratador() == nullptr)				// 9
+			campos.push_back("0");
+		else
+			campos.push_back(to_string(it->second->get_tratador()->get_id()));
+		campos.push_back(it->second->get_batismo());				// 10
+
+		if (campos[1] == "Amphibia")
+		{
+			campos.push_back("-");										// 11
+			campos.push_back("-");										// 12
+			campos.push_back(to_string(it->second->get_total_mudas()));	// 13
+			campos.push_back(to_string(it->second->get_ultima_muda()));	// 14
+			campos.push_back("-");										// 15
+			campos.push_back("-");										// 16
+			campos.push_back("-");										// 17
+
+			if (campos[2] == "Exotico")
+			{
+				AnfibioExotico* temp = ((AnfibioExotico*)(it->second));
+
+				campos.push_back(temp->get_ibama());		// 18
+				campos.push_back(temp->get_pais_origem());	// 19
+				campos.push_back("-");							// 20
+			}
+			else if (campos[2] == "Nativo")
+			{
+				AnfibioNativo* temp = ((AnfibioNativo*)(it->second));
+
+				campos.push_back(temp->get_ibama());		// 18
+				campos.push_back(temp->get_uf_origem());	// 19
+				campos.push_back(temp->get_autorizacao());	// 20
+			}
+			else if (campos[2] == "Domestico" )
+			{
+				campos.push_back("-");							// 18
+				campos.push_back("-");							// 19
+				campos.push_back("-");							// 20
+			}
+			else
+			{
+				// Exceção!
+			}
+		}
+		else
+		{
+			// Exceção!
+		}
+
+		linha.clear();
+		for (auto i = campos.begin(); i != campos.end(); ++i)
+		{
+			linha += *i + ";";
+		}
+		dados_animais << linha << std::endl;
+	}
+	campos.clear();
+	for ( auto it = m_tabela_mamifero.begin(); it != m_tabela_mamifero.end(); ++it )
+	{
+		campos.clear();
+		campos.push_back(to_string(it->second->get_id()));		// 0
+		campos.push_back(it->second->get_classe());				// 1
+		campos.push_back(it->second->get_tipo());				// 2
+		campos.push_back(it->second->get_nome());				// 3
+		campos.push_back(it->second->get_cientifico());			// 4
+		campos.push_back(to_string(it->second->get_sexo()));		// 5
+		campos.push_back(to_string(it->second->get_tamanho()));	// 6
+		campos.push_back(it->second->get_dieta());				// 7
+		if (it->second->get_veterinario() == nullptr)			// 8
+			campos.push_back("0");
+		else
+			campos.push_back(to_string(it->second->get_veterinario()->get_id()));
+		if (it->second->get_tratador() == nullptr)				// 9
+			campos.push_back("0");
+		else
+			campos.push_back(to_string(it->second->get_tratador()->get_id()));
+		campos.push_back(it->second->get_batismo());				// 10
+
+		if ( campos[1] == "Mammalia")
+		{
+			campos.push_back("-");							// 11
+			campos.push_back("-");							// 12
+			campos.push_back("-");							// 13
+			campos.push_back("-");							// 14
+			campos.push_back(it->second->get_cor_pelo());	// 15
+			campos.push_back("-");							// 16
+			campos.push_back("-");							// 17
+			if (campos[2] == "Exotico")
+			{
+				MamiferoExotico* temp = ((MamiferoExotico*)(it->second));
+				campos.push_back(temp->get_ibama());		// 18
+				campos.push_back(temp->get_pais_origem());	// 19
+				campos.push_back("-");							// 20
+			}
+			else if (campos[2] == "Nativo")
+			{
+				MamiferoNativo* temp = ((MamiferoNativo*)(it->second));
+				campos.push_back(temp->get_ibama());		// 18
+				campos.push_back(temp->get_uf_origem());	// 19
+				campos.push_back(temp->get_autorizacao());	// 20
+			}
+			else if (campos[2] == "Domestico" )
+			{
+				campos.push_back("-");							// 18
+				campos.push_back("-");							// 19
+				campos.push_back("-");							// 20
+			}
+			else
+			{
+				// Exceção!
+			}
+		}
+
+		linha.clear();
+		for (auto i = campos.begin(); i != campos.end(); ++i)
+		{
+			linha += *i + ";";
+		}
+		dados_animais << linha << std::endl;
+	}
+	campos.clear();
+	for ( auto it = m_tabela_reptil.begin(); it != m_tabela_reptil.end(); ++it )
+	{
+		campos.clear();
+		campos.push_back(to_string(it->second->get_id()));		// 0
+		campos.push_back(it->second->get_classe());				// 1
+		campos.push_back(it->second->get_tipo());				// 2
+		campos.push_back(it->second->get_nome());				// 3
+		campos.push_back(it->second->get_cientifico());			// 4
+		campos.push_back(to_string(it->second->get_sexo()));		// 5
+		campos.push_back(to_string(it->second->get_tamanho()));	// 6
+		campos.push_back(it->second->get_dieta());				// 7
+		if (it->second->get_veterinario() == nullptr)			// 8
+			campos.push_back("0");
+		else
+			campos.push_back(to_string(it->second->get_veterinario()->get_id()));
+		if (it->second->get_tratador() == nullptr)				// 9
+			campos.push_back("0");
+		else
+			campos.push_back(to_string(it->second->get_tratador()->get_id()));
+		campos.push_back(it->second->get_batismo());				// 10
+
+		if ( campos[1] == "Reptilia")
+		{
+			campos.push_back("-");										// 11
+			campos.push_back("-");										// 12
+			campos.push_back("-");										// 13
+			campos.push_back("-");										// 14
+			campos.push_back("-");										// 15
+			campos.push_back((it->second->is_venenoso() ? "Sim":"Nao")); // 16
+			campos.push_back(it->second->get_tipo_veneno());				// 17
+			if (campos[2] == "Exotico")
+			{
+				ReptilExotico* temp = ((ReptilExotico*)(it->second));
+				campos.push_back(temp->get_ibama());		// 18
+				campos.push_back(temp->get_pais_origem());	// 19
+				campos.push_back("-");							// 20
+			}
+			else if (campos[2] == "Nativo")
+			{
+				ReptilNativo* temp = ((ReptilNativo*)(it->second));
+				campos.push_back(temp->get_ibama());		// 18
+				campos.push_back(temp->get_uf_origem());	// 19
+				campos.push_back(temp->get_autorizacao());	// 20
+			}
+			else if (campos[2] == "Domestico" )
+			{
+				campos.push_back("-");							// 18
+				campos.push_back("-");							// 19
+				campos.push_back("-");							// 20
+			}
+			else
+			{
+				// Exceção!
+			}
+		}
+		else
+		{
+			// Exceção!
+		}
+
+		linha.clear();
+		for (auto i = campos.begin(); i != campos.end(); ++i)
+		{
+			linha += *i + ";";
+		}
+		dados_animais << linha << std::endl;
+	}
+	campos.clear();
+	for ( auto it = m_tabela_ave.begin(); it != m_tabela_ave.end(); ++it )
+	{
+		campos.clear();
+		campos.push_back(to_string(it->second->get_id()));		// 0
+		campos.push_back(it->second->get_classe());				// 1
+		campos.push_back(it->second->get_tipo());				// 2
+		campos.push_back(it->second->get_nome());				// 3
+		campos.push_back(it->second->get_cientifico());			// 4
+		campos.push_back(to_string(it->second->get_sexo()));		// 5
+		campos.push_back(to_string(it->second->get_tamanho()));	// 6
+		campos.push_back(it->second->get_dieta());				// 7
+		if (it->second->get_veterinario() == nullptr)			// 8
+			campos.push_back("0");
+		else
+			campos.push_back(to_string(it->second->get_veterinario()->get_id()));
+		if (it->second->get_tratador() == nullptr)				// 9
+			campos.push_back("0");
+		else
+			campos.push_back(to_string(it->second->get_tratador()->get_id()));
+		campos.push_back(it->second->get_batismo());				// 10
+
+		if ( campos[1] == "Aves")
+		{
+			campos.push_back(to_string(it->second->get_tamanho_bico()));// 11
+			campos.push_back(to_string(it->second->get_envergadura()));	// 12
+			campos.push_back("-");										// 13
+			campos.push_back("-");										// 14
+			campos.push_back("-");										// 15
+			campos.push_back("-");										// 16
+			campos.push_back("-");										// 17
+
+			if (campos[2] == "Exotico")
+			{
+				AveExotico* temp = ((AveExotico*)(it->second));
+				campos.push_back(temp->get_ibama());			// 18
+				campos.push_back(temp->get_pais_origem());	// 19
+				campos.push_back("-");								// 20
+			}
+			else if (campos[2] == "Nativo")
+			{
+				AveNativo* temp = ((AveNativo*)(it->second));
+				campos.push_back(temp->get_ibama());			// 18
+				campos.push_back(temp->get_uf_origem());		// 19
+				campos.push_back(temp->get_autorizacao());	// 20
+			}
+			else if (campos[2] == "Domestico" )
+			{
+				campos.push_back("-");							// 18
+				campos.push_back("-");							// 19
+				campos.push_back("-");							// 20
+			}
+			else
+			{
+				// Exceção!
+			}
+		}
+		else
+		{
+			// Exceção!
+		}
+
+		linha.clear();
+		for (auto i = campos.begin(); i != campos.end(); ++i)
+		{
+			linha += *i + ";";
+		}
+		dados_animais << linha << std::endl;
+	}
+	campos.clear();
+}
+
+void Pet_Fera_Cadastro::exportar_dados_funcionarios( std::ofstream& dados_funcionarios )
+{
 }
 
 unsigned int Pet_Fera_Cadastro::quantidade_animais_cadastrados( void )
