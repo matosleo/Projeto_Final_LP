@@ -1,21 +1,21 @@
 ID;Classe;Tipo;Nome;Nome Cientifico;Sexo;Tamanho;Dieta;Veterinario;Tratador;Batismo;Tamanho do Bico;Envergadura;Total Mudas;Ultima Muda;Cor do Pelo;Venenoso;Tipo Veneno;Ibama;UF / Pais;Autorizacao
-1;Mammalia;Exotico;Leao;Panthera leo;M;2;Carne;1;1;Simba;-;-;-;-;-;-;-;-;-;-
-2;Mammalia;Nativo;Onca-pintada;Panthera onca;F;2;Carne;1;1;Fiona;-;-;-;-;-;-;-;-;-;-
-3;Mammalia;Exotico;Leopardo;Panthera pardus;M;2;Carne;1;1;Leonardo;-;-;-;-;-;-;-;-;-;-
-4;Mammalia;Exotico;Tigre;Panthera tigris;M;2;Carne;1;1;Timao;-;-;-;-;-;-;-;-;-;-
-5;Mammalia;Exotico;Canguru;Macropus rufus;M;2;Grama;2;2;Jack;-;-;-;-;-;-;-;-;-;-
-6;Aves;Nativo;Papagaio;Amazona aestiva;F;0.38;Frutas;3;3;Pandora;-;-;-;-;-;-;-;-;-;-
-7;Aves;Exotico;Cacatua;Cacatua;F;0.42;Frutas;3;3;Clarice;-;-;-;-;-;-;-;-;-;-
-8;Aves;Domestico;Galinha;Gallus gallus domesticus;F;0.42;Milho;3;3;Pipa;-;-;-;-;-;-;-;-;-;-
-9;Aves;Nativo;Urubu;Coragyps atratus;M;0.42;Carne;9;9;Willian;-;-;-;-;-;-;-;-;-;-
-10;Reptilia;Exotico;Tartaruga gigante de galapagos;Chelonoidis nigra;M;2;Folha;4;4;Harriet;-;-;-;-;-;-;-;-;-;-
-11;Reptilia;Exotico;Naja;Naja naja;M;2;Carne;5;5;Sebastiao;-;-;-;-;-;-;-;-;-;-
-12;Reptilia;Exotico;Dragao-de-komodo;Varanus komodoensis;F;2,5;Carne;5;5;Maria;-;-;-;-;-;-;-;-;-;-
-13;Reptilia;Nativo;Camaleao;Chamaeleo zeylanicus;M;0,04;Insetos;6;6;Zayn;-;-;-;-;-;-;-;-;-;-
-14;Mammalia;Exotico;Arminho;Mustela erminea;M;0,33;Carne;7;7;Arnold;-;-;-;-;-;-;-;-;-;-
-15;Mammalia;Exotico;Gerbo;Meriones unguiculatus;M;0,8;Sementes;8;8;Gregorio;-;-;-;-;-;-;-;-;-;-
-16;Mammalia;Exotico;Feneco;Vulpes zerda;F;0,4;Carne;8;8;Sthephany;-;-;-;-;-;-;-;-;-;-
-17;Aves;Exotico;Kiwi;Apteryx;M;0.36;Insetos;3;3;Kevin;-;-;-;-;-;-;-;-;-;-
-18;Amphibia;Domestico;Sapo-comum;Bufo bufo;M;0,1;Moscas;10;10;Godofredo;-;-;-;-;-;-;-;-;-;-
-19;Amphibia;Nativo;Salamandra-comum;Salamandra salamandra gallaica;F;0,17;Insetos;10;10;Wanda;-;-;-;-;-;-;-;-;-;-
-20;Amphibia;Domestico;Perereca;Hypochondrialis Phyllomedusa;M;0,04;Insetos;10;10;Ptolomeu;-;-;-;-;-;-;-;-;-;-
+1;Mammalia;Exotico;Leao;Panthera leo;M;2.00;Carne;1;1;Simba;-;-;-;-;Dourado;-;-;75344;Congo;12373456
+2;Mammalia;Nativo;Onca-pintada;Panthera onca;F;2.00;Carne;1;1;Fiona;-;-;-;-;Amarelo e Preto;-;-;4563783;AM;13764
+3;Mammalia;Exotico;Leopardo;Panthera pardus;M;2.00;Carne;1;1;Leonardo;-;-;-;-;Amarelo e Preto;-;-;4537678;Congo;423786
+4;Mammalia;Exotico;Tigre;Panthera tigris;M;2.00;Carne;1;1;Timao;-;-;-;-;Amarelo e Preto;-;-;453786;China;1345641
+5;Mammalia;Exotico;Canguru;Macropus rufus;M;2.00;Grama;2;2;Jack;-;-;-;-;Marrom;-;-;39645;Australia;456337
+6;Aves;Nativo;Papagaio;Amazona aestiva;F;0.38;Frutas;3;3;Pandora;0.16;1.70;-;-;-;-;-;453783645;PA;456764
+7;Aves;Exotico;Cacatua;Cacatua;F;0.42;Frutas;3;3;Clarice;0.18;1.80;-;-;-;-;-;4563456;Colombia;123546
+8;Aves;Domestico;Galinha;Gallus gallus domesticus;F;0.42;Milho;3;3;Pipa;0.07;1.42;-;-;-;-;-;-;-;-
+9;Aves;Nativo;Urubu;Coragyps atratus;M;0.42;Carne;9;9;Willian;0.18;2.10;-;-;-;-;-;698345;RN;45637863
+10;Reptilia;Exotico;Tartaruga gigante de galapagos;Chelonoidis nigra;M;2.00;Folha;4;4;Harriet;-;-;-;-;-;Nao;Nenhuma;3453687;Equador;4567856
+11;Reptilia;Exotico;Naja;Naja naja;M;2.00;Carne;5;5;Sebastiao;-;-;-;-;-;Sim;Neurotoxina;3896345;Egito;64567
+12;Reptilia;Exotico;Dragao-de-komodo;Varanus komodoensis;F;2.50;Carne;5;5;Maria;-;-;-;-;-;Sim;Neurotoxina;453983;Australia;456978
+13;Reptilia;Nativo;Camaleao;Chamaeleo zeylanicus;M;0.04;Insetos;6;6;Zayn;-;-;-;-;-;Nao;Nenhuma;7869453;RJ;45687
+14;Mammalia;Exotico;Arminho;Mustela erminea;M;0.33;Carne;7;7;Arnold;-;-;-;-;Marrom;-;-;698767;EUA;456756
+15;Mammalia;Exotico;Gerbo;Meriones unguiculatus;M;0.80;Sementes;8;8;Gregorio;-;-;-;-;Branco;-;-;07658;Russia;5646786
+16;Mammalia;Exotico;Feneco;Vulpes zerda;F;0.40;Carne;8;8;Sthephany;-;-;-;-;Marrom;-;-;6398756;Espanha;569875
+17;Aves;Exotico;Kiwi;Apteryx;M;0.36;Insetos;3;3;Kevin;0.60;0.00;-;-;-;-;-;456987;Nova Zelandia;5467868
+18;Amphibia;Domestico;Sapo-comum;Bufo bufo;M;0.10;Moscas;10;10;Godofredo;-;-;4.00;03/08/13;-;-;-;-;-;-
+19;Amphibia;Nativo;Salamandra-comum;Salamandra salamandra gallaica;F;0.17;Insetos;10;10;Wanda;-;-;8.00;15/03/17;-;-;-;0016797;RO;4674684
+20;Amphibia;Domestico;Perereca;Hypochondrialis Phyllomedusa;M;0.04;Insetos;10;10;Ptolomeu;-;-;3.00;29/06/15;-;-;-;-;-;-
