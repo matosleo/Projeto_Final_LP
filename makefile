@@ -103,7 +103,7 @@ install: $(LIB_DIR)/libPetFera.so
 	sudo cp $(LIB_DIR)/libPetFera.so /usr/local/lib/
 
 # Removendo o .so das três possiveis localizações padrões para shared libraries
-uninstall: $(LIB_DIR)/libPetFera.so
+uninstall:
 	
 	sudo rm -f /lib/libPetFera.so
 	sudo rm -f /usr/lib/libPetFera.so
