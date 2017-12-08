@@ -10,7 +10,6 @@
  */
 
 #include "Pet_Fera_Cadastro.hpp"
-//#include <tuple>
 using namespace PetFera;
 
 Pet_Fera_Cadastro::Pet_Fera_Cadastro()
@@ -20,7 +19,26 @@ Pet_Fera_Cadastro::Pet_Fera_Cadastro()
 
 Pet_Fera_Cadastro::~Pet_Fera_Cadastro()
 {
-
+	for (auto i = m_tabela_anfibio.begin(); i != m_tabela_anfibio.end(); ++i)
+	{
+		delete (i->second);
+	}
+	for (auto i = m_tabela_mamifero.begin(); i != m_tabela_mamifero.end(); ++i)
+	{
+		delete (i->second);
+	}
+	for (auto i = m_tabela_reptil.begin(); i != m_tabela_reptil.end(); ++i)
+	{
+		delete (i->second);
+	}
+	for (auto i = m_tabela_ave.begin(); i != m_tabela_ave.end(); ++i)
+	{
+		delete (i->second);
+	}
+	for (auto i = m_tabela_funcionario.begin(); i != m_tabela_funcionario.end(); ++i)
+	{
+		delete (i->second);
+	}
 }
 
 
