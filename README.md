@@ -1,14 +1,14 @@
 # Projeto Final de LP
 ### Pet Fera
 
-- Componetes: 
+**Componetes:**
 
-	Gleydvan Macedo
-	João Vítor Venceslau Coelho
+- Gleydvan Macedo
+- João Vítor Venceslau Coelho
 
-- Professor: 
+**Professor:**
 	
-	Silvio Costa Sampaio
+- Silvio Costa Sampaio
 
 ## Objetivo
 O objetivo deste trabalho é implementar um programa de cadastro de animais para a loja de animais silvestres Pet Fera.
