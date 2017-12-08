@@ -20,7 +20,7 @@ LIBFLAGS = -lPetFera
 
 .PHONY: all clean distclean doxy
 
-linux: dir $(BIN_DIR)/cadastrar $(BIN_DIR)/exportar 
+linux: dir $(BIN_DIR)/cadastrar $(BIN_DIR)/filtrar 
 
 debug: CFLAGS += -g -O0 -pg
 debug: $(BIN_DIR)/teste
@@ -31,7 +31,7 @@ $(BIN_DIR)/cadastrar: $(LIB_DIR)/libPetFera.so $(SRC_DIR)/main.cpp
 	$(CC) $(CFLAGS) $(SRC_DIR)/main.cpp -L$(LIB_DIR) $(LIBFLAGS) -o $@
 	@echo "+++ [Binario criado em $@] +++"
 
-$(BIN_DIR)/exportar: $(SRC_DIR)/Pet_Fera_Exportar.cpp $(INC_DIR)/Pet_Fera_Exportar.hpp
+$(BIN_DIR)/filtrar: $(SRC_DIR)/Pet_Fera_Exportar.cpp $(INC_DIR)/Pet_Fera_Exportar.hpp
 	$(CC) $(CFLAGS) $(SRC_DIR)/Pet_Fera_Exportar.cpp -o $@
 	@echo "+++ [Binario criado em $@] +++"
 
