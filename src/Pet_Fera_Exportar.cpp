@@ -72,9 +72,9 @@ int main(int argc, char **argv )
 				  << "Opcional:		'-c' <Classe> - Indica a classe de animais a serem exportados." << std::endl
 				  << "				Opções de Classe: Amphibia, Reptilia, Aves e Mammalia." << std::endl
 				  << "Opcional:		'-v' <Veterinario> - indica que apenas animais sob a responsabilidade do veterinário informado devem ser exportados." << std::endl
-				  << "              Indicar qual o nome do Veterinario" << std::endl // Seria melhor poder usar o código dele...
+				  << "              Indicar qual o id do Veterinario" << std::endl // Seria melhor poder usar o código dele...
 				  << "Opcional:		'-t' <Tratador> - indica que apenas animais tratados pelo tratador informado devem ser exportados" << std::endl
-				  << "              Indicar qual o nome do Tratador" << std::endl // Seria melhor poder usar o código dele...
+				  << "              Indicar qual o id do Tratador" << std::endl // Seria melhor poder usar o código dele...
 				  << "Obrigatório:	<Arquivo de Saida> - indica o nome do arquivo de saída, ou seja, do arquivo onde serão guardados os dados a serem exportados" << std::endl
 				  << "              Deve incluir a extensão .csv" << std::endl; // Facilita a diferenciar dos outros campos caso alguma entrada muito estranha seja colocada...
 		return 1;
@@ -118,17 +118,17 @@ int main(int argc, char **argv )
 
 	if ( c_flag )
 	{
-		filtrando = filtrar(filtrando, classe, 1 );
+		filtrando = filtrar_classe(filtrando, classe );
 	}
 
 	if ( v_flag )
 	{
-		filtrando = filtrar(filtrando, buscar_codigo(dados_funcionarios, veterinario, 0), 7 );
+		filtrando = filtrar_func(filtrando, veterinario, 8 );
 	}
 
 	if ( t_flag )
 	{
-		filtrando = filtrar(filtrando, buscar_codigo(dados_funcionarios, tratador, 1), 8 );
+		filtrando = filtrar_func(filtrando, tratador, 9 );
 	}
 
 	for (std::vector< std::string >::iterator i = filtrando.begin(); i != filtrando.end(); ++i)

@@ -40,31 +40,32 @@ std::vector< std::string > separar ( const std::string& alvo, const char &delimi
 	return campos;
 }
 
-std::string buscar_codigo( std::ifstream &local, const std::string &alvo, size_t funcao )
+std::vector< std::string > filtrar_classe( std::vector< std::string > &alvo, const std::string filtro )
 {
-	if ( alvo == "0")
-	{
-		return "0";
-	}
-	
-	std::vector< std::string > profissoes;
-	profissoes.push_back( "Veterinario");
-	profissoes.push_back( "Tratador");
 	std::string linha;
-
-	while( std::getline( local, linha ) )
+	std::vector< std::string > retorno;
+	if ( filtro == "" )
 	{
-		std::vector< std::string > campos = separar( linha, ';' );
-		
-		if ( campos[1] == profissoes[funcao] and campos[2] == alvo )
+		for ( std::vector< std::string >::iterator i = alvo.begin(); i != alvo.end(); ++i)
 		{
-			return campos[0];
+			retorno.push_back(*i);
 		}
 	}
-	return "-";
+	else
+	{
+		for ( std::vector< std::string >::iterator i = alvo.begin(); i != alvo.end(); ++i)
+		{
+			std::vector< std::string > campos = separar( *i, ';' );
+			if ( campos[1] == filtro )
+			{
+				retorno.push_back(*i);
+			}
+		}		
+	}
+	return retorno;
 }
 
-std::vector< std::string > filtrar( std::vector< std::string > &alvo, const std::string filtro, size_t campo )
+std::vector< std::string > filtrar_func( std::vector< std::string > &alvo, const std::string filtro, size_t campo )
 {
 	std::string linha;
 	std::vector< std::string > retorno;
