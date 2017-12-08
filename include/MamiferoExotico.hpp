@@ -26,7 +26,7 @@ namespace PetFera
 	{
 	public:
 		MamiferoExotico( int _id, std::string _classe, std::string _tipo, std::string _nome, std::string _cientifico, char _sexo, 
-				float _tamanho, std::string _dieta, V_pointer _veterinario, T_pointer _tratador, std::string _batismo,
+				float _tamanho, std::string _dieta, F_pointer _veterinario, F_pointer _tratador, std::string _batismo,
 				std::string _cor_pelo, std::string _ibama, std::string _pais_origem )
 			: Mamifero( _id, _classe, _tipo, _nome, _cientifico, _sexo, _tamanho, _dieta, _veterinario, _tratador
 						, _batismo, _cor_pelo )
@@ -34,6 +34,8 @@ namespace PetFera
 			{	/*	Vazio	*/	}
 
 		~MamiferoExotico(){};
+
+		void printAnimal(void);
 		
 	};
 }

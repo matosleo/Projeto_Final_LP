@@ -34,7 +34,7 @@ namespace PetFera
 		void set_ultima_muda( std::string new_muda );
 
 		Anfibio( int _id, std::string _classe, std::string _tipo, std::string _nome, std::string _cientifico, char _sexo, 
-				float _tamanho, std::string _dieta, V_pointer _veterinario, T_pointer _tratador, std::string _batismo,
+				float _tamanho, std::string _dieta, F_pointer _veterinario, F_pointer _tratador, std::string _batismo,
 				int _total_mudas = 0, std::string _ultima_muda = "0" ) 
 			: Animal( _id, _classe, _tipo, _nome, _cientifico, _sexo, _tamanho, _dieta, _veterinario, _tratador, _batismo )
 			, m_total_mudas( _total_mudas ), m_ultima_muda( _ultima_muda )
@@ -43,6 +43,9 @@ namespace PetFera
 		virtual ~Anfibio(){};
 
 		virtual std::ostream& print( std::ostream & _os );
+
+		void printAnimal(void);
+
 	};
 }
 

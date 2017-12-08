@@ -26,7 +26,7 @@ namespace PetFera
 	{
 	public:
 		ReptilExotico(int _id, std::string _classe, std::string _tipo, std::string _nome, std::string _cientifico, char _sexo, 
-				float _tamanho, std::string _dieta, V_pointer _veterinario, T_pointer _tratador, std::string _batismo,
+				float _tamanho, std::string _dieta, F_pointer _veterinario, F_pointer _tratador, std::string _batismo,
 				bool _venenoso, std::string _tipo_veneno, std::string _ibama, std::string _pais_origem )
 			: Reptil( _id, _classe, _tipo, _nome, _cientifico, _sexo, _tamanho, _dieta, _veterinario, _tratador, 
 						_batismo, _venenoso, _tipo_veneno )
@@ -34,6 +34,8 @@ namespace PetFera
 			{	/*	Vazio	*/	}
 
 		~ReptilExotico(){};
+
+		void printAnimal(void);
 		
 	};
 }

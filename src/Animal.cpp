@@ -50,12 +50,12 @@ std::string Animal::get_dieta( void )
 	return m_dieta;
 }
 
-V_pointer Animal::get_veterinario( void )
+F_pointer Animal::get_veterinario( void )
 {
 	return m_veterinario;
 }
 
-T_pointer Animal::get_tratador( void )
+F_pointer Animal::get_tratador( void )
 {
 	return m_tratador;
 }
@@ -102,12 +102,12 @@ void Animal::set_dieta( std::string new_dieta )
 	m_dieta = new_dieta;
 }
 
-void Animal::set_veterinario( V_pointer new_veterinario )
+void Animal::set_veterinario( F_pointer new_veterinario )
 {
 	m_veterinario = new_veterinario;
 }
 
-void Animal::set_tratador( T_pointer new_tratador )
+void Animal::set_tratador( F_pointer new_tratador )
 {
 	m_tratador = new_tratador;
 }

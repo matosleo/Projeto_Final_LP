@@ -40,10 +40,12 @@ int main(int argc, char const *argv[])
 					<< "7 - Remover Funcionario do banco de dados" << std::endl
 					<< "8 - Alterar dados cadastrais de um Funcionario" << std::endl
 					<< "9 - Consultar dados de um Funcionario" << std::endl
+					<< "10 - Quantidade de Funcionarios cadastrados" << std::endl
+					<< "11 - Quantidade de Animais cadastrados" << std::endl
 					<< "0 - Sair" << std::endl;
 		std::cin >> opcao;
 
-		if( opcao < 0 or opcao > 9 )
+		if( opcao < 0 or opcao > 11 )
 			std::cout << "\nOpcao digitada invalida! Por favor digite uma opcao valida." << std::endl << std::endl;
 		else
 			switch ( opcao )
@@ -51,32 +53,20 @@ int main(int argc, char const *argv[])
 
 				case 1:
 
-					std::cout << "Digite a classe do animal que deseja cadastrar (Anfibio, Mamifero, Reptil ou Ave):" << std::endl;
+					std::cout << "Digite a classe do animal que deseja cadastrar (Amphibia, Mammalia, Reptilia ou Aves):" << std::endl;
 					std::cin >> familia_animal;
 					std::cout << "Digite o tipo do animal que deseja cadastrar (Domestico, Exotico ou Nativo):" << std::endl;
 					std::cin >> tipo_animal;
 
 					if( familia_animal.compare( "Amphibia" ) == 0 )
-					{
-						if( pet_cadastro.cadastrar_anfibio( familia_animal, tipo_animal ) )
-							std::cout << "Anfibio cadastrado com sucesso!" << std::endl;
-					}
+						pet_cadastro.cadastrar_anfibio( familia_animal, tipo_animal );
 					else if( familia_animal.compare( "Mammalia" ) == 0 )
-					{
-						if( pet_cadastro.cadastrar_mamifero( familia_animal, tipo_animal ) )
-							std::cout << "Mamifero cadastrado com sucesso!" << std::endl;
-					}
+						pet_cadastro.cadastrar_mamifero( familia_animal, tipo_animal );
 					else if( familia_animal.compare( "Reptilia" ) == 0 )
-					{
-						if( pet_cadastro.cadastrar_reptil( familia_animal, tipo_animal ) )
-							std::cout << "Reptil cadastrado com sucesso!" << std::endl;
-					}
+						pet_cadastro.cadastrar_reptil( familia_animal, tipo_animal );
 					else if( familia_animal.compare( "Aves" ) == 0 )
-					{
-						if( pet_cadastro.cadastrar_ave( familia_animal, tipo_animal ) )
-							std::cout << "Ave cadastrado com sucesso!" << std::endl;
-					}
-
+						pet_cadastro.cadastrar_ave( familia_animal, tipo_animal );
+							
 				break;
 
 				case 2:
@@ -84,8 +74,8 @@ int main(int argc, char const *argv[])
 					std::cout << "Digite a funcao do Funcionario que deseja cadastrar (Veterinario ou Tratador):" << std::endl;
 					std::cin >> funcao_funcionario;
 
-					if( pet_cadastro.cadastrar_funcionario( funcao_funcionario ) )
-						std::cout << "Funcionario cadastrado com sucesso!" << std::endl;
+					pet_cadastro.cadastrar_funcionario( funcao_funcionario );
+
 
 				break;
 
@@ -93,11 +83,8 @@ int main(int argc, char const *argv[])
 					
 					std::cout << "Digite o ID do animal a ser removido:" << std::endl;
 					std::cin >> _id;
-					std::cout << "Digite a classe do animal que deseja remover (Anfibio, Mamifero, Reptil ou Ave):" << std::endl;
-					std::cin >> familia_animal;
 
-						if( pet_cadastro.remover_animal( _id, familia_animal ) )
-							std::cout << "Animal removido com sucesso!" << std::endl;
+					pet_cadastro.remover_animal( _id );					
 					
 
 				break;
@@ -106,11 +93,9 @@ int main(int argc, char const *argv[])
 					
 					std::cout << "Digite o ID do animal que deseja alterar os dados:" << std::endl;
 					std::cin >> _id;
-					std::cout << "Digite a classe do animal que deseja alterar os dados (Anfibio, Mamifero, Reptil ou Ave):" << std::endl;
-					std::cin >> familia_animal;
 
-					if( pet_cadastro.alterar_dados_animais( _id, familia_animal ) )
-						std::cout << "Dados alterados com sucesso!" << std::endl;
+					pet_cadastro.alterar_dados_animais( _id );
+						
 
 				break;
 
@@ -118,17 +103,9 @@ int main(int argc, char const *argv[])
 
 					std::cout << "Digite o ID do animal que deseja consultar:" << std::endl;
 					std::cin >> _id;
-					std::cout << "Digite a classe do animal que deseja consultar (Amphibia, Mammalia, Reptilia ou Aves):" << std::endl;
-		
-					std::cin.ignore();
-					std::getline(std::cin, familia_animal);
 
-					std::cout << "===			FLAG CASE 5			===" << std::endl;
-
-					if( pet_cadastro.consultar_animais( _id, familia_animal ) )
-						std::cout << "Dados consultados com sucesso!" << std::endl;
-
-					/*	Falta Codigo	*/
+					pet_cadastro.consultar_animais( _id );
+					
 					
 				break;
 
@@ -136,12 +113,8 @@ int main(int argc, char const *argv[])
 
 					std::cout << "Digite o ID do funcionario:" << std::endl;
 					std::cin >> _id;
-					std::cout << "Digite a funcao do Funcionario que deseja consultar (Veterinario ou Tratador):" << std::endl;
-					std::cin >> funcao_funcionario;
-
-					if( pet_cadastro.consultar_animais_funcionario( _id, funcao_funcionario ) );
-						std::cout << "Dados consultados com sucesso!" << std::endl;
-					/*	Falta Codigo	*/
+			
+					pet_cadastro.consultar_animais_funcionario( _id );
 					
 				break;
 
@@ -149,23 +122,17 @@ int main(int argc, char const *argv[])
 
 					std::cout << "Digite o ID do funcionario a ser removido:" << std::endl;
 					std::cin >> _id;
-					std::cout << "Digite a funcao do Funcionario que deseja remover (Veterinario ou Tratador):" << std::endl;
-					std::cin >> funcao_funcionario;
 
-					if( pet_cadastro.remover_funcionario( _id, funcao_funcionario ) );
-						std::cout << "Funcionario removido com sucesso!" << std::endl;
-					/*	Falta Codigo	*/
+					pet_cadastro.remover_funcionario( _id );
 					
 				break;
 
 				case 8:
 					std::cout << "Digite o ID do funcionario que deseja alterar os dados:" << std::endl;
 					std::cin >> _id;
-					std::cout << "Digite a funcao do Funcionario que deseja alterar os dados (Veterinario ou Tratador):" << std::endl;
-					std::cin >> funcao_funcionario;
 
-					if( pet_cadastro.alterar_dados_funcionarios( _id, funcao_funcionario ) )
-						std::cout << "Dados alterados com sucesso!" << std::endl;
+					pet_cadastro.alterar_dados_funcionarios( _id );
+						
 
 				break;
 
@@ -173,16 +140,26 @@ int main(int argc, char const *argv[])
 
 					std::cout << "Digite o ID do funcionario que deseja consultar:" << std::endl;
 					std::cin >> _id;
-					std::cout << "Digite a funcao do Funcionario que deseja consultar (Veterinario ou Tratador):" << std::endl;
-					std::cin >> funcao_funcionario;
+				
+					pet_cadastro.consultar_funcionarios( _id );
 
-					if( pet_cadastro.consultar_funcionarios( _id, funcao_funcionario ) )
-						std::cout << "Dados consultados com sucesso!" << std::endl;
+				break;
+
+				case 10:
+
+					std::cout << "\nNumero de funcionarios cadastrados: " << pet_cadastro.quantidade_funcionarios_cadastrados() << std::endl << std::endl;
+
+				break;
+
+				case 11:
+
+					std::cout << "\nNumero de Animais cadastrados: " << pet_cadastro.quantidade_animais_cadastrados() << std::endl << std::endl;
 
 				break;
 
 				default:
 				break;
+
 			}
 
 
@@ -191,4 +168,5 @@ int main(int argc, char const *argv[])
 	std::cout << "Obrigado por utilizar nossos servicos!" << std::endl;
 
 	return 0;
+	
 }

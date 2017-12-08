@@ -50,3 +50,20 @@ std::ostream& Anfibio::print( std::ostream & _os )
 
 	return _os;
 }
+
+void Anfibio::printAnimal(void){
+	std::cout << std::endl;
+	std::cout << ">>>>> Ficha do animal <<<<<" << std::endl;
+	std::cout << "ID:\t\t"     		<< this->get_id() << std::endl;
+	std::cout << "Classe:\t\t"   	<< this->get_classe() << std::endl;
+	std::cout << "Nome:\t\t"     	<< this->get_nome() << std::endl;
+	std::cout << "Cientifico:\t"  	<< this->get_cientifico() << std::endl;
+	std::cout << "Batismo:\t"    	<< this->get_batismo() << std::endl;
+	std::cout << "Dieta:\t\t"    	<< this->get_dieta() << std::endl;
+	std::cout << "Sexo:\t\t"    		<< this->get_sexo() << std::endl;
+	std::cout << "Veterinario:\t"  	<< (this->get_veterinario()!=nullptr?this->get_veterinario()->get_nome():"") << std::endl;
+	std::cout << "Tratador:\t"  		<< (this->get_tratador()!=nullptr?this->get_tratador()->get_nome():"") << std::endl;
+	std::cout << "Mudas:\t\t"  		<< this->get_total_mudas() << std::endl;
+	std::cout << "Ultima Muda:\t"  		<< this->get_ultima_muda() << std::endl;
+	std::cout << std::endl;
+}

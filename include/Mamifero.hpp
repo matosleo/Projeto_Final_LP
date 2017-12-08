@@ -30,7 +30,7 @@ namespace PetFera
 	//	std::string set_cor_pelo( std::string new_cor );
 
 		Mamifero( int _id, std::string _classe, std::string _tipo, std::string _nome, std::string _cientifico, char _sexo, 
-				float _tamanho, std::string _dieta, V_pointer _veterinario, T_pointer _tratador, std::string _batismo,
+				float _tamanho, std::string _dieta, F_pointer _veterinario, F_pointer _tratador, std::string _batismo,
 				std::string _cor_pelo ) 
 			: Animal( _id, _classe, _tipo, _nome, _cientifico, _sexo, _tamanho, _dieta, _veterinario, _tratador, _batismo )
 			, m_cor_pelo( _cor_pelo )
@@ -39,6 +39,8 @@ namespace PetFera
 		virtual ~Mamifero(){};
 		
 		virtual std::ostream& print( std::ostream & _os );
+
+		void printAnimal(void);
 	};
 }
 

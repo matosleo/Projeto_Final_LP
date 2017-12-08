@@ -15,6 +15,7 @@
 
 #include <memory>
 #include <string>
+#include <iostream>
 
 namespace PetFera
 {
@@ -46,14 +47,19 @@ namespace PetFera
 		virtual ~Funcionario(){};
 		
 		int get_id ( void );
+		std::string get_funcao( void );
 		std::string get_nome ( void );
 		std::string get_CPF ( void );
 		short get_idade ( void );
 		short get_t_sangue ( void );
 		short get_RH ( void );
 		std::string get_espec ( void );
+
+		void printFuncionario( void );
+
+		void set_idade ( int _idade );
 	/*
-		int set_id (  );
+		
 		std::string set_nome (  );
 		std::string set_CPF (  );
 		short set_idade (  );
@@ -73,6 +79,23 @@ namespace PetFera
 
 		~Veterinario(){};
 		
+		void printFuncionario( void )
+		{
+
+			std::cout << std::endl;
+			std::cout << ">>>>> Ficha do Funcionario <<<<<" << std::endl;
+			std::cout << "ID:\t\t"     		<< this->get_id() << std::endl;
+			std::cout << "Funcao:\t"    	<< this->get_funcao() << std::endl;
+			std::cout << "Nome:\t\t"     	<< this->get_nome() << std::endl;
+			std::cout << "CPF:\t"  	<< this->get_CPF() << std::endl;
+			std::cout << "Idade:\t\t"    	<< this->get_idade() << std::endl;
+			std::cout << "Tipo Sanguineo:\t\t"    		<< this->get_t_sangue() << std::endl;
+			std::cout << "Fator RH:\t\t"  		<< this->get_RH() << std::endl;
+			std::cout << "Especialidade:\t"  		<< this->get_espec() << std::endl;
+			std::cout << std::endl;
+
+		}
+
 	};
 
 	class Tratador : public Funcionario
@@ -84,6 +107,23 @@ namespace PetFera
 			{ /* Vazio */ }
 			
 		~Tratador(){};
+
+		void printFuncionario( void )
+		{
+
+			std::cout << std::endl;
+			std::cout << ">>>>> Ficha do Funcionario <<<<<" << std::endl;
+			std::cout << "ID:\t\t"     		<< this->get_id() << std::endl;
+			std::cout << "Funcao:\t"    	<< this->get_funcao() << std::endl;
+			std::cout << "Nome:\t\t"     	<< this->get_nome() << std::endl;
+			std::cout << "CPF:\t"  	<< this->get_CPF() << std::endl;
+			std::cout << "Idade:\t\t"    	<< this->get_idade() << std::endl;
+			std::cout << "Tipo Sanguineo:\t\t"    		<< this->get_t_sangue() << std::endl;
+			std::cout << "Fator RH:\t\t"  		<< this->get_RH() << std::endl;
+			std::cout << "Especialidade:\t"  		<< this->get_espec() << std::endl;
+			std::cout << std::endl;
+
+		}
 		
 	};
 }

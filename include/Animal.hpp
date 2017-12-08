@@ -19,14 +19,13 @@
 
 #include <string>
 
-//using V_pointer = std::shared_ptr< PetFera::Veterinario >;
-//using T_pointer = std::shared_ptr< PetFera::Tratador >;
+//using F_pointer = std::shared_ptr< PetFera::Veterinario >;
+//using F_pointer = std::shared_ptr< PetFera::Tratador >;
 
-//typedef std::shared_ptr< PetFera::Veterinario >	V_pointer;
-//typedef std::shared_ptr< PetFera::Tratador >	T_pointer;
+//typedef std::shared_ptr< PetFera::Veterinario >	F_pointer;
+//typedef std::shared_ptr< PetFera::Tratador >	F_pointer;
 
-typedef PetFera::Veterinario* V_pointer;
-typedef PetFera::Tratador*	  T_pointer;
+typedef PetFera::Funcionario* F_pointer;
 
 namespace PetFera
 {
@@ -42,14 +41,14 @@ namespace PetFera
 		char 		m_sexo;
 		float 		m_tamanho;
 		std::string m_dieta;
-		V_pointer 	m_veterinario;
-		T_pointer	m_tratador;
+		F_pointer 	m_veterinario;
+		F_pointer	m_tratador;
 		std::string m_batismo;
 
 	public:
 
 		Animal(	int _id, std::string _classe, std::string _tipo, std::string _nome, std::string _cientifico, char _sexo, 
-				float _tamanho, std::string _dieta, V_pointer _veterinario, T_pointer _tratador, std::string _batismo )
+				float _tamanho, std::string _dieta, F_pointer _veterinario, F_pointer _tratador, std::string _batismo )
 			: m_id( _id )
 			, m_classe( _classe )
 			, m_tipo( _tipo )
@@ -73,8 +72,8 @@ namespace PetFera
 		char 		get_sexo( void );
 		float 		get_tamanho( void );
 		std::string get_dieta( void );
-		V_pointer	get_veterinario( void );
-		T_pointer 	get_tratador( void );
+		F_pointer	get_veterinario( void );
+		F_pointer 	get_tratador( void );
 		std::string get_batismo( void );
 
 //		void set_id( int new_id );
@@ -84,8 +83,8 @@ namespace PetFera
 //		void set_sexo( void );
 		void set_tamanho( float new_tamanho );
 		void set_dieta( std::string new_dieta );
-		void set_veterinario( V_pointer new_veterinario );
-		void set_tratador( T_pointer new_tratador );
+		void set_veterinario( F_pointer new_veterinario );
+		void set_tratador( F_pointer new_tratador );
 //		void set_batismo( void );
 
 		virtual std::ostream& print( std::ostream & _os );

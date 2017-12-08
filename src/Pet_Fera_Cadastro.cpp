@@ -24,7 +24,7 @@ Pet_Fera_Cadastro::~Pet_Fera_Cadastro()
 }
 
 
-bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tipo )
+void Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tipo )
 {
 
 	int 		_id;
@@ -66,16 +66,16 @@ bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 	std::cout << "\nData da ultima muda (DD/MM/AAAA): ";
 	std::cin >> _ultima_muda;
 
-	Tratador * tratador_resp;
-	Veterinario * veterinario_resp;
+	Funcionario * tratador_resp;
+	Funcionario * veterinario_resp;
 
 	/*	Assumir que todo animal a ser cadastrado tem que ter um tratador e um veterinario associado	*/
 
-	if( m_tabela_tratador.find( _id_tratador ) != m_tabela_tratador.end() )
-		tratador_resp = m_tabela_tratador[ _id_tratador ];
+	if( m_tabela_funcionario.find( _id_tratador ) != m_tabela_funcionario.end() )
+		tratador_resp = m_tabela_funcionario[ _id_tratador ];
 
-	if( m_tabela_veterinario.find( _id_veterinario ) != m_tabela_veterinario.end() )
-		veterinario_resp = m_tabela_veterinario[ _id_veterinario ];
+	if( m_tabela_funcionario.find( _id_veterinario ) != m_tabela_funcionario.end() )
+		veterinario_resp = m_tabela_funcionario[ _id_veterinario ];
 
 	if( _tipo.compare( "Domestico" ) == 0 )
 	{
@@ -123,11 +123,11 @@ bool Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 
 	}
 
-	return true;
+	std::cout << "Animal cadastrado com sucesso!" << std::endl;
 
 }
 
-bool Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _tipo )
+void Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _tipo )
 {
 
 	int 		_id;
@@ -166,18 +166,16 @@ bool Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _ti
 	std::cout << "\nCor do pelo do animal: ";
 	std::cin >> _cor_pelo;
 
-	Tratador * tratador_resp;
-	Veterinario * veterinario_resp;
+	Funcionario * tratador_resp;
+	Funcionario * veterinario_resp;
 
 	/*	Assumir que todo animal a ser cadastrado tem que ter um tratador e um veterinario associado	*/
 
-	if( m_tabela_tratador.find( _id_tratador ) != m_tabela_tratador.end() )
-		tratador_resp = m_tabela_tratador[ _id_tratador ];
+	if( m_tabela_funcionario.find( _id_tratador ) != m_tabela_funcionario.end() )
+		tratador_resp = m_tabela_funcionario[ _id_tratador ];
 
-	if( m_tabela_veterinario.find( _id_veterinario ) != m_tabela_veterinario.end() )
-		veterinario_resp = m_tabela_veterinario[ _id_veterinario ];
-	
-	
+	if( m_tabela_funcionario.find( _id_veterinario ) != m_tabela_funcionario.end() )
+		veterinario_resp = m_tabela_funcionario[ _id_veterinario ];
 
 	if( _tipo.compare( "Domestico" ) == 0 )
 	{
@@ -227,10 +225,11 @@ bool Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _ti
 
 	}
 
-	return true;
+	std::cout << "\nAnimal cadastrado com sucesso\n" << std::endl;
+
 }
 
-bool Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo )
+void Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo )
 {
 
 	int 		_id;
@@ -284,21 +283,20 @@ bool Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 		
 	}
 
-	Tratador * tratador_resp;
-	Veterinario * veterinario_resp;
+	Funcionario * tratador_resp;
+	Funcionario * veterinario_resp;
 
 	/*	Assumir que todo animal a ser cadastrado tem que ter um tratador e um veterinario associado	*/
 
-	if( m_tabela_tratador.find( _id_tratador ) != m_tabela_tratador.end() )
-		tratador_resp = m_tabela_tratador[ _id_tratador ];
+	if( m_tabela_funcionario.find( _id_tratador ) != m_tabela_funcionario.end() )
+		tratador_resp = m_tabela_funcionario[ _id_tratador ];
 
-	if( m_tabela_veterinario.find( _id_veterinario ) != m_tabela_veterinario.end() )
-		veterinario_resp = m_tabela_veterinario[ _id_veterinario ];
+	if( m_tabela_funcionario.find( _id_veterinario ) != m_tabela_funcionario.end() )
+		veterinario_resp = m_tabela_funcionario[ _id_veterinario ];
 	
 
 	if( _tipo.compare( "Domestico" ) == 0 )
 	{
-
 
 
 		Reptil * reptil_domestico = new Reptil( _id, _classe, _tipo, _nome, _cientifico
@@ -326,7 +324,6 @@ bool Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 		m_tabela_reptil.insert( std::pair<int, Reptil*> ( _id, reptil_nativo ) );
 		
 
-
 	} else if( _tipo.compare( "Exotico" ) == 0 )
 	{
 
@@ -345,10 +342,11 @@ bool Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 
 	}
 
-	return true;
+	std::cout << "\nAnimal cadastrado com sucesso\n" << std::endl;
+
 }
 
-bool Pet_Fera_Cadastro::cadastrar_ave( std::string _classe, std::string _tipo )
+void Pet_Fera_Cadastro::cadastrar_ave( std::string _classe, std::string _tipo )
 {
 
 	int 		_id;
@@ -391,16 +389,16 @@ bool Pet_Fera_Cadastro::cadastrar_ave( std::string _classe, std::string _tipo )
 	std::cout << "\nEnvergadura do animal: ";
 	std::cin >> _envergadura;
 
-	Tratador * tratador_resp;
-	Veterinario * veterinario_resp;
+	Funcionario * tratador_resp;
+	Funcionario * veterinario_resp;
 
 	/*	Assumir que todo animal a ser cadastrado tem que ter um tratador e um veterinario associado	*/
 
-	if( m_tabela_tratador.find( _id_tratador ) != m_tabela_tratador.end() )
-		tratador_resp = m_tabela_tratador[ _id_tratador ];
+	if( m_tabela_funcionario.find( _id_tratador ) != m_tabela_funcionario.end() )
+		tratador_resp = m_tabela_funcionario[ _id_tratador ];
 
-	if( m_tabela_veterinario.find( _id_veterinario ) != m_tabela_veterinario.end() )
-		veterinario_resp = m_tabela_veterinario[ _id_veterinario ];
+	if( m_tabela_funcionario.find( _id_veterinario ) != m_tabela_funcionario.end() )
+		veterinario_resp = m_tabela_funcionario[ _id_veterinario ];
 
 	if( _tipo.compare( "Domestico" ) == 0 )
 	{
@@ -431,7 +429,6 @@ bool Pet_Fera_Cadastro::cadastrar_ave( std::string _classe, std::string _tipo )
 		m_tabela_ave.insert( std::pair<int, Ave*> ( _id, ave_nativo ) );
 		
 
-
 	} else if( _tipo.compare( "Exotico" ) == 0 )
 	{
 
@@ -450,10 +447,11 @@ bool Pet_Fera_Cadastro::cadastrar_ave( std::string _classe, std::string _tipo )
 
 	}
 
-	return true;
+	std::cout << "\nAnimal cadastrado com sucesso\n" << std::endl;
+
 }
 
-bool Pet_Fera_Cadastro::cadastrar_funcionario( std::string _funcao )
+void Pet_Fera_Cadastro::cadastrar_funcionario( std::string _funcao )
 {
 
 	int 		_id;
@@ -482,110 +480,63 @@ bool Pet_Fera_Cadastro::cadastrar_funcionario( std::string _funcao )
 	if( _funcao.compare( "Tratador" ) == 0  )
 	{
 
-		Tratador * novo_tratador = new Tratador( _id, _funcao, _nome, _CPF, _idade, _tipo_sangue, _fator_RH, _especialidade );
-		m_tabela_tratador.insert( std::pair<int, Tratador*> ( _id, novo_tratador ) );
+		Funcionario * novo_tratador = new Tratador( _id, _funcao, _nome, _CPF, _idade, _tipo_sangue, _fator_RH, _especialidade );
+		m_tabela_funcionario.insert( std::pair<int, Funcionario*> ( _id, novo_tratador ) );
 
 	} else if ( _funcao.compare( "Veterinario" ) == 0  )
 	{
 
-		Veterinario * novo_veterinario = new Veterinario( _id, _funcao, _nome, _CPF, _idade, _tipo_sangue, _fator_RH, _especialidade );
-		m_tabela_veterinario.insert( std::pair<int, Veterinario*> ( _id, novo_veterinario ) );
+		Funcionario * novo_veterinario = new Veterinario( _id, _funcao, _nome, _CPF, _idade, _tipo_sangue, _fator_RH, _especialidade );
+		m_tabela_funcionario.insert( std::pair<int, Funcionario*> ( _id, novo_veterinario ) );
 
 	}
 
-	return true;
+	std::cout << "\nFuncionario cadastrado com sucesso\n" << std::endl;
+
 }
 
-bool Pet_Fera_Cadastro::consultar_animais( int _id, std::string _classe )
+void Pet_Fera_Cadastro::consultar_animais( int _id )
 {
-	std::cin.ignore();
-	std::cout << "===			FLAG 00			===" << std::endl;
 
-	if( _classe.compare( "Amphibia" ) == 0 )
-	{
+	std::map< int, Anfibio* >::iterator it_anf = m_tabela_anfibio.find( _id );
+	std::map< int, Mamifero* >::iterator it_mam = m_tabela_mamifero.find( _id );
+	std::map< int, Reptil* >::iterator it_rep = m_tabela_reptil.find( _id );
+	std::map< int, Ave* >::iterator it_ave = m_tabela_ave.find( _id );
 
-		std::map< int, Anfibio* >::iterator it = m_tabela_anfibio.find( _id );
 
-		if( it != m_tabela_anfibio.end() )
+		if( it_anf != m_tabela_anfibio.end() )
 		{
 
-			std::cout << "===			FLAG 01			===" << std::endl;
 			std::cout << "Dados do Animal procurado: " << std::endl;
-			std::cout << *(it->second) << std::endl;
+			it_anf -> second -> printAnimal();
 
-			return true;
+		} else if( it_mam != m_tabela_mamifero.end() )
+		{
+
+			std::cout << "Dados do Animal procurado: " << std::endl;
+			it_mam -> second -> printAnimal();
+
+		} else if( it_rep != m_tabela_reptil.end() )
+		{
+
+			std::cout << "Dados do Animal procurado: " << std::endl;
+			it_rep -> second -> printAnimal();
+
+		} else if( it_ave != m_tabela_ave.end() )
+		{
+
+			std::cout << "Dados do Animal procurado: " << std::endl;
+			it_ave -> second -> printAnimal();
 
 		} else
 			std::cout << "Animal nao encontrado!" << std::endl;
-
-	}
-
-	else if( _classe.compare( "Mammalia" ) == 0 )
-	{
-		
-		std::map< int, Mamifero* >::iterator it = m_tabela_mamifero.find( _id );
-		
-
-		if( it != m_tabela_mamifero.end() )
-		{
-
-			std::cout << "===			FLAG 02			===" << std::endl;
-			std::cout << "Dados do Animal procurado: " << std::endl;
-			std::cout << *(it->second) << std::endl;
-
-			return true;
-
-		} else
-			std::cout << "Animal nao encontrado!" << std::endl;
-
-	}
-
-	else if( _classe.compare( "Reptilia" ) == 0 )
-	{
-
-		std::map< int, Reptil* >::iterator it = m_tabela_reptil.find( _id );
-
-		if( it != m_tabela_reptil.end() )
-		{
-
-			std::cout << "===			FLAG 03			===" << std::endl;
-			std::cout << "Dados do Animal procurado: " << std::endl;
-			std::cout << *(it->second) << std::endl;
-
-			return true;
-
-		} else
-			std::cout << "Animal nao encontrado!" << std::endl;
-
-	}
-
-	else if( _classe.compare( "Aves" ) == 0 )
-	{
-
-		std::map< int, Ave* >::iterator it = m_tabela_ave.find( _id );
-
-		if( it != m_tabela_ave.end() )
-		{
-
-			std::cout << "===			FLAG 04			===" << std::endl;
-			std::cout << "Dados do Animal procurado: " << std::endl;
-			std::cout << *(it->second) << std::endl;
-
-			return true;
-
-		} else
-			std::cout << "Animal nao encontrado!" << std::endl;
-
-	}
-
-	return false;
 
 }
 
 
 /*		Metodo abaixo compilando, porem não testado		*/
 
-bool Pet_Fera_Cadastro::consultar_animais_funcionario( int _id, std::string _funcao )
+void Pet_Fera_Cadastro::consultar_animais_funcionario( int _id )
 {
 
 	std::map< int, Anfibio* >::iterator it_anf = m_tabela_anfibio.begin();
@@ -593,306 +544,346 @@ bool Pet_Fera_Cadastro::consultar_animais_funcionario( int _id, std::string _fun
 	std::map< int, Reptil* >::iterator it_rep = m_tabela_reptil.begin();
 	std::map< int, Ave* >::iterator it_ave = m_tabela_ave.begin();
 
-	if( _funcao.compare( "Veterinario" ) == 0 )
+	std::map< int, Funcionario* >::iterator it_func = m_tabela_funcionario.find( _id );
+
+	if( it_func != m_tabela_funcionario.end() )
 	{
+		std::cout << "\nLista dos Animais relacionados ao respectivo Funcionario: " << std::endl;
 
-		std::map< int, Veterinario* >::iterator it_veterinario = m_tabela_veterinario.find( _id );
-
-		if( it_veterinario != m_tabela_veterinario.end() )
+		while( it_anf != m_tabela_anfibio.end() )
 		{
 
-			while( it_anf != m_tabela_anfibio.end() )
-			{
+			if( it_anf -> second -> get_id() == _id )
+				it_anf -> second -> printAnimal();
 
-				if( it_anf -> second -> get_id() == _id )
-				{
+			++it_anf;
+		}
 
-					std::cout << it_anf -> second << std::endl;
-
-				}
-
-				++it_anf;
-			}
-
-			while( it_mam != m_tabela_mamifero.end() )
-			{
-
-				if( it_mam -> second -> get_id() == _id )
-				{
-
-					std::cout << it_mam -> second << std::endl;
-
-				}
-
-				++it_mam;
-			}
-
-			while( it_rep != m_tabela_reptil.end() )
-			{
-
-				if( it_rep -> second -> get_id() == _id )
-				{
-
-					std::cout << it_rep -> second << std::endl;
-
-				}
-
-				++it_rep;
-			}
-
-			while( it_ave != m_tabela_ave.end() )
-			{
-
-				if( it_ave -> second -> get_id() == _id )
-				{
-
-					std::cout << it_ave -> second << std::endl;
-
-				}
-
-				++it_ave;
-			}
-
-
-		} else 
-			std::cout << "Nao existe Funcionario com o ID fornecido" << std::endl;
-
-
-	}
-	else if ( _funcao.compare( "Tratador" ) == 0 )
-	{
-
-		std::map< int, Tratador* >::iterator it_tratador = m_tabela_tratador.find( _id );
-
-		if( it_tratador != m_tabela_tratador.end() )
+		while( it_mam != m_tabela_mamifero.end() )
 		{
 
-			while( it_anf != m_tabela_anfibio.end() )
-			{
+			if( it_mam -> second -> get_id() == _id )
+				it_mam -> second -> printAnimal();
 
-				if( it_anf -> second -> get_id() == _id )
-				{
+			++it_mam;
+		}
 
-					std::cout << it_anf -> second << std::endl;
+		while( it_rep != m_tabela_reptil.end() )
+		{
 
-				}
+			if( it_rep -> second -> get_id() == _id )
+				it_rep -> second -> printAnimal();
 
-				++it_anf;
-			}
+			++it_rep;
+		}
 
-			while( it_mam != m_tabela_mamifero.end() )
-			{
+		while( it_ave != m_tabela_ave.end() )
+		{
 
-				if( it_mam -> second -> get_id() == _id )
-				{
+			if( it_ave -> second -> get_id() == _id )
+				it_ave -> second -> printAnimal();
 
-					std::cout << it_mam -> second << std::endl;
+			++it_ave;
+		}
 
-				}
 
-				++it_mam;
-			}
-
-			while( it_rep != m_tabela_reptil.end() )
-			{
-
-				if( it_rep -> second -> get_id() == _id )
-				{
-
-					std::cout << it_rep -> second << std::endl;
-
-				}
-
-				++it_rep;
-			}
-
-			while( it_ave != m_tabela_ave.end() )
-			{
-
-				if( it_ave -> second -> get_id() == _id )
-				{
-
-					std::cout << it_ave -> second << std::endl;
-
-				}
-
-				++it_ave;
-			}
-
-		} else 
-			std::cout << "Nao existe Funcionario com o ID fornecido" << std::endl;
-
-	}
-
-	return false;
+	} else 
+		std::cout << "Nao existe Funcionario com o ID fornecido" << std::endl;
 
 }
 
 /*		Não Testado		*/
-bool Pet_Fera_Cadastro::consultar_funcionarios( int _id, std::string _funcao )
+void Pet_Fera_Cadastro::consultar_funcionarios( int _id )
 {
-	if( _funcao.compare( "Veterinario" ) == 0 )
-	{
+	
+	std::map< int, Funcionario* >::iterator it_func =  m_tabela_funcionario.find( _id );
+	std::cout << std::endl << m_tabela_funcionario.size()  <<std::endl;
+	if( it_func != m_tabela_funcionario.end() )
+		it_func -> second -> printFuncionario();
+	else
+		std::cout << "Funcionario nao encontrado" << std::endl;
 
-		std::map< int, Veterinario* >::iterator it_veterinario =  m_tabela_veterinario.find( _id );
-
-		if( it_veterinario != m_tabela_veterinario.end() )
-		{
-			std::cout << "Dados do Funcionario procurado: " << std::endl;
-			std::cout << it_veterinario -> second << std::endl;
-
-			return true;
-
-		} else
-			std::cout << "Funcionario nao encontrado" << std::endl;
-
-	} else if( _funcao.compare( "Tratador" ) == 0 )
-	{
-
-		std::map< int, Tratador* >::iterator it_tratador =  m_tabela_tratador.find( _id );
-
-		if( it_tratador != m_tabela_tratador.end() )
-		{
-			std::cout << "Dados do Funcionario procurado: " << std::endl;
-			std::cout << it_tratador -> second << std::endl;
-
-			return true;
-
-		} else
-			std::cout << "Funcionario nao encontrado" << std::endl;
-
-	}
-	return false;
 }
 
 /*		Não Testado		*/
-bool Pet_Fera_Cadastro::remover_funcionario( int _id, std::string _funcao )
+void Pet_Fera_Cadastro::remover_funcionario( int _id )
 {
 
-	if( _funcao.compare( "Veterinario" ) == 0 )
+	std::map< int, Funcionario* >::iterator it_func =  m_tabela_funcionario.find( _id );
+
+	if( it_func != m_tabela_funcionario.end() )
 	{
 
-		std::map< int, Veterinario* >::iterator it_veterinario =  m_tabela_veterinario.find( _id );
+		m_tabela_funcionario.erase( it_func );
+		std::cout << "Funcionario Removido com sucesso!" << std::endl;
 
-		if( it_veterinario != m_tabela_veterinario.end() )
-		{
+	}else
+		std::cout << "Funcionario nao encontrado" << std::endl;
 
-			m_tabela_veterinario.erase( it_veterinario );
-			return true;
-
-		} else
-			std::cout << "Funcionario nao encontrado" << std::endl;
-
-	} else if( _funcao.compare( "Tratador" ) == 0 )
-	{
-
-		std::map< int, Tratador* >::iterator it_tratador =  m_tabela_tratador.find( _id );
-
-		if( it_tratador != m_tabela_tratador.end() )
-		{
-
-			m_tabela_tratador.erase( it_tratador );
-			return true;
-
-		} else
-			std::cout << "Funcionario nao encontrado" << std::endl;
-
-	}
-
-	return false;
 }
 
 /*		Não Testado		*/
-bool Pet_Fera_Cadastro::remover_animal( int _id, std::string _classe )
+void Pet_Fera_Cadastro::remover_animal( int _id )
 {
 
-	if( _classe.compare( "Anfibio" ) == 0 )
-	{
+	std::map< int, Anfibio* >::iterator it_anf = m_tabela_anfibio.find( _id );
+	std::map< int, Mamifero* >::iterator it_mam = m_tabela_mamifero.find( _id );
+	std::map< int, Reptil* >::iterator it_rep = m_tabela_reptil.find( _id );
+	std::map< int, Ave* >::iterator it_ave = m_tabela_ave.find( _id );
 
-		std::map< int, Anfibio* >::iterator it = m_tabela_anfibio.find( _id );
+	if( it_anf != m_tabela_anfibio.end() )
+		m_tabela_anfibio.erase( it_anf );
+	else if( it_mam != m_tabela_mamifero.end() )
+		m_tabela_mamifero.erase( it_mam );
+	else if( it_rep != m_tabela_reptil.end() )
+		m_tabela_reptil.erase( it_rep );
+	else if( it_ave != m_tabela_ave.end() )
+		m_tabela_ave.erase( it_ave );
+	else
+		std::cout << "Animal nao encontrado!" << std::endl;
 
-		if( it != m_tabela_anfibio.end() )
-		{
+	std::cout << "\nAnimal removido com sucesso\n" << std::endl;
 
-			m_tabela_anfibio.erase( it );
-
-			return true;
-
-		} else
-			std::cout << "Animal nao encontrado!" << std::endl;
-
-	}
-
-	else if( _classe.compare( "Mamifero" ) == 0 )
-	{
-
-		std::map< int, Mamifero* >::iterator it = m_tabela_mamifero.find( _id );
-
-		if( it != m_tabela_mamifero.end() )
-		{
-
-			m_tabela_mamifero.erase( it );
-
-			return true;
-
-		} else
-			std::cout << "Animal nao encontrado!" << std::endl;
-
-	}
-
-	else if( _classe.compare( "Reptil" ) == 0 )
-	{
-
-		std::map< int, Reptil* >::iterator it = m_tabela_reptil.find( _id );
-
-		if( it != m_tabela_reptil.end() )
-		{
-
-			m_tabela_reptil.erase( it );
-
-			return true;
-
-		} else
-			std::cout << "Animal nao encontrado!" << std::endl;
-
-	}
-
-	else if( _classe.compare( "Ave" ) == 0 )
-	{
-
-		std::map< int, Ave* >::iterator it = m_tabela_ave.find( _id );
-
-		if( it != m_tabela_ave.end() )
-		{
-
-			m_tabela_ave.erase( it );
-
-			return true;
-
-		} else
-			std::cout << "Animal nao encontrado!" << std::endl;
-
-	}
-
-	return false;
 }
 
 
 /*		Implementar métodos abaixo		*/
 
-bool Pet_Fera_Cadastro::alterar_dados_animais( int _id, std::string _classe )
+void Pet_Fera_Cadastro::alterar_dados_animais( int _id )
 {
+	std::map< int, Anfibio* >::iterator it_anf = m_tabela_anfibio.find( _id );
+	std::map< int, Mamifero* >::iterator it_mam = m_tabela_mamifero.find( _id );
+	std::map< int, Reptil* >::iterator it_rep = m_tabela_reptil.find( _id );
+	std::map< int, Ave* >::iterator it_ave = m_tabela_ave.find( _id );
 
-	return true;
+	if( it_anf != m_tabela_anfibio.end() )
+	{
+
+		std::string _nome;
+		float		_tamanho;
+		std::string _dieta;
+		int 		_id_veterinario;
+		int			_id_tratador;
+		int			_total_mudas;
+		std::string _ultima_muda;
+
+		Funcionario * veterinario_resp;
+		Funcionario * tratador_resp;
+
+		it_anf -> second -> printAnimal();
+
+		std::cout << "\nLista dos dasdos que podem ser alterados:  ";
+		std::cout << "Nome, Tamanho, Dieta, Veterinario, Tratador, Total de Mudas, Data da Ultima Muda" << std::endl;
+		std::cout << "\n>>>>>	Digite os novos dados	<<<<<\n" << std::endl;
+		std::cout << "\nNome: ";
+		std::cin >> _nome;
+		std::cout << "\nTamanho: ";
+		std::cin >> _tamanho;
+		std::cout << "\nDieta: ";
+		std::cin >> _dieta;
+		std::cout << "\nID do Veterinario: ";
+		std::cin >> _id_veterinario;
+		std::cout << "\nID do Tratador:  ";
+		std::cin >> _id_tratador;
+		std::cout << "\nTotal de Mudas:  ";
+		std::cin >> _total_mudas;
+		std::cout << "\nUltima Muda (DD/MM/AAAA):  ";
+		std::cin >> _ultima_muda;
+
+		it_anf -> second -> set_nome( _nome );
+		it_anf -> second -> set_tamanho( _tamanho );
+		it_anf -> second -> set_dieta( _dieta );
+
+		if( m_tabela_funcionario.find( _id_tratador ) != m_tabela_funcionario.end() )
+			tratador_resp = m_tabela_funcionario[ _id_tratador ];
+
+		if( m_tabela_funcionario.find( _id_veterinario ) != m_tabela_funcionario.end() )
+			veterinario_resp = m_tabela_funcionario[ _id_veterinario ];
+
+		it_anf -> second -> set_veterinario( veterinario_resp );
+		it_anf -> second -> set_tratador( tratador_resp );
+
+		it_anf -> second -> set_total_mudas( _total_mudas );
+		it_anf -> second -> set_ultima_muda( _ultima_muda );
+
+		std::cout << std::endl;
+		std::cout << "\nDados alterados com sucesso\n" << std::endl;
+
+	}
+	else if( it_mam != m_tabela_mamifero.end() )
+	{
+		std::string _nome;
+		float		_tamanho;
+		std::string _dieta;
+		int 		_id_veterinario;
+		int			_id_tratador;
+
+		Funcionario * veterinario_resp;
+		Funcionario * tratador_resp;
+
+		it_mam -> second -> printAnimal();
+
+		std::cout << "\nLista dos dasdos que podem ser alterados:  ";
+		std::cout << "Nome, Tamanho, Dieta, Veterinario, Tratador" << std::endl;
+		std::cout << "\n>>>>>	Digite os novos dados	<<<<<\n" << std::endl;
+		std::cout << "\nNome: ";
+		std::cin >> _nome;
+		std::cout << "\nTamanho: ";
+		std::cin >> _tamanho;
+		std::cout << "\nDieta: ";
+		std::cin >> _dieta;
+		std::cout << "\nID do Veterinario: ";
+		std::cin >> _id_veterinario;
+		std::cout << "\nID do Tratador:  ";
+		std::cin >> _id_tratador;
+		
+
+		it_mam -> second -> set_nome( _nome );
+		it_mam -> second -> set_tamanho( _tamanho );
+		it_mam -> second -> set_dieta( _dieta );
+
+		if( m_tabela_funcionario.find( _id_tratador ) != m_tabela_funcionario.end() )
+			tratador_resp = m_tabela_funcionario[ _id_tratador ];
+
+		if( m_tabela_funcionario.find( _id_veterinario ) != m_tabela_funcionario.end() )
+			veterinario_resp = m_tabela_funcionario[ _id_veterinario ];
+
+		it_mam -> second -> set_veterinario( veterinario_resp );
+		it_mam -> second -> set_tratador( tratador_resp );
+
+		std::cout << std::endl;
+		std::cout << "\nDados alterados com sucesso\n" << std::endl;
+
+	}
+	else if( it_rep != m_tabela_reptil.end() )
+	{
+		std::string _nome;
+		float		_tamanho;
+		std::string _dieta;
+		int 		_id_veterinario;
+		int			_id_tratador;
+
+		Funcionario * veterinario_resp;
+		Funcionario * tratador_resp;
+
+		it_rep -> second -> printAnimal();
+
+		std::cout << "\nLista dos dasdos que podem ser alterados:  ";
+		std::cout << "Nome, Tamanho, Dieta, Veterinario, Tratador" << std::endl;
+		std::cout << "\n>>>>>	Digite os novos dados	<<<<<\n" << std::endl;
+		std::cout << "\nNome: ";
+		std::cin >> _nome;
+		std::cout << "\nTamanho: ";
+		std::cin >> _tamanho;
+		std::cout << "\nDieta: ";
+		std::cin >> _dieta;
+		std::cout << "\nID do Veterinario: ";
+		std::cin >> _id_veterinario;
+		std::cout << "\nID do Tratador:  ";
+		std::cin >> _id_tratador;
+
+		it_rep -> second -> set_nome( _nome );
+		it_rep -> second -> set_tamanho( _tamanho );
+		it_rep -> second -> set_dieta( _dieta );
+
+		if( m_tabela_funcionario.find( _id_tratador ) != m_tabela_funcionario.end() )
+			tratador_resp = m_tabela_funcionario[ _id_tratador ];
+
+		if( m_tabela_funcionario.find( _id_veterinario ) != m_tabela_funcionario.end() )
+			veterinario_resp = m_tabela_funcionario[ _id_veterinario ];
+
+		it_rep -> second -> set_veterinario( veterinario_resp );
+		it_rep -> second -> set_tratador( tratador_resp );
+
+		std::cout << std::endl;
+		std::cout << "\nDados alterados com sucesso\n" << std::endl;
+
+	}
+
+	else if( it_ave != m_tabela_ave.end() )
+	{
+		std::string _nome;
+		float		_tamanho;
+		std::string _dieta;
+		int 		_id_veterinario;
+		int			_id_tratador;
+		float		_tamanho_bico;
+		float		_envergadura;
+
+		Funcionario * veterinario_resp;
+		Funcionario * tratador_resp;
+
+		it_ave -> second -> printAnimal();
+
+		std::cout << "\nLista dos dasdos que podem ser alterados:  ";
+		std::cout << "Nome, Tamanho, Dieta, Veterinario, Tratador, Tamanho do Bico, Envergadura" << std::endl;
+		std::cout << "\n>>>>>	Digite os novos dados	<<<<<\n" << std::endl;
+		std::cout << "\nNome: ";
+		std::cin >> _nome;
+		std::cout << "\nTamanho: ";
+		std::cin >> _tamanho;
+		std::cout << "\nDieta: ";
+		std::cin >> _dieta;
+		std::cout << "\nID do Veterinario: ";
+		std::cin >> _id_veterinario;
+		std::cout << "\nID do Tratador:  ";
+		std::cin >> _id_tratador;
+		std::cout << "\nTamanho do Bico:  ";
+		std::cin >> _tamanho_bico;
+		std::cout << "\nEnvergadura:  ";
+		std::cin >> _envergadura;
+
+		it_ave -> second -> set_nome( _nome );
+		it_ave -> second -> set_tamanho( _tamanho );
+		it_ave -> second -> set_dieta( _dieta );
+
+		if( m_tabela_funcionario.find( _id_tratador ) != m_tabela_funcionario.end() )
+			tratador_resp = m_tabela_funcionario[ _id_tratador ];
+
+		if( m_tabela_funcionario.find( _id_veterinario ) != m_tabela_funcionario.end() )
+			veterinario_resp = m_tabela_funcionario[ _id_veterinario ];
+
+		it_ave -> second -> set_veterinario( veterinario_resp );
+		it_ave -> second -> set_tratador( tratador_resp );
+
+		it_ave -> second -> set_tamanho_bico( _tamanho_bico );
+		it_ave -> second -> set_envergadura( _envergadura );
+
+		std::cout << std::endl;
+		std::cout << "\nDados alterados com sucesso\n" << std::endl;
+
+	} else
+		std::cout << "\nAnimal nao encontrado\n" << std::endl;
 
 }
 
-bool Pet_Fera_Cadastro::alterar_dados_funcionarios( int _id, std::string _funcao )
+void Pet_Fera_Cadastro::alterar_dados_funcionarios( int _id )
 {
 
-	return true;
+	std::map< int, Funcionario* >::iterator it_func =  m_tabela_funcionario.find( _id );
+
+	if( it_func != m_tabela_funcionario.end() )
+	{
+
+		int _idade;
+
+		std::cout << "\nLista dos dasdos que podem ser alterados:  Idade" << std::endl;
+		std::cout << "\n>>>>>	Digite os novos dados	<<<<<\n" << std::endl;
+		std::cout << "\nIdade: ";
+		std::cin >> _idade;
+
+		it_func -> second -> set_idade( _idade );
+
+		std::cout << std::endl;
+		std::cout << "\nDados alterados com sucesso\n" << std::endl;
+
+
+	}else
+		std::cout << "Funcionario nao encontrado" << std::endl;	
 
 }
+
+/*	Ajeitar Importação de Dados!	*/
 
 bool Pet_Fera_Cadastro::importar_dados_animais( std::ifstream& dados_animais )
 {
@@ -916,24 +907,22 @@ bool Pet_Fera_Cadastro::importar_dados_animais( std::ifstream& dados_animais )
 		}
 		campos = separar( linha,';' );
 
-		Veterinario* veterinario	= nullptr;
-		Tratador* 	 tratador		= nullptr;
+		Funcionario* veterinario	= nullptr;
+		Funcionario* tratador		= nullptr;
 
-		for (std::map<int, Veterinario*>::iterator it = m_tabela_veterinario.begin(); it != m_tabela_veterinario.end(); ++it)
+		for (std::map<int, Funcionario*>::iterator it = m_tabela_funcionario.begin(); it != m_tabela_funcionario.end(); ++it)
 		{
 			if( it->second->get_id() == std::stoi(campos[8]) )
 			{
 				veterinario = it->second;
 			}
-		}
 
-		for (std::map<int, Tratador*>::iterator it = m_tabela_tratador.begin(); it != m_tabela_tratador.end(); ++it)
-		{
 			if( it->second->get_id() == std::stoi(campos[9]) )
 			{
 				tratador = it->second;
 			}
 		}
+
 		std::cout << campos[6] << "  " << campos[11] << "  " <<  campos[11] << std::endl;
 		if( campos[1] == "Amphibia" and campos[2] == "Domestico" )
 		{
@@ -1056,5 +1045,6 @@ unsigned int Pet_Fera_Cadastro::quantidade_animais_cadastrados( void )
 
 unsigned int Pet_Fera_Cadastro::quantidade_funcionarios_cadastrados( void )
 {
-	return m_tabela_veterinario.size() + m_tabela_tratador.size();
+	return m_tabela_funcionario.size();
 }
+
