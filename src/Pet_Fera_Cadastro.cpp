@@ -498,10 +498,10 @@ bool Pet_Fera_Cadastro::cadastrar_funcionario( std::string _funcao )
 
 bool Pet_Fera_Cadastro::consultar_animais( int _id, std::string _classe )
 {
+	std::cin.ignore();
+	std::cout << "===			FLAG 00			===" << std::endl;
 
-	/*		Imprimindo o Endereço de Memoria, provavelmente precisa da sobrecarga de algum operador.		*/
-
-	if( _classe.compare( "Anfibio" ) == 0 )
+	if( _classe.compare( "Amphibia" ) == 0 )
 	{
 
 		std::map< int, Anfibio* >::iterator it = m_tabela_anfibio.find( _id );
@@ -509,6 +509,7 @@ bool Pet_Fera_Cadastro::consultar_animais( int _id, std::string _classe )
 		if( it != m_tabela_anfibio.end() )
 		{
 
+			std::cout << "===			FLAG 01			===" << std::endl;
 			std::cout << "Dados do Animal procurado: " << std::endl;
 			std::cout << *(it->second) << std::endl;
 
@@ -519,14 +520,16 @@ bool Pet_Fera_Cadastro::consultar_animais( int _id, std::string _classe )
 
 	}
 
-	else if( _classe.compare( "Mamifero" ) == 0 )
+	else if( _classe.compare( "Mammalia" ) == 0 )
 	{
-
+		
 		std::map< int, Mamifero* >::iterator it = m_tabela_mamifero.find( _id );
+		
 
 		if( it != m_tabela_mamifero.end() )
 		{
 
+			std::cout << "===			FLAG 02			===" << std::endl;
 			std::cout << "Dados do Animal procurado: " << std::endl;
 			std::cout << *(it->second) << std::endl;
 
@@ -537,7 +540,7 @@ bool Pet_Fera_Cadastro::consultar_animais( int _id, std::string _classe )
 
 	}
 
-	else if( _classe.compare( "Reptil" ) == 0 )
+	else if( _classe.compare( "Reptilia" ) == 0 )
 	{
 
 		std::map< int, Reptil* >::iterator it = m_tabela_reptil.find( _id );
@@ -545,6 +548,7 @@ bool Pet_Fera_Cadastro::consultar_animais( int _id, std::string _classe )
 		if( it != m_tabela_reptil.end() )
 		{
 
+			std::cout << "===			FLAG 03			===" << std::endl;
 			std::cout << "Dados do Animal procurado: " << std::endl;
 			std::cout << *(it->second) << std::endl;
 
@@ -555,7 +559,7 @@ bool Pet_Fera_Cadastro::consultar_animais( int _id, std::string _classe )
 
 	}
 
-	else if( _classe.compare( "Ave" ) == 0 )
+	else if( _classe.compare( "Aves" ) == 0 )
 	{
 
 		std::map< int, Ave* >::iterator it = m_tabela_ave.find( _id );
@@ -563,6 +567,7 @@ bool Pet_Fera_Cadastro::consultar_animais( int _id, std::string _classe )
 		if( it != m_tabela_ave.end() )
 		{
 
+			std::cout << "===			FLAG 04			===" << std::endl;
 			std::cout << "Dados do Animal procurado: " << std::endl;
 			std::cout << *(it->second) << std::endl;
 

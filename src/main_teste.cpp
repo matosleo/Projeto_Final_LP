@@ -11,7 +11,6 @@
 int main(int argc, char const *argv[])
 {
 	int opcao;
-	bool key = true;
 	int _id;
 	std::string funcao_funcionario;
 	std::string familia_animal;
@@ -49,11 +48,6 @@ int main(int argc, char const *argv[])
 		else
 			switch ( opcao )
 			{
-				case 0:
-
-					key = false;
-
-				break;
 
 				case 1:
 
@@ -62,22 +56,22 @@ int main(int argc, char const *argv[])
 					std::cout << "Digite o tipo do animal que deseja cadastrar (Domestico, Exotico ou Nativo):" << std::endl;
 					std::cin >> tipo_animal;
 
-					if( familia_animal.compare( "Anfibio" ) == 0 )
+					if( familia_animal.compare( "Amphibia" ) == 0 )
 					{
 						if( pet_cadastro.cadastrar_anfibio( familia_animal, tipo_animal ) )
 							std::cout << "Anfibio cadastrado com sucesso!" << std::endl;
 					}
-					else if( familia_animal.compare( "Mamifero" ) == 0 )
+					else if( familia_animal.compare( "Mammalia" ) == 0 )
 					{
 						if( pet_cadastro.cadastrar_mamifero( familia_animal, tipo_animal ) )
 							std::cout << "Mamifero cadastrado com sucesso!" << std::endl;
 					}
-					else if( familia_animal.compare( "Reptil" ) == 0 )
+					else if( familia_animal.compare( "Reptilia" ) == 0 )
 					{
 						if( pet_cadastro.cadastrar_reptil( familia_animal, tipo_animal ) )
 							std::cout << "Reptil cadastrado com sucesso!" << std::endl;
 					}
-					else if( familia_animal.compare( "Ave" ) == 0 )
+					else if( familia_animal.compare( "Aves" ) == 0 )
 					{
 						if( pet_cadastro.cadastrar_ave( familia_animal, tipo_animal ) )
 							std::cout << "Ave cadastrado com sucesso!" << std::endl;
@@ -124,8 +118,12 @@ int main(int argc, char const *argv[])
 
 					std::cout << "Digite o ID do animal que deseja consultar:" << std::endl;
 					std::cin >> _id;
-					std::cout << "Digite a classe do animal que deseja consultar (Anfibio, Mamifero, Reptil ou Ave):" << std::endl;
-					std::cin >> familia_animal;
+					std::cout << "Digite a classe do animal que deseja consultar (Amphibia, Mammalia, Reptilia ou Aves):" << std::endl;
+		
+					std::cin.ignore();
+					std::getline(std::cin, familia_animal);
+
+					std::cout << "===			FLAG CASE 5			===" << std::endl;
 
 					if( pet_cadastro.consultar_animais( _id, familia_animal ) )
 						std::cout << "Dados consultados com sucesso!" << std::endl;
@@ -188,7 +186,7 @@ int main(int argc, char const *argv[])
 			}
 
 
-	} while ( key );
+	} while ( opcao != 0 );
 
 	std::cout << "Obrigado por utilizar nossos servicos!" << std::endl;
 
