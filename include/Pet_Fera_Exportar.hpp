@@ -7,7 +7,7 @@
  * @author     Gleydvan Macedo
  * @author     João Vítor Venceslau Coelho
  * @since      06/12/2017
- * @date       06/12/2017
+ * @date       08/12/2017
  */
 
 #ifndef PETFERA_AUX_HPP
@@ -17,11 +17,27 @@
 #include <fstream>
 #include <vector>
 
+/**
+ * @brief      { function_description }
+ *
+ * @param[in]  str      The string
+ * @param[in]  termino  The termino
+ *
+ * @return     { description_of_the_return_value }
+ */
 bool termina_com(const std::string &str, const std::string &termino)
 {
 	return str.size() >= termino.size() and str.compare(str.size() - termino.size(), termino.size(), termino) == 0;
 }
 
+/**
+ * @brief      { function_description }
+ *
+ * @param[in]  alvo         The alvo
+ * @param[in]  delimitador  The delimitador
+ *
+ * @return     { description_of_the_return_value }
+ */
 std::vector< std::string > separar ( const std::string& alvo, const char &delimitador )
 {
 	size_t start = alvo.find_first_not_of(delimitador);
@@ -40,6 +56,14 @@ std::vector< std::string > separar ( const std::string& alvo, const char &delimi
 	return campos;
 }
 
+/**
+ * @brief      { function_description }
+ *
+ * @param      alvo    The alvo
+ * @param[in]  filtro  The filtro
+ *
+ * @return     { description_of_the_return_value }
+ */
 std::vector< std::string > filtrar_classe( std::vector< std::string > &alvo, const std::string filtro )
 {
 	std::string linha;
@@ -65,6 +89,15 @@ std::vector< std::string > filtrar_classe( std::vector< std::string > &alvo, con
 	return retorno;
 }
 
+/**
+ * @brief      { function_description }
+ *
+ * @param      alvo    The alvo
+ * @param[in]  filtro  The filtro
+ * @param[in]  campo   The campo
+ *
+ * @return     { description_of_the_return_value }
+ */
 std::vector< std::string > filtrar_func( std::vector< std::string > &alvo, const std::string filtro, size_t campo )
 {
 	std::string linha;
