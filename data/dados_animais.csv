@@ -2,6 +2,7 @@ ID;Classe;Tipo;Nome;Nome Cientifico;Sexo;Tamanho;Dieta;Veterinario;Tratador;Bati
 18;Amphibia;Domestico;Sapo-comum;Bufo bufo;M;0.1;Moscas;19;20;Godofredo;-;-;4;03/08/13;-;-;-;-;-;-;
 19;Amphibia;Nativo;Salamandra-comum;Salamandra salamandra gallaica;F;0.17;Insetos;19;20;Wanda;-;-;8;15/03/17;-;-;-;16797;RO;4674684;
 20;Amphibia;Domestico;Perereca;Hypochondrialis Phyllomedusa;M;0.04;Insetos;19;20;Ptolomeu;-;-;3;29/06/15;-;-;-;-;-;-;
+100;Amphibia;Nativo;Gia;Gia Gia;F;3;Insetos;19;20;Gi;-;-;3;20/01/03;-;-;-;534626;PE;1254526;
 1;Mammalia;Exotico;Leao;Panthera leo;M;2;Carne;1;2;Simba;-;-;-;-;Dourado;-;-;75344;Congo;-;
 2;Mammalia;Nativo;Onca-pintada;Panthera onca;F;2;Carne;1;2;Fiona;-;-;-;-;Amarelo e Preto;-;-;4563783;AM;13764;
 3;Mammalia;Exotico;Leopardo;Panthera pardus;M;2;Carne;1;2;Leonardo;-;-;-;-;Amarelo e Preto;-;-;4537678;Congo;-;
