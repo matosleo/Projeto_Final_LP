@@ -63,11 +63,14 @@ public:
 	void alterar_dados_animais( int _id );
 	void alterar_dados_funcionarios( int _id );
 	
-	bool importar_dados_animais( std::ifstream& dados_animais );
-	bool importar_dados_funcionarios();
+	void importar_dados_animais( std::ifstream& dados_animais );
+	void importar_dados_funcionarios( std::ifstream& dados_funcionarios );
 
-	bool exportar_dados_animais();
-	bool exportar_dados_funcionarios();
+	template < typename T >
+	std::string to_string( T target );
+
+	void exportar_dados_animais( std::ofstream& dados_animais );
+	void exportar_dados_funcionarios( std::ofstream& dados_funcionarios );
 
 	unsigned int quantidade_animais_cadastrados( void );
 	unsigned int quantidade_funcionarios_cadastrados( void );

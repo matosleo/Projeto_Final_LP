@@ -22,7 +22,7 @@ using namespace PetFera;
 
 namespace PetFera
 {
-	class AveNativo : public Ave , Nativo
+	class AveNativo : public Ave , public Nativo
 	{
 	public:
 		AveNativo( int _id, std::string _classe, std::string _tipo, std::string _nome, std::string _cientifico, char _sexo, 

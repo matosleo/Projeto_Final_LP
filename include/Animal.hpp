@@ -66,7 +66,7 @@ namespace PetFera
 
 		int 		get_id( void );
 		std::string get_classe( void );
-//		std::string get_tipo( void );
+		std::string get_tipo( void );
 		std::string get_nome( void );
 		std::string get_cientifico( void );
 		char 		get_sexo( void );

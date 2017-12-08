@@ -23,7 +23,7 @@ using namespace PetFera;
 namespace PetFera
 {
 
-	class MamiferoNativo : public Mamifero , Nativo
+	class MamiferoNativo : public Mamifero , public Nativo
 	{
 	public:
 		MamiferoNativo( int _id, std::string _classe, std::string _tipo, std::string _nome, std::string _cientifico, char _sexo, 
