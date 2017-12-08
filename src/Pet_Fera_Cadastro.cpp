@@ -162,6 +162,8 @@ void Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _ti
 	std::string _autorizacao;
 	std::string _pais_origem;
 
+	std::cin.clear();
+	std::cin.ignore(200,'\n');
 	std::cout << "Numero de Identificacao do Animal (ID): ";
 	std::getline(std::cin, aux);
 	_id = std::stoi(aux);
@@ -280,6 +282,8 @@ void Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 	std::string _autorizacao;
 	std::string _pais_origem;
 
+	std::cin.clear();
+	std::cin.ignore(200,'\n');
 	std::cout << "Numero de Identificacao do Animal (ID): ";
 	std::getline(std::cin, aux);
 	_id = std::stoi(aux);
@@ -410,7 +414,8 @@ void Pet_Fera_Cadastro::cadastrar_ave( std::string _classe, std::string _tipo )
 	std::string _autorizacao;
 	std::string _pais_origem;
 
-	
+	std::cin.clear();
+	std::cin.ignore(200,'\n');
 	std::cout << "Numero de Identificacao do Animal (ID): ";
 	std::getline(std::cin, aux);
 	_id = std::stoi(aux);
@@ -524,6 +529,8 @@ void Pet_Fera_Cadastro::cadastrar_funcionario( std::string _funcao )
 	char 		_fator_RH;			// + / -
 	std::string _especialidade;
 
+	std::cin.clear();
+	std::cin.ignore(200,'\n');
 	std::cout << "Numero de Identificacao do Funcionario (ID): ";
 	std::getline(std::cin, aux);
 	_id = std::stoi(aux);
