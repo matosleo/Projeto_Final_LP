@@ -20,18 +20,15 @@ LIBFLAGS = -lPetFera
 
 .PHONY: all clean distclean doxy
 
-linux: dir $(BIN_DIR)/teste $(BIN_DIR)/exportar 
+linux: dir $(BIN_DIR)/cadastrar $(BIN_DIR)/exportar 
 
 debug: CFLAGS += -g -O0 -pg
 debug: $(BIN_DIR)/teste
 
 # LINUX
 
-#$(BIN_DIR)/cadastrar: $(LIB_DIR)/libPetFera.so $(INC_DIR)/cadastro.hpp $(SRC_DIR)/cadastro.cpp $(SRC_DIR)/cadastrar.cpp
-#	$(CC) $(CFLAGS) $(SRC_DIR)/cadastrar.cpp $(INC_DIR)/cadastro.hpp $(SRC_DIR)/cadastro.cpp -L$(LIB_DIR) $(LIBFLAGS) -o $@
-#	@echo "+++ [Binario criado em $@] +++"
-$(BIN_DIR)/teste: $(LIB_DIR)/libPetFera.so $(SRC_DIR)/main_teste.cpp
-	$(CC) $(CFLAGS) $(SRC_DIR)/main_teste.cpp -L$(LIB_DIR) $(LIBFLAGS) -o $@
+$(BIN_DIR)/cadastrar: $(LIB_DIR)/libPetFera.so $(SRC_DIR)/main.cpp
+	$(CC) $(CFLAGS) $(SRC_DIR)/main.cpp -L$(LIB_DIR) $(LIBFLAGS) -o $@
 	@echo "+++ [Binario criado em $@] +++"
 
 $(BIN_DIR)/exportar: $(SRC_DIR)/Pet_Fera_Exportar.cpp $(INC_DIR)/Pet_Fera_Exportar.hpp
@@ -112,11 +109,11 @@ uninstall: $(LIB_DIR)/libPetFera.so
 	sudo rm -f /usr/lib/libPetFera.so
 	sudo rm -f /usr/local/lib/libPetFera.so
 
-valgrind_estatico:
-	valgrind -v --leak-check=full --show-reachable=yes ./bin/geometrica_estatico
+valgrind_cadastrar:
+	valgrind -v --leak-check=full --show-reachable=yes ./bin/cadastrar
 
-valgrind_dinamico:
-	valgrind -v --leak-check=full --show-reachable=yes ./bin/geometrica_dinamico
+valgrind_exportar:
+	valgrind -v --leak-check=full --show-reachable=yes ./bin/exportar
 
 clean: dir
 	$(RM) $(BIN_DIR)/*
