@@ -13,9 +13,9 @@ ID;Classe;Tipo;Nome;Nome Cientifico;Sexo;Tamanho;Dieta;Veterinario;Tratador;Bati
 12;Reptilia;Exotico;Dragao-de-komodo;Varanus komodoensis;F;2.50;Carne;5;5;Maria;-;-;-;-;-;Sim;Neurotoxina;453983;Australia;456978
 13;Reptilia;Nativo;Camaleao;Chamaeleo zeylanicus;M;0.04;Insetos;6;6;Zayn;-;-;-;-;-;Nao;Nenhuma;7869453;RJ;45687
 14;Mammalia;Exotico;Arminho;Mustela erminea;M;0.33;Carne;7;7;Arnold;-;-;-;-;Marrom;-;-;698767;EUA;456756
-15;Mammalia;Exotico;Gerbo;Meriones unguiculatus;M;0.80;Sementes;8;8;Gregorio;-;-;-;-;Branco;-;-;07658;Russia;5646786
-16;Mammalia;Exotico;Feneco;Vulpes zerda;F;0.40;Carne;8;8;Sthephany;-;-;-;-;Marrom;-;-;6398756;Espanha;569875
+15;Mammalia;Exotico;Gerbo;Meriones unguiculatus;M;0.80;Sementes;8;8;Gregorio;-;-;-;-;Branco;-;-;7658;Russia;5646786
+16;Mammalia;Exotico;Feneco;Vulpes zerda;F;0.40;Carne;7;7;Sthephany;-;-;-;-;Marrom;-;-;6398756;Espanha;569875
 17;Aves;Exotico;Kiwi;Apteryx;M;0.36;Insetos;3;3;Kevin;0.60;0.00;-;-;-;-;-;456987;Nova Zelandia;5467868
 18;Amphibia;Domestico;Sapo-comum;Bufo bufo;M;0.10;Moscas;10;10;Godofredo;-;-;4.00;03/08/13;-;-;-;-;-;-
-19;Amphibia;Nativo;Salamandra-comum;Salamandra salamandra gallaica;F;0.17;Insetos;10;10;Wanda;-;-;8.00;15/03/17;-;-;-;0016797;RO;4674684
+19;Amphibia;Nativo;Salamandra-comum;Salamandra salamandra gallaica;F;0.17;Insetos;10;10;Wanda;-;-;8.00;15/03/17;-;-;-;16797;RO;4674684
 20;Amphibia;Domestico;Perereca;Hypochondrialis Phyllomedusa;M;0.04;Insetos;10;10;Ptolomeu;-;-;3.00;29/06/15;-;-;-;-;-;-

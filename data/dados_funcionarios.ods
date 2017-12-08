@@ -1,20 +1,20 @@
 1;Tratador;Daniel Oscar;123.456.789-10;30;O;+;Felinos
 1;Veterinario;Felipe Godeiro;481.137.889-18;42;AB;+;Felinos
-2;Tratador;;;;;+;
-2;Veterinario;;;;;-;
-3;Tratador;;;;;-;
-3;Veterinario;;;;;+;
-4;Tratador;;;;;+;
-4;Veterinario;;;;;-;
-5;Tratador;;;;;+;
-5;Veterinario;;;;;-;
-6;Tratador;;;;;+;
-6;Veterinario;;;;;-;
-7;Tratador;;;;;-;
-7;Veterinario;;;;;+;
-8;Tratador;;;;;+;
-8;Veterinario;;;;;+;
-9;Tratador;;;;;-;
-9;Veterinario;;;;;-;
-10;Tratador;;;;;-;
-10;Veterinario;;;;;+;
+2;Tratador;Raissa Ferreira;435.291.059-70;24;O;+;Marsupiais
+2;Veterinario;Davi Azevedo;914.069.732-03;25;AB;-;Marsupiais
+3;Tratador;Vitor Carvalho;964.969.023-99;27;A;-;Aves
+3;Veterinario;Pedro Ferreira;593.747.211-04;34;B;+;Aves
+4;Tratador;Guilherme Silva;994.305.611-89;18;AB;+;Tartarugas
+4;Veterinario;Marisa Araujo;800.232.973-28;34;O;-;Repteis
+5;Tratador;Ana Castro;834.063.228-08;53;O;+;Repteis Venenosos
+5;Veterinario; Camila Melo;517.100.147-25;73;O;-;Repteis Venenosos
+6;Tratador;Thaís Costa;497.194.254-82;42;A;+;Repteis
+6;Veterinario;Diego Valenca;327.788.328-07;34;AB;-;Repteis
+7;Tratador;Gabriela Correia;153.956.747-80;35;O;-;Mamiferos pequenos carnivoros
+7;Veterinario;Vinicius Dias;654.363.103-11;21;B;+;Mamiferos pequenos carnivoros
+8;Tratador;Marina Oliveira;478.206.177-30;24;O;+;Roedores
+8;Veterinario;Emilly Rodrigues;334.745.945-83;34;O;+;Roedores
+9;Tratador;Beatriz Damasceno;594.175.979-73;31;B;-;Aves Carniceiras
+9;Veterinario;Luiza Alves ;505.091.045-50;36;A;-;Aves
+10;Tratador;Marcos Alves;276.872.635-45;39;O;-;Anfibios
+10;Veterinario;Bianca Ferreira ;874.511.814-05;62;O;+;Anfibios
