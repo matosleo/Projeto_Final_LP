@@ -182,11 +182,13 @@ int main(int argc, char const *argv[])
 	std::ofstream dados_animais_exportar;
 	dados_animais_exportar.open ("data/dados_animais.csv");
 	pet_cadastro.exportar_dados_animais( dados_animais_exportar );
+	dados_animais_exportar.close();
 
 	std::ofstream dados_funcionarios_exportar;
 	dados_funcionarios_exportar.open ("data/dados_funcionarios.csv");
 	pet_cadastro.exportar_dados_funcionarios( dados_funcionarios_exportar );
-
+	dados_funcionarios_exportar.close();
+	
 	std::cout << "Obrigado por utilizar nossos servicos!" << std::endl;
 
 	return 0;

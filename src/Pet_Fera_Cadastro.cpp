@@ -26,7 +26,7 @@ Pet_Fera_Cadastro::~Pet_Fera_Cadastro()
 
 void Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tipo )
 {
-
+	std::string aux;
 	int 		_id;
 	std::string _nome;
 	std::string _cientifico;
@@ -43,37 +43,54 @@ void Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 	std::string _autorizacao;
 	std::string _pais_origem;
 
+	std::cin.clear();
+	std::cin.ignore(200,'\n');
 	std::cout << "Numero de Identificacao do Animal (ID): ";
-	std::cin >> _id;
-	std::cout << "\nNome: ";
-	std::cin >> _nome;
-	std::cout << "\nNome Cientifico: ";
-	std::cin >> _cientifico;
-	std::cout << "\nSexo: ";
-	std::cin >> _sexo;
-	std::cout << "\nTamanho: ";
-	std::cin >> _tamanho;
-	std::cout << "\nDieta: ";
-	std::cin >> _dieta;
-	std::cout << "\nID do Veterinario responsavel: ";
-	std::cin >> _id_veterinario;
-	std::cout << "\nID do Tratador responsavel: ";
-	std::cin >> _id_tratador;
-	std::cout << "\nNome de batismo: ";
-	std::cin >> _batismo;	
-	std::cout << "\nTotal de mudas: ";
-	std::cin >> _total_mudas;
-	std::cout << "\nData da ultima muda (DD/MM/AAAA): ";
-	std::cin >> _ultima_muda;
+	std::getline(std::cin, aux);
+	_id = std::stoi(aux);
 
-	Funcionario * tratador_resp;
-	Funcionario * veterinario_resp;
+	std::cout << "\nNome: ";
+	std::getline(std::cin, _nome);
+
+	std::cout << "\nNome Cientifico: ";
+	std::getline(std::cin, _cientifico);
+
+	std::cout << "\nSexo: ";
+	std::getline(std::cin, aux);
+	_sexo = aux[0];
+
+	std::cout << "\nTamanho: ";
+	std::getline(std::cin, aux);
+	_tamanho = std::stof(aux);
+
+	std::cout << "\nDieta: ";
+	std::getline(std::cin, _dieta);
+
+	std::cout << "\nID do Veterinario responsavel: ";
+	std::getline(std::cin, aux);
+	_id_veterinario = std::stoi(aux);
+
+	std::cout << "\nID do Tratador responsavel: ";
+	std::getline(std::cin, aux);
+	_id_tratador = std::stoi(aux);
+
+	std::cout << "\nNome de batismo: ";
+	std::getline(std::cin, _batismo);
+
+	std::cout << "\nTotal de mudas: ";
+	std::getline(std::cin, aux);
+	_total_mudas = std::stoi(aux);
+
+	std::cout << "\nData da ultima muda (DD/MM/AAAA): ";
+	std::getline(std::cin, _ultima_muda);
+
+	Funcionario * tratador_resp = nullptr;
+	Funcionario * veterinario_resp = nullptr;
 
 	/*	Assumir que todo animal a ser cadastrado tem que ter um tratador e um veterinario associado	*/
 
 	if( m_tabela_funcionario.find( _id_tratador ) != m_tabela_funcionario.end() )
 		tratador_resp = m_tabela_funcionario[ _id_tratador ];
-
 	if( m_tabela_funcionario.find( _id_veterinario ) != m_tabela_funcionario.end() )
 		veterinario_resp = m_tabela_funcionario[ _id_veterinario ];
 
@@ -91,11 +108,11 @@ void Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 	{
 
 		std::cout << "\nID do Ibama: ";
-		std::cin >> _ibama;
+		std::getline(std::cin, _ibama);
 		std::cout << "\nEstado de Origem: ";
-		std::cin >> _uf_origem;
+		std::getline(std::cin, _uf_origem);
 		std::cout << "\nAutorizacao do Ibama: ";
-		std::cin >> _autorizacao;
+		std::getline(std::cin, _autorizacao);
 
 		Anfibio * anfibio_nativo = new AnfibioNativo( _id, _classe, _tipo, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
@@ -109,9 +126,9 @@ void Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 	{
 
 		std::cout << "\nID do Ibama: ";
-		std::cin >> _ibama;
+		std::getline(std::cin, _ibama);
 		std::cout << "\nPais de Origem: ";
-		std::cin >> _pais_origem;
+		std::getline(std::cin, _pais_origem);
 
 		Anfibio * anfibio_exotico = new AnfibioExotico( _id, _classe, _tipo, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
@@ -129,7 +146,7 @@ void Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 
 void Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _tipo )
 {
-
+	std::string aux;
 	int 		_id;
 	std::string _nome;
 	std::string _cientifico;
@@ -146,28 +163,42 @@ void Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _ti
 	std::string _pais_origem;
 
 	std::cout << "Numero de Identificacao do Animal (ID): ";
-	std::cin >> _id;
-	std::cout << "\nNome: ";
-	std::cin >> _nome;
-	std::cout << "\nNome Cientifico: ";
-	std::cin >> _cientifico;
-	std::cout << "\nSexo: ";
-	std::cin >> _sexo;
-	std::cout << "\nTamanho: ";
-	std::cin >> _tamanho;
-	std::cout << "\nDieta: ";
-	std::cin >> _dieta;
-	std::cout << "\nID do Veterinario responsavel: ";
-	std::cin >> _id_veterinario;
-	std::cout << "\nID do Tratador responsavel: ";
-	std::cin >> _id_tratador;
-	std::cout << "\nNome de batismo: ";
-	std::cin >> _batismo;	
-	std::cout << "\nCor do pelo do animal: ";
-	std::cin >> _cor_pelo;
+	std::getline(std::cin, aux);
+	_id = std::stoi(aux);
 
-	Funcionario * tratador_resp;
-	Funcionario * veterinario_resp;
+	std::cout << "\nNome: ";
+	std::getline(std::cin, _nome);
+
+	std::cout << "\nNome Cientifico: ";
+	std::getline(std::cin, _cientifico);
+
+	std::cout << "\nSexo: ";
+	std::getline(std::cin, aux);
+	_sexo = aux[0];
+
+	std::cout << "\nTamanho: ";
+	std::getline(std::cin, aux);
+	_tamanho = std::stoi(aux);
+
+	std::cout << "\nDieta: ";
+	std::getline(std::cin, _dieta);
+
+	std::cout << "\nID do Veterinario responsavel: ";
+	std::getline(std::cin, aux);
+	_id_veterinario = std::stoi(aux);
+
+	std::cout << "\nID do Tratador responsavel: ";
+	std::getline(std::cin, aux);
+	_id_tratador = std::stoi(aux);
+
+	std::cout << "\nNome de batismo: ";
+	std::getline(std::cin, _batismo);	
+
+	std::cout << "\nCor do pelo do animal: ";
+	std::getline(std::cin, _cor_pelo);
+
+	Funcionario * tratador_resp = nullptr;
+	Funcionario * veterinario_resp = nullptr;
 
 	/*	Assumir que todo animal a ser cadastrado tem que ter um tratador e um veterinario associado	*/
 
@@ -192,11 +223,11 @@ void Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _ti
 	{
 
 		std::cout << "\nID do Ibama: ";
-		std::cin >> _ibama;
+		std::getline(std::cin, _ibama);
 		std::cout << "\nEstado de Origem: ";
-		std::cin >> _uf_origem;
+		std::getline(std::cin, _uf_origem);
 		std::cout << "\nAutorizacao do Ibama: ";
-		std::cin >> _autorizacao;
+		std::getline(std::cin, _autorizacao);
 
 		Mamifero * mamifero_nativo = new MamiferoNativo( _id, _classe, _tipo, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
@@ -211,9 +242,9 @@ void Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _ti
 	{
 
 		std::cout << "\nID do Ibama: ";
-		std::cin >> _ibama;
+		std::getline(std::cin, _ibama);
 		std::cout << "\nPais de Origem: ";
-		std::cin >> _pais_origem;
+		std::getline(std::cin, _pais_origem);
 
 		Mamifero * mamifero_exotico = new MamiferoExotico( _id, _classe, _tipo, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
@@ -231,7 +262,7 @@ void Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _ti
 
 void Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo )
 {
-
+	std::string aux;
 	int 		_id;
 	std::string _nome;
 	std::string _cientifico;
@@ -250,41 +281,55 @@ void Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 	std::string _pais_origem;
 
 	std::cout << "Numero de Identificacao do Animal (ID): ";
-	std::cin >> _id;
-	std::cout << "\nNome: ";
-	std::cin >> _nome;
-	std::cout << "\nNome Cientifico: ";
-	std::cin >> _cientifico;
-	std::cout << "\nSexo: ";
-	std::cin >> _sexo;
-	std::cout << "\nTamanho: ";
-	std::cin >> _tamanho;
-	std::cout << "\nDieta: ";
-	std::cin >> _dieta;
-	std::cout << "\nID do Veterinario responsavel: ";
-	std::cin >> _id_veterinario;
-	std::cout << "\nID do Tratador responsavel: ";
-	std::cin >> _id_tratador;
-	std::cout << "\nNome de batismo: ";
-	std::cin >> _batismo;	
-	std::cout << "\nAnimal venenoso ( sim ou nao ): ";
-	std::cin >> _venenoso;
+	std::getline(std::cin, aux);
+	_id = std::stoi(aux);
 
-	if( _venenoso.compare( "sim" ) == 0 )
+	std::cout << "\nNome: ";
+	std::getline(std::cin, _nome);
+
+	std::cout << "\nNome Cientifico: ";
+	std::getline(std::cin, _cientifico);
+
+	std::cout << "\nSexo: ";
+	std::getline(std::cin, aux);
+	_sexo = aux[0];
+
+	std::cout << "\nTamanho: ";
+	std::getline(std::cin, aux);
+	_tamanho = std::stoi(aux);
+
+	std::cout << "\nDieta: ";
+	std::getline(std::cin, _dieta);
+
+	std::cout << "\nID do Veterinario responsavel: ";
+	std::getline(std::cin, aux);
+	_id_veterinario = std::stoi(aux);
+
+	std::cout << "\nID do Tratador responsavel: ";
+	std::getline(std::cin, aux);
+	_id_tratador = std::stoi(aux);
+
+	std::cout << "\nNome de batismo: ";
+	std::getline(std::cin, _batismo);	
+
+	std::cout << "\nAnimal venenoso ( Sim ou Nao ): ";
+	std::getline(std::cin, _venenoso);
+
+	if( _venenoso.compare( "Sim" ) == 0 or _venenoso.compare( "sim" ) == 0 )
 	{
 		
 		std::cout << "\nTipo do veneno: ";
-		std::cin >> _tipo_veneno;
+		std::getline(std::cin, _tipo_veneno);
 		possui_veneno = true;
 
 	} else
 	{
-		_tipo_veneno = "nenhum";
+		_tipo_veneno = "Nenhum";
 		
 	}
 
-	Funcionario * tratador_resp;
-	Funcionario * veterinario_resp;
+	Funcionario * tratador_resp = nullptr;
+	Funcionario * veterinario_resp = nullptr;
 
 	/*	Assumir que todo animal a ser cadastrado tem que ter um tratador e um veterinario associado	*/
 
@@ -310,11 +355,11 @@ void Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 	{
 
 		std::cout << "\nID do Ibama: ";
-		std::cin >> _ibama;
+		std::getline(std::cin, _ibama);
 		std::cout << "\nEstado de Origem: ";
-		std::cin >> _uf_origem;
+		std::getline(std::cin, _uf_origem);
 		std::cout << "\nAutorizacao do Ibama: ";
-		std::cin >> _autorizacao;
+		std::getline(std::cin, _autorizacao);
 
 		Reptil * reptil_nativo = new ReptilNativo( _id, _classe, _tipo, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
@@ -328,9 +373,9 @@ void Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 	{
 
 		std::cout << "\nID do Ibama: ";
-		std::cin >> _ibama;
+		std::getline(std::cin, _ibama);
 		std::cout << "\nPais de Origem: ";
-		std::cin >> _pais_origem;
+		std::getline(std::cin, _pais_origem);
 		
 		Reptil * reptil_exotico = new ReptilExotico( _id, _classe, _tipo, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
@@ -348,7 +393,7 @@ void Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 
 void Pet_Fera_Cadastro::cadastrar_ave( std::string _classe, std::string _tipo )
 {
-
+	std::string aux;
 	int 		_id;
 	std::string _nome;
 	std::string _cientifico;
@@ -367,30 +412,47 @@ void Pet_Fera_Cadastro::cadastrar_ave( std::string _classe, std::string _tipo )
 
 	
 	std::cout << "Numero de Identificacao do Animal (ID): ";
-	std::cin >> _id;
-	std::cout << "\nNome: ";
-	std::cin >> _nome;
-	std::cout << "\nNome Cientifico: ";
-	std::cin >> _cientifico;
-	std::cout << "\nSexo: ";
-	std::cin >> _sexo;
-	std::cout << "\nTamanho: ";
-	std::cin >> _tamanho;
-	std::cout << "\nDieta: ";
-	std::cin >> _dieta;
-	std::cout << "\nID do Veterinario responsavel: ";
-	std::cin >> _id_veterinario;
-	std::cout << "\nID do Tratador responsavel: ";
-	std::cin >> _id_tratador;
-	std::cout << "\nNome de batismo: ";
-	std::cin >> _batismo;
-	std::cout << "\nTamanho do bico do animal: ";
-	std::cin >> _tamanho_bico;
-	std::cout << "\nEnvergadura do animal: ";
-	std::cin >> _envergadura;
+	std::getline(std::cin, aux);
+	_id = std::stoi(aux);
 
-	Funcionario * tratador_resp;
-	Funcionario * veterinario_resp;
+	std::cout << "\nNome: ";
+	std::getline(std::cin, _nome);
+
+	std::cout << "\nNome Cientifico: ";
+	std::getline(std::cin, _cientifico);
+
+	std::cout << "\nSexo: ";
+	std::getline(std::cin, aux);
+	_sexo = aux[0];
+
+	std::cout << "\nTamanho: ";
+	std::getline(std::cin, aux);
+	_tamanho = std::stoi(aux);
+
+	std::cout << "\nDieta: ";
+	std::getline(std::cin, _dieta);
+
+	std::cout << "\nID do Veterinario responsavel: ";
+	std::getline(std::cin, aux);
+	_id_veterinario = std::stoi(aux);
+
+	std::cout << "\nID do Tratador responsavel: ";
+	std::getline(std::cin, aux);
+	_id_tratador = std::stoi(aux);
+
+	std::cout << "\nNome de batismo: ";
+	std::getline(std::cin, _batismo);
+
+	std::cout << "\nTamanho do bico do animal: ";
+	std::getline(std::cin, aux);
+	_tamanho_bico = std::stoi(aux);
+
+	std::cout << "\nEnvergadura do animal: ";
+	std::getline(std::cin, aux);
+	_envergadura = std::stoi(aux);
+
+	Funcionario * tratador_resp = nullptr;
+	Funcionario * veterinario_resp = nullptr;
 
 	/*	Assumir que todo animal a ser cadastrado tem que ter um tratador e um veterinario associado	*/
 
@@ -415,11 +477,11 @@ void Pet_Fera_Cadastro::cadastrar_ave( std::string _classe, std::string _tipo )
 	{
 
 		std::cout << "\nID do Ibama: ";
-		std::cin >> _ibama;
+		std::getline(std::cin, _ibama);
 		std::cout << "\nEstado de Origem: ";
-		std::cin >> _uf_origem;
+		std::getline(std::cin, _uf_origem);
 		std::cout << "\nAutorizacao do Ibama: ";
-		std::cin >> _autorizacao;
+		std::getline(std::cin, _autorizacao);
 
 		Ave * ave_nativo = new AveNativo( _id, _classe, _tipo, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
@@ -433,9 +495,9 @@ void Pet_Fera_Cadastro::cadastrar_ave( std::string _classe, std::string _tipo )
 	{
 
 		std::cout << "\nID do Ibama: ";
-		std::cin >> _ibama;
+		std::getline(std::cin, _ibama);
 		std::cout << "\nPais de Origem: ";
-		std::cin >> _pais_origem;
+		std::getline(std::cin, _pais_origem);
 
 		Ave * ave_exotico = new AveExotico( _id, _classe, _tipo, _nome, _cientifico
 													, _sexo, _tamanho, _dieta, veterinario_resp
@@ -453,7 +515,7 @@ void Pet_Fera_Cadastro::cadastrar_ave( std::string _classe, std::string _tipo )
 
 void Pet_Fera_Cadastro::cadastrar_funcionario( std::string _funcao )
 {
-
+	std::string aux;
 	int 		_id;
 	std::string _nome;
 	std::string _CPF;
@@ -463,19 +525,28 @@ void Pet_Fera_Cadastro::cadastrar_funcionario( std::string _funcao )
 	std::string _especialidade;
 
 	std::cout << "Numero de Identificacao do Funcionario (ID): ";
-	std::cin >> _id;
+	std::getline(std::cin, aux);
+	_id = std::stoi(aux);
+
 	std::cout << "\nNome do Funcionario: ";
-	std::cin >> _nome;
+	std::getline(std::cin, _nome);
+
 	std::cout << "\nCPF do Funcionario: ";
-	std::cin >> _CPF;
+	std::getline(std::cin, _CPF);
+
 	std::cout << "\nIdade do Funcionario: ";
-	std::cin >> _idade;
+	std::getline(std::cin, aux);
+	_idade = std::stoi(aux);
+
 	std::cout << "\nTipo sanguineo do Funcionario: ";
-	std::cin >> _tipo_sangue;
+	std::getline(std::cin, _tipo_sangue);
+
 	std::cout << "\nFator RH do tipo sanguineo: ";
-	std::cin >> _fator_RH;
+	std::getline(std::cin, aux);
+	_fator_RH = aux[0];
+
 	std::cout << "\nEspecialidade: " << std::endl;
-	std::cin >> _especialidade;
+	std::getline(std::cin, _especialidade);
 
 	if( _funcao.compare( "Tratador" ) == 0  )
 	{
@@ -658,7 +729,7 @@ void Pet_Fera_Cadastro::alterar_dados_animais( int _id )
 
 	if( it_anf != m_tabela_anfibio.end() )
 	{
-
+		std::string aux;
 		std::string _nome;
 		float		_tamanho;
 		std::string _dieta;
@@ -667,8 +738,8 @@ void Pet_Fera_Cadastro::alterar_dados_animais( int _id )
 		int			_total_mudas;
 		std::string _ultima_muda;
 
-		Funcionario * veterinario_resp;
-		Funcionario * tratador_resp;
+		Funcionario * veterinario_resp = nullptr;
+		Funcionario * tratador_resp = nullptr;
 
 		it_anf -> second -> printAnimal();
 
@@ -676,19 +747,29 @@ void Pet_Fera_Cadastro::alterar_dados_animais( int _id )
 		std::cout << "Nome, Tamanho, Dieta, Veterinario, Tratador, Total de Mudas, Data da Ultima Muda" << std::endl;
 		std::cout << "\n>>>>>	Digite os novos dados	<<<<<\n" << std::endl;
 		std::cout << "\nNome: ";
-		std::cin >> _nome;
+		std::getline(std::cin, _nome);
+
 		std::cout << "\nTamanho: ";
-		std::cin >> _tamanho;
+		std::getline(std::cin, aux);
+		_tamanho = std::stoi(aux);
+
 		std::cout << "\nDieta: ";
-		std::cin >> _dieta;
+		std::getline(std::cin, _dieta);
+
 		std::cout << "\nID do Veterinario: ";
-		std::cin >> _id_veterinario;
+		std::getline(std::cin, aux);
+		_id_veterinario = std::stoi(aux);
+
 		std::cout << "\nID do Tratador:  ";
-		std::cin >> _id_tratador;
+		std::getline(std::cin, aux);
+		_id_tratador = std::stoi(aux);
+
 		std::cout << "\nTotal de Mudas:  ";
-		std::cin >> _total_mudas;
+		std::getline(std::cin, aux);
+		_total_mudas = std::stof(aux);
+
 		std::cout << "\nUltima Muda (DD/MM/AAAA):  ";
-		std::cin >> _ultima_muda;
+		std::getline(std::cin, _ultima_muda);
 
 		it_anf -> second -> set_nome( _nome );
 		it_anf -> second -> set_tamanho( _tamanho );
@@ -712,14 +793,15 @@ void Pet_Fera_Cadastro::alterar_dados_animais( int _id )
 	}
 	else if( it_mam != m_tabela_mamifero.end() )
 	{
+		std::string aux;
 		std::string _nome;
 		float		_tamanho;
 		std::string _dieta;
 		int 		_id_veterinario;
 		int			_id_tratador;
 
-		Funcionario * veterinario_resp;
-		Funcionario * tratador_resp;
+		Funcionario * veterinario_resp = nullptr;
+		Funcionario * tratador_resp = nullptr;
 
 		it_mam -> second -> printAnimal();
 
@@ -727,16 +809,22 @@ void Pet_Fera_Cadastro::alterar_dados_animais( int _id )
 		std::cout << "Nome, Tamanho, Dieta, Veterinario, Tratador" << std::endl;
 		std::cout << "\n>>>>>	Digite os novos dados	<<<<<\n" << std::endl;
 		std::cout << "\nNome: ";
-		std::cin >> _nome;
+		std::getline(std::cin, _nome);
+
 		std::cout << "\nTamanho: ";
-		std::cin >> _tamanho;
+		std::getline(std::cin, aux);
+		_tamanho = std::stof(aux);
+
 		std::cout << "\nDieta: ";
-		std::cin >> _dieta;
+		std::getline(std::cin, _dieta);
+
 		std::cout << "\nID do Veterinario: ";
-		std::cin >> _id_veterinario;
+		std::getline(std::cin, aux);
+		_id_veterinario = std::stoi(aux);
+
 		std::cout << "\nID do Tratador:  ";
-		std::cin >> _id_tratador;
-		
+		std::getline(std::cin, aux);
+		_id_tratador = std::stoi(aux);
 
 		it_mam -> second -> set_nome( _nome );
 		it_mam -> second -> set_tamanho( _tamanho );
@@ -757,14 +845,15 @@ void Pet_Fera_Cadastro::alterar_dados_animais( int _id )
 	}
 	else if( it_rep != m_tabela_reptil.end() )
 	{
+		std::string aux;
 		std::string _nome;
 		float		_tamanho;
 		std::string _dieta;
 		int 		_id_veterinario;
 		int			_id_tratador;
 
-		Funcionario * veterinario_resp;
-		Funcionario * tratador_resp;
+		Funcionario * veterinario_resp = nullptr;
+		Funcionario * tratador_resp = nullptr;
 
 		it_rep -> second -> printAnimal();
 
@@ -772,15 +861,22 @@ void Pet_Fera_Cadastro::alterar_dados_animais( int _id )
 		std::cout << "Nome, Tamanho, Dieta, Veterinario, Tratador" << std::endl;
 		std::cout << "\n>>>>>	Digite os novos dados	<<<<<\n" << std::endl;
 		std::cout << "\nNome: ";
-		std::cin >> _nome;
+		std::getline(std::cin, _nome);
+
 		std::cout << "\nTamanho: ";
-		std::cin >> _tamanho;
+		std::getline(std::cin, aux);
+		_tamanho = std::stof(aux);
+
 		std::cout << "\nDieta: ";
-		std::cin >> _dieta;
+		std::getline(std::cin, _dieta);
+
 		std::cout << "\nID do Veterinario: ";
-		std::cin >> _id_veterinario;
+		std::getline(std::cin, aux);
+		_id_veterinario = std::stoi(aux);
+
 		std::cout << "\nID do Tratador:  ";
-		std::cin >> _id_tratador;
+		std::getline(std::cin, aux);
+		_id_tratador = std::stoi(aux);
 
 		it_rep -> second -> set_nome( _nome );
 		it_rep -> second -> set_tamanho( _tamanho );
@@ -802,6 +898,7 @@ void Pet_Fera_Cadastro::alterar_dados_animais( int _id )
 
 	else if( it_ave != m_tabela_ave.end() )
 	{
+		std::string aux;
 		std::string _nome;
 		float		_tamanho;
 		std::string _dieta;
@@ -810,8 +907,8 @@ void Pet_Fera_Cadastro::alterar_dados_animais( int _id )
 		float		_tamanho_bico;
 		float		_envergadura;
 
-		Funcionario * veterinario_resp;
-		Funcionario * tratador_resp;
+		Funcionario * veterinario_resp = nullptr;
+		Funcionario * tratador_resp = nullptr;
 
 		it_ave -> second -> printAnimal();
 
@@ -819,19 +916,30 @@ void Pet_Fera_Cadastro::alterar_dados_animais( int _id )
 		std::cout << "Nome, Tamanho, Dieta, Veterinario, Tratador, Tamanho do Bico, Envergadura" << std::endl;
 		std::cout << "\n>>>>>	Digite os novos dados	<<<<<\n" << std::endl;
 		std::cout << "\nNome: ";
-		std::cin >> _nome;
+		std::getline(std::cin, _nome);
+
 		std::cout << "\nTamanho: ";
-		std::cin >> _tamanho;
+		std::getline(std::cin, aux);
+		_tamanho = std::stof(aux);
+
 		std::cout << "\nDieta: ";
-		std::cin >> _dieta;
+		std::getline(std::cin, _dieta);
+
 		std::cout << "\nID do Veterinario: ";
-		std::cin >> _id_veterinario;
+		std::getline(std::cin, aux);
+		_id_veterinario = std::stoi(aux);
+
 		std::cout << "\nID do Tratador:  ";
-		std::cin >> _id_tratador;
+		std::getline(std::cin, aux);
+		_id_tratador = std::stoi(aux);
+
 		std::cout << "\nTamanho do Bico:  ";
-		std::cin >> _tamanho_bico;
+		std::getline(std::cin, aux);
+		_tamanho_bico = std::stof(aux);
+
 		std::cout << "\nEnvergadura:  ";
-		std::cin >> _envergadura;
+		std::getline(std::cin, aux);
+		_envergadura = std::stof(aux);
 
 		it_ave -> second -> set_nome( _nome );
 		it_ave -> second -> set_tamanho( _tamanho );
