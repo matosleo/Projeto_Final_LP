@@ -1355,7 +1355,31 @@ void Pet_Fera_Cadastro::exportar_dados_animais( std::ofstream& dados_animais )
 
 void Pet_Fera_Cadastro::exportar_dados_funcionarios( std::ofstream& dados_funcionarios )
 {
+	dados_funcionarios << "ID;Profissao;Nome;CPF;Idade;Tipo Sanguineo;Fator RH;Especialidade" << std::endl;
+	std::string linha;
+	std::vector< std::string > campos;
+
+	for ( auto it = m_tabela_funcionario.begin(); it != m_tabela_funcionario.end(); ++it )
+	{
+		campos.clear();
+		campos.push_back(to_string(it->second->get_id()));		// 0
+		campos.push_back(it->second->get_funcao());				// 1
+		campos.push_back(it->second->get_nome());				// 2
+		campos.push_back(it->second->get_CPF());				// 3
+		campos.push_back(to_string(it->second->get_idade()));	// 4
+		campos.push_back(it->second->get_t_sangue());			// 5
+		campos.push_back(to_string(it->second->get_RH()));		// 6
+		campos.push_back(it->second->get_espec());				// 7
+
+		linha.clear();
+		for (auto i = campos.begin(); i != campos.end(); ++i)
+		{
+			linha += *i + ";";
+		}
+		dados_funcionarios << linha << std::endl;
+	}
 }
+
 
 unsigned int Pet_Fera_Cadastro::quantidade_animais_cadastrados( void )
 {
