@@ -6,7 +6,7 @@
  * @author     Gleydvan Macedo
  * @author     João Vítor Venceslau Coelho
  * @since      03/12/2017
- * @date       07/12/2017
+ * @date       09/12/2017
  */
 
 #include <iostream>

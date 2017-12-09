@@ -12,11 +12,6 @@
 #include "Pet_Fera_Cadastro.hpp"
 using namespace PetFera;
 
-Pet_Fera_Cadastro::Pet_Fera_Cadastro()
-{
-
-}
-
 Pet_Fera_Cadastro::~Pet_Fera_Cadastro()
 {
 	for (auto i = m_tabela_anfibio.begin(); i != m_tabela_anfibio.end(); ++i)
@@ -40,7 +35,6 @@ Pet_Fera_Cadastro::~Pet_Fera_Cadastro()
 		delete (i->second);
 	}
 }
-
 
 void Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tipo )
 {
@@ -118,11 +112,8 @@ void Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 													, tratador_resp, _batismo, _total_mudas, _ultima_muda);
 
 		m_tabela_anfibio.insert( std::pair<int, Anfibio*> ( _id, anfibio_domestico ) );
-
-	
 	} else if( _tipo.compare( "Nativo" ) == 0 )
 	{
-
 		std::cout << "\nID do Ibama: ";
 		std::getline(std::cin, _ibama);
 		std::cout << "\nEstado de Origem: ";
@@ -137,10 +128,8 @@ void Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 
 		m_tabela_anfibio.insert( std::pair<int, Anfibio*> ( _id, anfibio_nativo ) );
 
-
 	} else if( _tipo.compare( "Exotico" ) == 0 )
 	{
-
 		std::cout << "\nID do Ibama: ";
 		std::getline(std::cin, _ibama);
 		std::cout << "\nPais de Origem: ";
@@ -152,12 +141,8 @@ void Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 													, _ibama, _pais_origem );
 
 		m_tabela_anfibio.insert( std::pair<int, Anfibio*> ( _id, anfibio_exotico ) );		
-
-
 	}
-
 	std::cout << "Animal cadastrado com sucesso!" << std::endl;
-
 }
 
 void Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _tipo )
@@ -232,8 +217,6 @@ void Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _ti
 													, tratador_resp, _batismo, _cor_pelo);
 
 		m_tabela_mamifero.insert( std::pair<int, Mamifero*> ( _id, mamifero_domestico ) );
-
-
 	
 	} else if( _tipo.compare( "Nativo" ) == 0 )
 	{
@@ -251,12 +234,9 @@ void Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _ti
 													, _ibama, _uf_origem, _autorizacao );
 
 		m_tabela_mamifero.insert( std::pair<int, Mamifero*> ( _id, mamifero_nativo ) );
-		
-
 
 	} else if( _tipo.compare( "Exotico" ) == 0 )
 	{
-
 		std::cout << "\nID do Ibama: ";
 		std::getline(std::cin, _ibama);
 		std::cout << "\nPais de Origem: ";
@@ -268,8 +248,6 @@ void Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _ti
 													, _ibama, _pais_origem );
 
 		m_tabela_mamifero.insert( std::pair<int, Mamifero*> ( _id, mamifero_exotico ) );
-
-
 	}
 
 	std::cout << "\nAnimal cadastrado com sucesso\n" << std::endl;
@@ -335,7 +313,6 @@ void Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 
 	if( _venenoso.compare( "Sim" ) == 0 or _venenoso.compare( "sim" ) == 0 )
 	{
-		
 		std::cout << "\nTipo do veneno: ";
 		std::getline(std::cin, _tipo_veneno);
 		possui_veneno = true;
@@ -343,7 +320,6 @@ void Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 	} else
 	{
 		_tipo_veneno = "Nenhum";
-		
 	}
 
 	Funcionario * tratador_resp = nullptr;
@@ -354,7 +330,6 @@ void Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 
 	if( m_tabela_funcionario.find( _id_veterinario ) != m_tabela_funcionario.end() )
 		veterinario_resp = m_tabela_funcionario[ _id_veterinario ];
-	
 
 	if( _tipo.compare( "Domestico" ) == 0 )
 	{
@@ -366,7 +341,6 @@ void Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 
 		m_tabela_reptil.insert( std::pair<int, Reptil*> ( _id, reptil_domestico ) );
 
-	
 	} else if( _tipo.compare( "Nativo" ) == 0 )
 	{
 
@@ -384,7 +358,6 @@ void Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 
 		m_tabela_reptil.insert( std::pair<int, Reptil*> ( _id, reptil_nativo ) );
 		
-
 	} else if( _tipo.compare( "Exotico" ) == 0 )
 	{
 
@@ -399,7 +372,6 @@ void Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 													, _ibama, _pais_origem );
 
 		m_tabela_reptil.insert( std::pair<int, Reptil*> ( _id, reptil_exotico ) );
-
 
 	}
 
@@ -674,7 +646,6 @@ void Pet_Fera_Cadastro::consultar_animais_funcionario( int _id )
 
 			++it_ave;
 		}
-
 
 	} else 
 		std::cout << "Nao existe Funcionario com o ID fornecido" << std::endl;
@@ -1008,7 +979,7 @@ void Pet_Fera_Cadastro::importar_dados_animais( std::ifstream& dados_animais )
 	std::getline(dados_animais, linha);
 	if (linha != "ID;Classe;Tipo;Nome;Nome Cientifico;Sexo;Tamanho;Dieta;Veterinario;Tratador;Batismo;Tamanho do Bico;Envergadura;Total Mudas;Ultima Muda;Cor do Pelo;Venenoso;Tipo Veneno;Ibama;UF / Pais;Autorizacao")
 	{
-		throw ErroHeaderCSV(linha);
+		throw ErroHeaderCSV();
 	}
 	while( std::getline( dados_animais, linha))
 	{
@@ -1120,7 +1091,7 @@ void Pet_Fera_Cadastro::importar_dados_animais( std::ifstream& dados_animais )
 		}
 		else
 		{
-			throw ErroLeituraCSVAnimal((campos[1] + " e " + campos[2]));
+			throw ErroLeituraCSVAnimal();
 		}
 	}
 }
@@ -1132,7 +1103,7 @@ void Pet_Fera_Cadastro::importar_dados_funcionarios( std::ifstream& dados_funcio
 	std::getline(dados_funcionarios, linha);
 	if (linha != "ID;Profissao;Nome;CPF;Idade;Tipo Sanguineo;Fator RH;Especialidade")
 	{
-		throw ErroHeaderCSV(linha);
+		throw ErroHeaderCSV();
 	}
 	while( std::getline( dados_funcionarios, linha))
 	{
@@ -1156,7 +1127,7 @@ void Pet_Fera_Cadastro::importar_dados_funcionarios( std::ifstream& dados_funcio
 		}
 		else
 		{
-			throw ErroLeituraCSVFunc(campos[1]);
+			throw ErroLeituraCSVFunc();
 		}
 	}
 }
@@ -1228,10 +1199,6 @@ void Pet_Fera_Cadastro::exportar_dados_animais( std::ofstream& dados_animais )
 				campos.push_back("-");							// 19
 				campos.push_back("-");							// 20
 			}
-			else
-			{
-				throw ErroLeituraCSVAnimal( campos[2] );
-			}
 		}
 
 		linha.clear();
@@ -1291,10 +1258,6 @@ void Pet_Fera_Cadastro::exportar_dados_animais( std::ofstream& dados_animais )
 				campos.push_back("-");							// 18
 				campos.push_back("-");							// 19
 				campos.push_back("-");							// 20
-			}
-			else
-			{
-				throw ErroLeituraCSVAnimal( campos[2] );
 			}
 		}
 
@@ -1356,10 +1319,6 @@ void Pet_Fera_Cadastro::exportar_dados_animais( std::ofstream& dados_animais )
 				campos.push_back("-");							// 19
 				campos.push_back("-");							// 20
 			}
-			else
-			{
-				throw ErroLeituraCSVAnimal( campos[2] );
-			}
 		}
 
 		linha.clear();
@@ -1420,10 +1379,6 @@ void Pet_Fera_Cadastro::exportar_dados_animais( std::ofstream& dados_animais )
 				campos.push_back("-");							// 18
 				campos.push_back("-");							// 19
 				campos.push_back("-");							// 20
-			}
-			else
-			{
-				throw ErroLeituraCSVAnimal( campos[2] );
 			}
 		}
 

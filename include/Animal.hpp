@@ -7,7 +7,7 @@
  * @author     Gleydvan Macedo
  * @author     João Vítor Venceslau Coelho
  * @since      30/11/2017
- * @date       08/12/2017
+ * @date       09/12/2017
  */
 
 #ifndef ANIMAL_HPP

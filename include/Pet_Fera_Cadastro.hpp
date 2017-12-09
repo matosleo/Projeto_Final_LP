@@ -6,7 +6,7 @@
  * @author     Gleydvan Macedo
  * @author     João Vítor Venceslau Coelho
  * @since      30/11/2017
- * @date       08/12/2017
+ * @date       09/12/2017
  */
 
 #ifndef PET_FERA_HPP
@@ -51,7 +51,7 @@ public:
 	/**
 	 * @brief      Construtor padrão da classe Pet_Fera_Cadastro.
 	 */
-	Pet_Fera_Cadastro();
+	Pet_Fera_Cadastro() { /* Vazio */ };
 
 	/**
 	 * @brief      Destrutor padrão da classe Pet_Fera_Cadastro.

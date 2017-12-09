@@ -131,6 +131,7 @@ int main(int argc, char **argv )
 		filtrando = filtrar_func(filtrando, tratador, 9 );
 	}
 
+	filtrado << "ID;Classe;Tipo;Nome;Nome Cientifico;Sexo;Tamanho;Dieta;Veterinario;Tratador;Batismo;Tamanho do Bico;Envergadura;Total Mudas;Ultima Muda;Cor do Pelo;Venenoso;Tipo Veneno;Ibama;UF / Pais;Autorizacao" << std::endl;
 	for (std::vector< std::string >::iterator i = filtrando.begin(); i != filtrando.end(); ++i)
 	{
 		filtrado << *i << std::endl;

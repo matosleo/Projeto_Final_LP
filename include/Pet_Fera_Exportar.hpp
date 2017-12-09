@@ -7,7 +7,7 @@
  * @author     Gleydvan Macedo
  * @author     João Vítor Venceslau Coelho
  * @since      06/12/2017
- * @date       08/12/2017
+ * @date       09/12/2017
  */
 
 #ifndef PETFERA_AUX_HPP
@@ -18,12 +18,12 @@
 #include <vector>
 
 /**
- * @brief      { function_description }
+ * @brief      Verifica se a string termina com o substring indicada
  *
- * @param[in]  str      The string
- * @param[in]  termino  The termino
+ * @param[in]  str      A string a ser testada
+ * @param[in]  termino  A substring utilizada
  *
- * @return     { description_of_the_return_value }
+ * @return     true se de fato a string termina com a substring
  */
 bool termina_com(const std::string &str, const std::string &termino)
 {
