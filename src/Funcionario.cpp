@@ -59,18 +59,20 @@ void Funcionario::set_idade ( short _idade )
 	m_idade = _idade;
 }
 
-void Funcionario::printFuncionario( void )
+std::ostream& Funcionario::printFuncionario( std::ostream & _os )
 {
-	std::cout << std::endl;
-	std::cout << ">>>>> Ficha do Funcionario <<<<<" << std::endl;
-	std::cout << "ID:\t\t" << m_id << std::endl;
-	std::cout << "Funcao:\t" << m_funcao << std::endl;
-	std::cout << "Nome:\t\t" << m_nome << std::endl;
-	std::cout << "CPF:\t" << m_CPF << std::endl;
-	std::cout << "Idade:\t\t" << m_idade << std::endl;
-	std::cout << "Tipo Sanguineo:\t\t" << m_tipo_sangue << std::endl;
-	std::cout << "Fator RH:\t\t" << m_fator_RH << std::endl;
-	std::cout << "Especialidade:\t" << m_especialidade << std::endl;
-	std::cout << std::endl;
+	_os << std::endl;
+	_os << ">>>>> Ficha do Funcionario <<<<<" << std::endl;
+	_os << "ID:\t\t" << m_id << std::endl;
+	_os << "Funcao:\t" << m_funcao << std::endl;
+	_os << "Nome:\t\t" << m_nome << std::endl;
+	_os << "CPF:\t" << m_CPF << std::endl;
+	_os << "Idade:\t\t" << m_idade << std::endl;
+	_os << "Tipo Sanguineo:\t\t" << m_tipo_sangue << std::endl;
+	_os << "Fator RH:\t\t" << m_fator_RH << std::endl;
+	_os << "Especialidade:\t" << m_especialidade << std::endl;
+	_os << std::endl;
+
+	return _os;
 
 }

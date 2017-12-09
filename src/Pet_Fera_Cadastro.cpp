@@ -6,7 +6,7 @@
  * @author     Gleydvan Macedo
  * @author     João Vítor Venceslau Coelho
  * @since      03/12/2017
- * @date       03/12/2017
+ * @date       09/12/2017
  */
 
 #include "Pet_Fera_Cadastro.hpp"
@@ -604,25 +604,25 @@ void Pet_Fera_Cadastro::consultar_animais( int _id )
 		{
 
 			std::cout << "Dados do Animal procurado: " << std::endl;
-			it_anf -> second -> printAnimal();
+			std::cout << *(it_anf -> second);// -> printAnimal();
 
 		} else if( it_mam != m_tabela_mamifero.end() )
 		{
 
 			std::cout << "Dados do Animal procurado: " << std::endl;
-			it_mam -> second -> printAnimal();
+			std::cout << *(it_mam -> second);// -> printAnimal();
 
 		} else if( it_rep != m_tabela_reptil.end() )
 		{
 
 			std::cout << "Dados do Animal procurado: " << std::endl;
-			it_rep -> second -> printAnimal();
+			std::cout << *(it_rep -> second);// -> printAnimal();
 
 		} else if( it_ave != m_tabela_ave.end() )
 		{
 
 			std::cout << "Dados do Animal procurado: " << std::endl;
-			it_ave -> second -> printAnimal();
+			std::cout << *(it_ave -> second);// -> printAnimal();
 
 		} else
 			std::cout << "Animal nao encontrado!" << std::endl;
@@ -649,8 +649,9 @@ void Pet_Fera_Cadastro::consultar_animais_funcionario( int _id )
 		while( it_anf != m_tabela_anfibio.end() )
 		{
 
-			if( it_anf -> second -> get_id() == _id )
-				it_anf -> second -> printAnimal();
+			if( it_anf -> second -> get_veterinario() -> get_id() == _id
+				or it_anf -> second -> get_tratador() -> get_id() == _id )
+				std::cout << *(it_anf -> second);// -> printAnimal();
 
 			++it_anf;
 		}
@@ -658,8 +659,9 @@ void Pet_Fera_Cadastro::consultar_animais_funcionario( int _id )
 		while( it_mam != m_tabela_mamifero.end() )
 		{
 
-			if( it_mam -> second -> get_id() == _id )
-				it_mam -> second -> printAnimal();
+			if( it_mam -> second -> get_veterinario() -> get_id() == _id
+				or it_mam -> second -> get_tratador() -> get_id() == _id )
+				std::cout << *(it_mam -> second);// -> printAnimal();
 
 			++it_mam;
 		}
@@ -667,8 +669,9 @@ void Pet_Fera_Cadastro::consultar_animais_funcionario( int _id )
 		while( it_rep != m_tabela_reptil.end() )
 		{
 
-			if( it_rep -> second -> get_id() == _id )
-				it_rep -> second -> printAnimal();
+			if( it_rep -> second -> get_veterinario() -> get_id() == _id
+				or it_rep -> second -> get_tratador() -> get_id() == _id )
+				std::cout << *(it_rep -> second);// -> printAnimal();
 
 			++it_rep;
 		}
@@ -676,8 +679,9 @@ void Pet_Fera_Cadastro::consultar_animais_funcionario( int _id )
 		while( it_ave != m_tabela_ave.end() )
 		{
 
-			if( it_ave -> second -> get_id() == _id )
-				it_ave -> second -> printAnimal();
+			if( it_ave -> second -> get_veterinario() -> get_id() == _id
+				or it_ave -> second -> get_tratador() -> get_id() == _id )
+				std::cout << *(it_ave -> second);// -> printAnimal();
 
 			++it_ave;
 		}
@@ -695,7 +699,7 @@ void Pet_Fera_Cadastro::consultar_funcionarios( int _id )
 	std::map< int, Funcionario* >::iterator it_func =  m_tabela_funcionario.find( _id );
 	std::cout << std::endl << m_tabela_funcionario.size()  <<std::endl;
 	if( it_func != m_tabela_funcionario.end() )
-		it_func -> second -> printFuncionario();
+		std::cout << *(it_func -> second);// -> printFuncionario();
 	else
 		std::cout << "Funcionario nao encontrado" << std::endl;
 
@@ -766,7 +770,7 @@ void Pet_Fera_Cadastro::alterar_dados_animais( int _id )
 		Funcionario * veterinario_resp = nullptr;
 		Funcionario * tratador_resp = nullptr;
 
-		it_anf -> second -> printAnimal();
+		std::cout << *(it_anf -> second);// -> printAnimal();
 
 		std::cout << "\nLista dos dasdos que podem ser alterados:  ";
 		std::cout << "Nome, Tamanho, Dieta, Veterinario, Tratador, Total de Mudas, Data da Ultima Muda" << std::endl;
@@ -828,7 +832,7 @@ void Pet_Fera_Cadastro::alterar_dados_animais( int _id )
 		Funcionario * veterinario_resp = nullptr;
 		Funcionario * tratador_resp = nullptr;
 
-		it_mam -> second -> printAnimal();
+		std::cout << *(it_mam -> second);// -> printAnimal();
 
 		std::cout << "\nLista dos dasdos que podem ser alterados:  ";
 		std::cout << "Nome, Tamanho, Dieta, Veterinario, Tratador" << std::endl;
@@ -880,7 +884,7 @@ void Pet_Fera_Cadastro::alterar_dados_animais( int _id )
 		Funcionario * veterinario_resp = nullptr;
 		Funcionario * tratador_resp = nullptr;
 
-		it_rep -> second -> printAnimal();
+		std::cout << *(it_rep -> second);// -> printAnimal();
 
 		std::cout << "\nLista dos dasdos que podem ser alterados:  ";
 		std::cout << "Nome, Tamanho, Dieta, Veterinario, Tratador" << std::endl;
@@ -935,7 +939,7 @@ void Pet_Fera_Cadastro::alterar_dados_animais( int _id )
 		Funcionario * veterinario_resp = nullptr;
 		Funcionario * tratador_resp = nullptr;
 
-		it_ave -> second -> printAnimal();
+		std::cout << *(it_ave -> second);// -> printAnimal();
 
 		std::cout << "\nLista dos dasdos que podem ser alterados:  ";
 		std::cout << "Nome, Tamanho, Dieta, Veterinario, Tratador, Tamanho do Bico, Envergadura" << std::endl;

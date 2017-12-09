@@ -142,11 +142,28 @@ namespace PetFera
 		void set_idade ( short _idade );
 
 		/**
-		 * @brief      Método printFuncionario, que serve para imprimir os dados
-		 *             de um Funcionário.
+		 * @brief      Método print auxiliar.
+		 *
+		 * @param      _os   - Variável do tipo ostream, que corresponde a saída
+		 *                   padrão.
+		 *
+		 * @return     O ostream já formatado com os devidos dados.
 		 */
-		void printFuncionario( void );
+		std::ostream& printFuncionario( std::ostream & _os );
 
+		/**
+		 * @brief      Sobrecarga do operador <<.
+		 *
+		 * @param      _os    o ostream alvo.
+		 * @param      _func  O Funcionário alvo
+		 *
+		 * @return     O ostream já formatado com os devidos dados.
+		 */
+		inline friend std::ostream & operator << ( std::ostream & _os , Funcionario & _func ) 
+		{
+			_func.printFuncionario( _os );
+			return _os;
+		}
 	};
 
 	/**

@@ -82,10 +82,14 @@ namespace PetFera
 		~AveNativo(){};
 
 		/**
-		 * @brief      Método printAnimal, que serve para imprimir os dados de
-		 *             uma Ave Nativa.
+		 * @brief      Método print auxiliar.
+		 *
+		 * @param      _os   - Variável do tipo ostream, que corresponde a saída
+		 *                   padrão.
+		 *
+		 * @return     O ostream já formatado com os devidos dados.
 		 */
-		void printAnimal(void);
+		virtual std::ostream& printAnimal( std::ostream & _os );
 		
 	};
 }

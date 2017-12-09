@@ -123,18 +123,20 @@ void Animal::set_batismo( std::string new_batismo )
 }
 */
 
-std::ostream& Animal::print( std::ostream & _os )
+std::ostream& Animal::printAnimal( std::ostream & _os )
 {
-	_os << "ID: " << m_id << std::endl
-		<< "Classe: " << m_classe << std::endl
-		<< "Nome: " << m_nome << std::endl
-		<< "Nome Cientifico: " << m_cientifico << std::endl
-		<< "Sexo: " << ((m_sexo == 'M') ? "Masculino": "Feminino") << std::endl
-		<< "Tamanho: " << m_tamanho << std::endl
-		<< "Principal componente da Dieta: " << m_dieta << std::endl
-		<< "Veterinário responsável: " << m_veterinario->get_nome() << std::endl
-		<< "Tratador responsável: " << m_tratador->get_nome() << std::endl
-		<< "Nome de Batismo: " << m_batismo << std::endl;
+	_os << std::endl;
+	_os << ">>>>> Ficha do animal <<<<<" << std::endl;
+	_os << "ID:\t\t"     		<< this->get_id() << std::endl;
+	_os << "Classe:\t\t"   	<< this->get_classe() << std::endl;
+	_os << "Nome:\t\t"     	<< this->get_nome() << std::endl;
+	_os << "Cientifico:\t"  	<< this->get_cientifico() << std::endl;
+	_os << "Batismo:\t"    	<< this->get_batismo() << std::endl;
+	_os << "Dieta:\t\t"    	<< this->get_dieta() << std::endl;
+	_os << "Sexo:\t\t"    		<< this->get_sexo() << std::endl;
+	_os << "Veterinario:\t"  	<< (this->get_veterinario()!=nullptr?this->get_veterinario()->get_nome():"") << std::endl;
+	_os << "Tratador:\t"  		<< (this->get_tratador()!=nullptr?this->get_tratador()->get_nome():"") << std::endl;
+	_os << std::endl;
 
 	return _os;
 }

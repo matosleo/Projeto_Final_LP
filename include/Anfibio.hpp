@@ -105,20 +105,20 @@ namespace PetFera
 		virtual ~Anfibio(){};
 
 		/**
-		 * @brief      Sobrecarga do método print.
+		 * @brief      Método print auxiliar.
 		 *
 		 * @param      _os   - Variável do tipo ostream, que corresponde a saída
 		 *                   padrão.
 		 *
-		 * @return     Um objeto do tipo ostream.
+		 * @return     O ostream já formatado com os devidos dados.
 		 */
-		virtual std::ostream& print( std::ostream & _os );
+		virtual std::ostream& printAnimal( std::ostream & _os );
 
 		/**
 		 * @brief      Método printAnimal, que serve para imprimir os dados de
 		 *             um Anfibio.
 		 */
-		void printAnimal(void);
+//		void printAnimal(void);
 
 	};
 }

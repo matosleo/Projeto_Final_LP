@@ -210,25 +210,26 @@ namespace PetFera
 		void set_tratador( F_pointer new_tratador );
 
 		/**
-		 * @brief      Sobrecarga do método print.
+		 * @brief      Método print auxiliar.
 		 *
 		 * @param      _os   - Variável do tipo ostream, que corresponde a saída
 		 *                   padrão.
 		 *
-		 * @return     Um objeto do tipo ostream.
+		 * @return     O ostream já formatado com os devidos dados.
 		 */
-		virtual std::ostream& print( std::ostream & _os );
+		virtual std::ostream& printAnimal( std::ostream & _os );
 
 		/**
 		 * @brief      Sobrecarga do operador <<.
 		 *
-		 * @param      _os   o ostream alvo.
+		 * @param      _os      o ostream alvo.
+		 * @param      _animal  O animal alvo
 		 *
 		 * @return     O ostream já formatado com os devidos dados.
 		 */
 		inline friend std::ostream & operator << ( std::ostream & _os , Animal & _animal ) 
 		{
-			_animal.print( _os );
+			_animal.printAnimal( _os );
 			return _os;
 		}
 
