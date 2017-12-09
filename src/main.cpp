@@ -10,6 +10,8 @@
  */
 
 #include <iostream>
+#include <exception>
+
 #include "Animal.hpp"
 #include "Ave.hpp"
 #include "Anfibio.hpp"
@@ -18,6 +20,7 @@
 #include "Funcionario.hpp"
 #include "Silvestre.hpp"
 #include "Pet_Fera_Cadastro.hpp"
+#include "Excecoes.hpp"
 
 int main(int argc, char const *argv[])
 {
@@ -37,7 +40,30 @@ int main(int argc, char const *argv[])
 		std::cerr << "Abortando execução do programa" << std::endl;
 		return 1;
 	}
-	pet_cadastro.importar_dados_funcionarios( dados_funcionarios );
+	try
+	{
+		pet_cadastro.importar_dados_funcionarios( dados_funcionarios );	
+	}
+	catch ( ErroHeaderCSV &ex )
+	{
+		std::cerr << ex.what();
+		std::cout << "Programa não conseguiu carregar dados dos funcionarios" << std::endl
+		<< "Cancelando execução do programa para preservar dados não lidos." << std::endl;
+		std::exit(1);
+	}
+	catch ( ErroLeituraCSVFunc &ex )
+	{
+		std::cerr << ex.what();
+		std::cout << "Programa não conseguiu carregar os dados de um dos funcionarios." << std::endl
+		<< " Programa irá continuar com apenas os funcionarios carregados, atenção funcionarios"
+		<< " não lidos serão apagados.";
+	}
+	catch (...)
+	{
+		std::cerr << "Erro não esperado detectado. Cancelando programa para preservar os dados." << std::endl;
+		std::exit(2);
+	}
+
 	dados_funcionarios.close();
 
 
@@ -50,7 +76,29 @@ int main(int argc, char const *argv[])
 		std::cerr << "Abortando execução do programa" << std::endl;
 		return 1;
 	}
-	pet_cadastro.importar_dados_animais( dados_animais );
+	try
+	{
+		pet_cadastro.importar_dados_animais( dados_animais );
+	}
+	catch ( ErroHeaderCSV &ex )
+	{
+		std::cerr << ex.what();
+		std::cout << "Programa não conseguiu carregar dados dos animais" << std::endl
+		<< "Cancelando execução do programa para preservar dados não lidos." << std::endl;
+		std::exit(1);
+	}
+	catch ( ErroLeituraCSVAnimal &ex )
+	{
+		std::cerr << ex.what();
+		std::cout << "Programa não conseguiu carregar os dados de um dos animais." << std::endl
+		<< " Programa irá continuar com apenas os animais carregados, atenção animais"
+		<< " não lidos serão apagados.";
+	}
+	catch (...)
+	{
+		std::cerr << "Erro não esperado detectado. Cancelando programa para preservar os dados." << std::endl;
+		std::exit(2);
+	}
 	dados_animais.close();
 
 	do

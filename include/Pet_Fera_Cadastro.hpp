@@ -32,6 +32,7 @@
 #include "ReptilNativo.hpp"
 #include "AveExotico.hpp"
 #include "AveNativo.hpp"
+#include "Excecoes.hpp"
 
 /**
  * @brief      Classe que simula parte do cadastro de um pet shop.

@@ -105,8 +105,6 @@ void Pet_Fera_Cadastro::cadastrar_anfibio( std::string _classe, std::string _tip
 	Funcionario * tratador_resp = nullptr;
 	Funcionario * veterinario_resp = nullptr;
 
-	/*	Assumir que todo animal a ser cadastrado tem que ter um tratador e um veterinario associado	*/
-
 	if( m_tabela_funcionario.find( _id_tratador ) != m_tabela_funcionario.end() )
 		tratador_resp = m_tabela_funcionario[ _id_tratador ];
 	if( m_tabela_funcionario.find( _id_veterinario ) != m_tabela_funcionario.end() )
@@ -219,8 +217,6 @@ void Pet_Fera_Cadastro::cadastrar_mamifero( std::string _classe, std::string _ti
 
 	Funcionario * tratador_resp = nullptr;
 	Funcionario * veterinario_resp = nullptr;
-
-	/*	Assumir que todo animal a ser cadastrado tem que ter um tratador e um veterinario associado	*/
 
 	if( m_tabela_funcionario.find( _id_tratador ) != m_tabela_funcionario.end() )
 		tratador_resp = m_tabela_funcionario[ _id_tratador ];
@@ -353,8 +349,6 @@ void Pet_Fera_Cadastro::cadastrar_reptil( std::string _classe, std::string _tipo
 	Funcionario * tratador_resp = nullptr;
 	Funcionario * veterinario_resp = nullptr;
 
-	/*	Assumir que todo animal a ser cadastrado tem que ter um tratador e um veterinario associado	*/
-
 	if( m_tabela_funcionario.find( _id_tratador ) != m_tabela_funcionario.end() )
 		tratador_resp = m_tabela_funcionario[ _id_tratador ];
 
@@ -477,8 +471,6 @@ void Pet_Fera_Cadastro::cadastrar_ave( std::string _classe, std::string _tipo )
 	Funcionario * tratador_resp = nullptr;
 	Funcionario * veterinario_resp = nullptr;
 
-	/*	Assumir que todo animal a ser cadastrado tem que ter um tratador e um veterinario associado	*/
-
 	if( m_tabela_funcionario.find( _id_tratador ) != m_tabela_funcionario.end() )
 		tratador_resp = m_tabela_funcionario[ _id_tratador ];
 
@@ -600,37 +592,34 @@ void Pet_Fera_Cadastro::consultar_animais( int _id )
 	std::map< int, Ave* >::iterator it_ave = m_tabela_ave.find( _id );
 
 
-		if( it_anf != m_tabela_anfibio.end() )
-		{
+	if( it_anf != m_tabela_anfibio.end() )
+	{
 
-			std::cout << "Dados do Animal procurado: " << std::endl;
-			std::cout << *(it_anf -> second);// -> printAnimal();
+		std::cout << "Dados do Animal procurado: " << std::endl;
+		std::cout << *(it_anf -> second);
 
-		} else if( it_mam != m_tabela_mamifero.end() )
-		{
+	} else if( it_mam != m_tabela_mamifero.end() )
+	{
 
-			std::cout << "Dados do Animal procurado: " << std::endl;
-			std::cout << *(it_mam -> second);// -> printAnimal();
+		std::cout << "Dados do Animal procurado: " << std::endl;
+		std::cout << *(it_mam -> second);
 
-		} else if( it_rep != m_tabela_reptil.end() )
-		{
+	} else if( it_rep != m_tabela_reptil.end() )
+	{
 
-			std::cout << "Dados do Animal procurado: " << std::endl;
-			std::cout << *(it_rep -> second);// -> printAnimal();
+		std::cout << "Dados do Animal procurado: " << std::endl;
+		std::cout << *(it_rep -> second);
 
-		} else if( it_ave != m_tabela_ave.end() )
-		{
+	} else if( it_ave != m_tabela_ave.end() )
+	{
 
-			std::cout << "Dados do Animal procurado: " << std::endl;
-			std::cout << *(it_ave -> second);// -> printAnimal();
+		std::cout << "Dados do Animal procurado: " << std::endl;
+		std::cout << *(it_ave -> second);
 
-		} else
-			std::cout << "Animal nao encontrado!" << std::endl;
+	} else
+		std::cout << "Animal nao encontrado!" << std::endl;
 
 }
-
-
-/*		Metodo abaixo compilando, porem não testado		*/
 
 void Pet_Fera_Cadastro::consultar_animais_funcionario( int _id )
 {
@@ -651,7 +640,7 @@ void Pet_Fera_Cadastro::consultar_animais_funcionario( int _id )
 
 			if( it_anf -> second -> get_veterinario() -> get_id() == _id
 				or it_anf -> second -> get_tratador() -> get_id() == _id )
-				std::cout << *(it_anf -> second);// -> printAnimal();
+				std::cout << *(it_anf -> second);
 
 			++it_anf;
 		}
@@ -661,7 +650,7 @@ void Pet_Fera_Cadastro::consultar_animais_funcionario( int _id )
 
 			if( it_mam -> second -> get_veterinario() -> get_id() == _id
 				or it_mam -> second -> get_tratador() -> get_id() == _id )
-				std::cout << *(it_mam -> second);// -> printAnimal();
+				std::cout << *(it_mam -> second);
 
 			++it_mam;
 		}
@@ -671,7 +660,7 @@ void Pet_Fera_Cadastro::consultar_animais_funcionario( int _id )
 
 			if( it_rep -> second -> get_veterinario() -> get_id() == _id
 				or it_rep -> second -> get_tratador() -> get_id() == _id )
-				std::cout << *(it_rep -> second);// -> printAnimal();
+				std::cout << *(it_rep -> second);
 
 			++it_rep;
 		}
@@ -681,7 +670,7 @@ void Pet_Fera_Cadastro::consultar_animais_funcionario( int _id )
 
 			if( it_ave -> second -> get_veterinario() -> get_id() == _id
 				or it_ave -> second -> get_tratador() -> get_id() == _id )
-				std::cout << *(it_ave -> second);// -> printAnimal();
+				std::cout << *(it_ave -> second);
 
 			++it_ave;
 		}
@@ -692,20 +681,18 @@ void Pet_Fera_Cadastro::consultar_animais_funcionario( int _id )
 
 }
 
-/*		Não Testado		*/
 void Pet_Fera_Cadastro::consultar_funcionarios( int _id )
 {
 	
 	std::map< int, Funcionario* >::iterator it_func =  m_tabela_funcionario.find( _id );
 	std::cout << std::endl << m_tabela_funcionario.size()  <<std::endl;
 	if( it_func != m_tabela_funcionario.end() )
-		std::cout << *(it_func -> second);// -> printFuncionario();
+		std::cout << *(it_func -> second);
 	else
 		std::cout << "Funcionario nao encontrado" << std::endl;
 
 }
 
-/*		Não Testado		*/
 void Pet_Fera_Cadastro::remover_funcionario( int _id )
 {
 
@@ -722,7 +709,6 @@ void Pet_Fera_Cadastro::remover_funcionario( int _id )
 
 }
 
-/*		Não Testado		*/
 void Pet_Fera_Cadastro::remover_animal( int _id )
 {
 
@@ -746,9 +732,6 @@ void Pet_Fera_Cadastro::remover_animal( int _id )
 
 }
 
-
-/*		Implementar métodos abaixo		*/
-
 void Pet_Fera_Cadastro::alterar_dados_animais( int _id )
 {
 	std::map< int, Anfibio* >::iterator it_anf = m_tabela_anfibio.find( _id );
@@ -770,7 +753,7 @@ void Pet_Fera_Cadastro::alterar_dados_animais( int _id )
 		Funcionario * veterinario_resp = nullptr;
 		Funcionario * tratador_resp = nullptr;
 
-		std::cout << *(it_anf -> second);// -> printAnimal();
+		std::cout << *(it_anf -> second);
 
 		std::cout << "\nLista dos dasdos que podem ser alterados:  ";
 		std::cout << "Nome, Tamanho, Dieta, Veterinario, Tratador, Total de Mudas, Data da Ultima Muda" << std::endl;
@@ -832,7 +815,7 @@ void Pet_Fera_Cadastro::alterar_dados_animais( int _id )
 		Funcionario * veterinario_resp = nullptr;
 		Funcionario * tratador_resp = nullptr;
 
-		std::cout << *(it_mam -> second);// -> printAnimal();
+		std::cout << *(it_mam -> second);
 
 		std::cout << "\nLista dos dasdos que podem ser alterados:  ";
 		std::cout << "Nome, Tamanho, Dieta, Veterinario, Tratador" << std::endl;
@@ -884,7 +867,7 @@ void Pet_Fera_Cadastro::alterar_dados_animais( int _id )
 		Funcionario * veterinario_resp = nullptr;
 		Funcionario * tratador_resp = nullptr;
 
-		std::cout << *(it_rep -> second);// -> printAnimal();
+		std::cout << *(it_rep -> second);
 
 		std::cout << "\nLista dos dasdos que podem ser alterados:  ";
 		std::cout << "Nome, Tamanho, Dieta, Veterinario, Tratador" << std::endl;
@@ -939,7 +922,7 @@ void Pet_Fera_Cadastro::alterar_dados_animais( int _id )
 		Funcionario * veterinario_resp = nullptr;
 		Funcionario * tratador_resp = nullptr;
 
-		std::cout << *(it_ave -> second);// -> printAnimal();
+		std::cout << *(it_ave -> second);
 
 		std::cout << "\nLista dos dasdos que podem ser alterados:  ";
 		std::cout << "Nome, Tamanho, Dieta, Veterinario, Tratador, Tamanho do Bico, Envergadura" << std::endl;
@@ -996,7 +979,6 @@ void Pet_Fera_Cadastro::alterar_dados_animais( int _id )
 
 void Pet_Fera_Cadastro::alterar_dados_funcionarios( int _id )
 {
-
 	std::map< int, Funcionario* >::iterator it_func =  m_tabela_funcionario.find( _id );
 
 	if( it_func != m_tabela_funcionario.end() )
@@ -1014,13 +996,10 @@ void Pet_Fera_Cadastro::alterar_dados_funcionarios( int _id )
 		std::cout << std::endl;
 		std::cout << "\nDados alterados com sucesso\n" << std::endl;
 
-
 	}else
 		std::cout << "Funcionario nao encontrado" << std::endl;	
 
 }
-
-/*	Ajeitar Importação de Dados!	*/
 
 void Pet_Fera_Cadastro::importar_dados_animais( std::ifstream& dados_animais )
 {
@@ -1029,12 +1008,7 @@ void Pet_Fera_Cadastro::importar_dados_animais( std::ifstream& dados_animais )
 	std::getline(dados_animais, linha);
 	if (linha != "ID;Classe;Tipo;Nome;Nome Cientifico;Sexo;Tamanho;Dieta;Veterinario;Tratador;Batismo;Tamanho do Bico;Envergadura;Total Mudas;Ultima Muda;Cor do Pelo;Venenoso;Tipo Veneno;Ibama;UF / Pais;Autorizacao")
 	{
-		std::cerr << linha << std::endl;
-		//Outro bom momento para lançar uma exceçao!
-		std::cerr << "CSV não está no formato correto." << std::endl;
-		std::cerr << "Fechando o programa." << std::endl;
-		std::cerr << "1" << std::endl;
-		std::exit(1);
+		throw ErroHeaderCSV(linha);
 	}
 	while( std::getline( dados_animais, linha))
 	{
@@ -1146,12 +1120,7 @@ void Pet_Fera_Cadastro::importar_dados_animais( std::ifstream& dados_animais )
 		}
 		else
 		{
-			std::cerr << campos[1] << "  " << campos[2] << std::endl;
-			// Possível local para lançar uma exceção!!
-			std::cerr << "CSV não está no formato correto." << std::endl;
-			std::cerr << "Fechando o programa." << std::endl;
-			std::cerr << "2" << std::endl;
-			std::exit(1);
+			throw ErroLeituraCSVAnimal((campos[1] + " e " + campos[2]));
 		}
 	}
 }
@@ -1163,12 +1132,7 @@ void Pet_Fera_Cadastro::importar_dados_funcionarios( std::ifstream& dados_funcio
 	std::getline(dados_funcionarios, linha);
 	if (linha != "ID;Profissao;Nome;CPF;Idade;Tipo Sanguineo;Fator RH;Especialidade")
 	{
-		std::cerr << linha << std::endl;
-		//Outro bom momento para lançar uma exceçao!
-		std::cerr << "CSV não está no formato correto." << std::endl;
-		std::cerr << "Fechando o programa." << std::endl;
-		std::cerr << "1" << std::endl;
-		std::exit(1);
+		throw ErroHeaderCSV(linha);
 	}
 	while( std::getline( dados_funcionarios, linha))
 	{
@@ -1192,12 +1156,7 @@ void Pet_Fera_Cadastro::importar_dados_funcionarios( std::ifstream& dados_funcio
 		}
 		else
 		{
-			std::cerr << campos[1] << std::endl;
-			// Possível local para lançar uma exceção!!
-			std::cerr << "CSV não está no formato correto." << std::endl;
-			std::cerr << "Fechando o programa." << std::endl;
-			std::cerr << "2" << std::endl;
-			std::exit(1);
+			throw ErroLeituraCSVFunc(campos[1]);
 		}
 	}
 }
@@ -1224,7 +1183,7 @@ void Pet_Fera_Cadastro::exportar_dados_animais( std::ofstream& dados_animais )
 		campos.push_back(it->second->get_tipo());				// 2
 		campos.push_back(it->second->get_nome());				// 3
 		campos.push_back(it->second->get_cientifico());			// 4
-		campos.push_back(to_string(it->second->get_sexo()));		// 5
+		campos.push_back(to_string(it->second->get_sexo()));	// 5
 		campos.push_back(to_string(it->second->get_tamanho()));	// 6
 		campos.push_back(it->second->get_dieta());				// 7
 		if (it->second->get_veterinario() == nullptr)			// 8
@@ -1253,7 +1212,7 @@ void Pet_Fera_Cadastro::exportar_dados_animais( std::ofstream& dados_animais )
 
 				campos.push_back(temp->get_ibama());		// 18
 				campos.push_back(temp->get_pais_origem());	// 19
-				campos.push_back("-");							// 20
+				campos.push_back("-");						// 20
 			}
 			else if (campos[2] == "Nativo")
 			{
@@ -1271,12 +1230,8 @@ void Pet_Fera_Cadastro::exportar_dados_animais( std::ofstream& dados_animais )
 			}
 			else
 			{
-				// Exceção!
+				throw ErroLeituraCSVAnimal( campos[2] );
 			}
-		}
-		else
-		{
-			// Exceção!
 		}
 
 		linha.clear();
@@ -1339,7 +1294,7 @@ void Pet_Fera_Cadastro::exportar_dados_animais( std::ofstream& dados_animais )
 			}
 			else
 			{
-				// Exceção!
+				throw ErroLeituraCSVAnimal( campos[2] );
 			}
 		}
 
@@ -1403,12 +1358,8 @@ void Pet_Fera_Cadastro::exportar_dados_animais( std::ofstream& dados_animais )
 			}
 			else
 			{
-				// Exceção!
+				throw ErroLeituraCSVAnimal( campos[2] );
 			}
-		}
-		else
-		{
-			// Exceção!
 		}
 
 		linha.clear();
@@ -1472,12 +1423,8 @@ void Pet_Fera_Cadastro::exportar_dados_animais( std::ofstream& dados_animais )
 			}
 			else
 			{
-				// Exceção!
+				throw ErroLeituraCSVAnimal( campos[2] );
 			}
-		}
-		else
-		{
-			// Exceção!
 		}
 
 		linha.clear();
