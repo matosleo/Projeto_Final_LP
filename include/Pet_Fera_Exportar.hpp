@@ -31,12 +31,14 @@ bool termina_com(const std::string &str, const std::string &termino)
 }
 
 /**
- * @brief      { function_description }
+ * @brief      Função que serve para separar uma string.
  *
- * @param[in]  alvo         The alvo
- * @param[in]  delimitador  The delimitador
+ * @param[in]  alvo         - Variável do tipo string, que corresponde a string
+ *                          alvo da separação.
+ * @param[in]  delimitador  - Variável do tipo char, que corresponde a um
+ *                          delimitador para a separação.
  *
- * @return     { description_of_the_return_value }
+ * @return     Um vector de strings.
  */
 std::vector< std::string > separar ( const std::string& alvo, const char &delimitador )
 {
@@ -57,12 +59,14 @@ std::vector< std::string > separar ( const std::string& alvo, const char &delimi
 }
 
 /**
- * @brief      { function_description }
+ * @brief      Função para filtrar as familias/classes dos animais
  *
- * @param      alvo    The alvo
- * @param[in]  filtro  The filtro
+ * @param      alvo    - Variável do tipo vector de strings, que corresponde ao
+ *                     vector contendo as strings alvo da filtragem.
+ * @param[in]  filtro  - Variável do tipo string, que corresponde ao nome da
+ *                     classe a ser filtrada.
  *
- * @return     { description_of_the_return_value }
+ * @return     Um vector de strings.
  */
 std::vector< std::string > filtrar_classe( std::vector< std::string > &alvo, const std::string filtro )
 {
@@ -90,13 +94,16 @@ std::vector< std::string > filtrar_classe( std::vector< std::string > &alvo, con
 }
 
 /**
- * @brief      { function_description }
+ * @brief      Função para filtrar os dados dos funcionarios.
  *
- * @param      alvo    The alvo
- * @param[in]  filtro  The filtro
- * @param[in]  campo   The campo
+ * @param      alvo    - Variável do tipo vector de strings, que corresponde ao
+ *                     vector contendo as strings alvo da filtragem.
+ * @param[in]  filtro  - Variável do tipo string, que corresponde ao nome do
+ *                     dado a ser filtrada.
+ * @param[in]  campo   - Variável do tipo size_t, que corresponde a posição do
+ *                     dado a ser filtrado.
  *
- * @return     { description_of_the_return_value }
+ * @return     Um vector de strings.
  */
 std::vector< std::string > filtrar_func( std::vector< std::string > &alvo, const std::string filtro, size_t campo )
 {

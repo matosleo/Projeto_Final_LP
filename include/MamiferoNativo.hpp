@@ -24,30 +24,48 @@ namespace PetFera
 {
 
 	/**
-	 * @brief      Class for mamifero nativo.
+	 * @brief      Classe de Mamifero Nativo.
 	 */
 	class MamiferoNativo : public Mamifero , public Nativo
 	{
 	public:
 
 		/**
-		 * @brief      { function_description }
+		 * @brief      Construtor da classe MamiferoNativo.
 		 *
-		 * @param[in]  _id           The identifier
-		 * @param[in]  _classe       The classe
-		 * @param[in]  _tipo         The tipo
-		 * @param[in]  _nome         The nome
-		 * @param[in]  _cientifico   The cientifico
-		 * @param[in]  _sexo         The sexo
-		 * @param[in]  _tamanho      The tamanho
-		 * @param[in]  _dieta        The dieta
-		 * @param[in]  _veterinario  The veterinario
-		 * @param[in]  _tratador     The tratador
-		 * @param[in]  _batismo      The batismo
-		 * @param[in]  _cor_pelo     The cor pelo
-		 * @param[in]  _ibama        The ibama
-		 * @param[in]  _uf_origem    The uf origem
-		 * @param[in]  _autorizacao  The autorizacao
+		 * @param[in]  _id           - Variável do tipo int, que corresponde ao
+		 *                           ID do animal.
+		 * @param[in]  _classe       - Variável do tipo string, que corresponde
+		 *                           a familia que o animal pertence.
+		 * @param[in]  _tipo         - Variável do tipo string, que corresponde
+		 *                           ao tipo do animal.
+		 * @param[in]  _nome         - Variável do tipo string, que corresponde
+		 *                           ao nome do animal.
+		 * @param[in]  _cientifico   - Variável do tipo string, que corresponde
+		 *                           ao nome cientifico do animal.
+		 * @param[in]  _sexo         - Variável do tipo char, que corresponde
+		 *                           ao sexo do animal.
+		 * @param[in]  _tamanho      - Variável do tipo float, que corresponde
+		 *                           ao tamanho do animal.
+		 * @param[in]  _dieta        - Variável do tipo string, que corresponde
+		 *                           a dieta do animal.
+		 * @param[in]  _veterinario  - Variável do tipo apontador para
+		 *                           funcionario, que corresponde ao veterinario
+		 *                           que cuida do animal.
+		 * @param[in]  _tratador     - Variável do tipo apontador para
+		 *                           funcionario, que corresponde ao tratador
+		 *                           que cuida do animal.
+		 * @param[in]  _batismo      - Variável do tipo string, que corresponde
+		 *                           ao nome de batismo do animal.
+		 * @param[in]  _cor_pelo     - Variável do tipo string, que corresponde
+		 *                           a cor do pelo do animal.
+		 * @param[in]  _ibama        - Variável do tipo string, que corresponde
+		 *                           ao id do ibama associado ao animal.
+		 * @param[in]  _uf_origem    - Variável do tipo string, que corresponde
+		 *                           ao Estado de origem do animal.
+		 * @param[in]  _autorizacao  - Variável do tipo string, que corresponde
+		 *                           a autorização fornecida pelo ibama para a
+		 *                           comercialização do animal.
 		 */
 		MamiferoNativo( int _id, std::string _classe, std::string _tipo, std::string _nome, std::string _cientifico, char _sexo, 
 				float _tamanho, std::string _dieta, F_pointer _veterinario, F_pointer _tratador, std::string _batismo,
@@ -58,12 +76,13 @@ namespace PetFera
 			{	/*	Vazio	*/	}
 
 		/**
-		 * @brief      Destroys the object.
+		 * @brief      Destrutor da classe MamiferoNativo.
 		 */
 		~MamiferoNativo(){};
 
 		/**
-		 * @brief      { function_description }
+		 * @brief      Método printAnimal, que serve para imprimir os dados de
+		 *             um Mamifero Nativo.
 		 */
 		void printAnimal(void);
 		

@@ -34,7 +34,7 @@
 #include "AveNativo.hpp"
 
 /**
- * @brief      Classe que simula parte do cadastro de um pet shop
+ * @brief      Classe que simula parte do cadastro de um pet shop.
  */
 class Pet_Fera_Cadastro
 {
@@ -48,154 +48,187 @@ protected:
 public:
 
 	/**
-	 * @brief      { function_description }
+	 * @brief      Construtor padrão da classe Pet_Fera_Cadastro.
 	 */
 	Pet_Fera_Cadastro();
 
 	/**
-	 * @brief      Destroys the object.
+	 * @brief      Destrutor padrão da classe Pet_Fera_Cadastro.
 	 */
 	~Pet_Fera_Cadastro();
 
 	/**
-	 * @brief      { function_description }
+	 * @brief      Método que ser para cadastrar um anfibio.
 	 *
-	 * @param[in]  _classe  The classe
-	 * @param[in]  _tipo    The tipo
+	 * @param[in]  _classe  - Variável do tipo string, que corresponde a classe
+	 *                      do animal.
+	 * @param[in]  _tipo    - Variável do tipo string, que corresponde ao tipo
+	 *                      do animal.
 	 */
 	void cadastrar_anfibio( std::string _classe, std::string _tipo );
 
 	/**
-	 * @brief      { function_description }
+	 * @brief      Método que ser para cadastrar um mamifero.
 	 *
-	 * @param[in]  _classe  The classe
-	 * @param[in]  _tipo    The tipo
+	 * @param[in]  _classe  - Variável do tipo string, que corresponde a classe
+	 *                      do animal.
+	 * @param[in]  _tipo    - Variável do tipo string, que corresponde ao tipo
+	 *                      do animal.
 	 */
 	void cadastrar_mamifero( std::string _classe, std::string _tipo );
 	
 	/**
-	 * @brief      { function_description }
+	 * @brief      Método que ser para cadastrar um reptil.
 	 *
-	 * @param[in]  _classe  The classe
-	 * @param[in]  _tipo    The tipo
+	 * @param[in]  _classe  - Variável do tipo string, que corresponde a classe
+	 *                      do animal.
+	 * @param[in]  _tipo    - Variável do tipo string, que corresponde ao tipo
+	 *                      do animal.
 	 */
 	void cadastrar_reptil( std::string _classe, std::string _tipo );
 	
 	/**
-	 * @brief      { function_description }
+	 * @brief      Método que serve para cadastrar uma ave.
 	 *
-	 * @param[in]  _classe  The classe
-	 * @param[in]  _tipo    The tipo
+	 * @param[in]  _classe  - Variável do tipo string, que corresponde a classe
+	 *                      do animal.
+	 * @param[in]  _tipo    - Variável do tipo string, que corresponde ao tipo
+	 *                      do animal.
 	 */
 	void cadastrar_ave( std::string _classe, std::string _tipo );
 
 	/**
-	 * @brief      { function_description }
+	 * @brief      Método que serve para cadastrar um funcionário.
 	 *
-	 * @param[in]  _funcao  The funcao
+	 * @param[in]  _funcao  - Variável do tipo string, que corresponde a função
+	 *                      que o funcionário exerce.
 	 */
 	void cadastrar_funcionario( std::string _funcao );
 
 	/**
-	 * @brief      { function_description }
+	 * @brief      Método que serve para consultar os dados dos animais
+	 *             cadastrados.
 	 *
-	 * @param[in]  _id   The identifier
+	 * @param[in]  _id   - Variável do tipo int, que corresponde a identificação
+	 *                   do animal.
 	 */
 	void consultar_animais( int _id );
 	
 	/**
-	 * @brief      { function_description }
+	 * @brief      Método que serve para consultar os dados dos animais
+	 *             cadastrados, com base em um funcionário especifico.
 	 *
-	 * @param[in]  _id   The identifier
+	 * @param[in]  _id   - Variável do tipo int, que corresponde a identificação
+	 *                   do funcionário.
 	 */
 	void consultar_animais_funcionario( int _id );
 	
 	/**
-	 * @brief      { function_description }
+	 * @brief      Método que serve para consultar os dados funcionários.
 	 *
-	 * @param[in]  _id   The identifier
+	 * @param[in]  _id   - Variável do tipo int, que corresponde a identificação
+	 *                   do funcionário.
 	 */
 	void consultar_funcionarios( int _id );
 
 	/**
-	 * @brief      { function_description }
+	 * @brief      Método que serve para remover um funcionário cadastrado.
 	 *
-	 * @param[in]  _id   The identifier
+	 * @param[in]  _id   - Variável do tipo int, que corresponde a identificação
+	 *                   do funcionário.
 	 */
 	void remover_funcionario( int _id );
 
 	/**
-	 * @brief      { function_description }
+	 * @brief      Método que serve para remover um animal cadastrado.
 	 *
-	 * @param[in]  _id   The identifier
+	 * @param[in]  _id   - Variável do tipo int, que corresponde a identificação
+	 *                   do animal.
 	 */
 	void remover_animal( int _id );
 
 	/**
-	 * @brief      { function_description }
+	 * @brief      Método que serve para alterar os dados de um animal
+	 *             cadastrado.
 	 *
-	 * @param[in]  _id   The identifier
+	 * @param[in]  _id   - Variável do tipo int, que corresponde a identificação
+	 *                   do animal.
 	 */
 	void alterar_dados_animais( int _id );
 	
 	/**
-	 * @brief      { function_description }
+	 * @brief      Método que serve para alterar os dados de um funcionário
+	 *             cadastrado.
 	 *
-	 * @param[in]  _id   The identifier
+	 * @param[in]  _id   - Variável do tipo int, que corresponde a identificação
+	 *                   do funcionário.
 	 */
 	void alterar_dados_funcionarios( int _id );
 	
 	/**
-	 * @brief      { function_description }
+	 * @brief      Método que serve para importar os dados dos animais de um
+	 *             arquivo csv.
 	 *
-	 * @param      dados_animais  The dados animais
+	 * @param      dados_animais  - Variável do tipo ifstream, que corresponde a
+	 *                            entrada para se obter os dados.
 	 */
 	void importar_dados_animais( std::ifstream& dados_animais );
 	
 	/**
-	 * @brief      { function_description }
+	 * @brief      Método que serve para importar os dados dos funcionário de um
+	 *             arquivo csv.
 	 *
-	 * @param      dados_funcionarios  The dados funcionarios
+	 * @param      dados_funcionarios  - Variável do tipo ifstream, que
+	 *                                 corresponde a entrada para se obter os
+	 *                                 dados.
 	 */
 	void importar_dados_funcionarios( std::ifstream& dados_funcionarios );
 
 	/**
-	 * @brief      Returns a string representation of the object.
+	 * @brief      Método para converter um valor generico T em uma string.
 	 *
-	 * @param[in]  target  The target
+	 * @param[in]  target  - Variável generica do tipo T, que corresponde ao
+	 *                     valor a ser convertido.
 	 *
-	 * @tparam     T       { description }
+	 * @tparam     T       - Tipo abstrato de dado.
 	 *
-	 * @return     String representation of the object.
+	 * @return     Uma string.
 	 */
 	template < typename T >
 	std::string to_string( T target );
 
 	/**
-	 * @brief      { function_description }
+	 * @brief      Método que serve para exportar os dados dos animais para um
+	 *             arquivo csv.
 	 *
-	 * @param      dados_animais  The dados animais
+	 * @param      dados_animais  - Variável do tipo ifstream, que corresponde a
+	 *                            entrada para se obter os dados.
 	 */
 	void exportar_dados_animais( std::ofstream& dados_animais );
 	
 	/**
-	 * @brief      { function_description }
+	 * @brief      Método que serve para exportar os dados dos funcionário para
+	 *             um arquivo csv.
 	 *
-	 * @param      dados_funcionarios  The dados funcionarios
+	 * @param      dados_funcionarios  - Variável do tipo ifstream, que
+	 *                                 corresponde a entrada para se obter os
+	 *                                 dados.
 	 */
 	void exportar_dados_funcionarios( std::ofstream& dados_funcionarios );
 
 	/**
-	 * @brief      { function_description }
+	 * @brief      Método que serve para calcular a quantidade de animais
+	 *             cadastrados.
 	 *
-	 * @return     { description_of_the_return_value }
+	 * @return     Quantidade de animais cadastrados.
 	 */
 	unsigned int quantidade_animais_cadastrados( void );
 	
 	/**
-	 * @brief      { function_description }
+	 * @brief      Método que serve para calcular a quantidade de funcionarios
+	 *             cadastrados.
 	 *
-	 * @return     { description_of_the_return_value }
+	 * @return     Quantidade de funcionarios cadastrados.
 	 */
 	unsigned int quantidade_funcionarios_cadastrados( void );
 

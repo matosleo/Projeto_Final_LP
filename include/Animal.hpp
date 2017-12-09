@@ -24,7 +24,7 @@ typedef PetFera::Funcionario* F_pointer;
 namespace PetFera
 {
 	/**
-	 * @brief      Classe para Animal.
+	 * @brief      Classe de Animal.
 	 */
 	class Animal
 	{
@@ -45,19 +45,32 @@ namespace PetFera
 	public:
 
 		/**
-		 * @brief      Construtor de um Animal
+		 * @brief      Construtor da classe Animal.
 		 *
-		 * @param[in]  _id           O identifier
-		 * @param[in]  _classe       A classe
-		 * @param[in]  _tipo         O tipo
-		 * @param[in]  _nome         O nome
-		 * @param[in]  _cientifico   O nome cientifico
-		 * @param[in]  _sexo         O sexo
-		 * @param[in]  _tamanho      O tamanho
-		 * @param[in]  _dieta        A dieta
-		 * @param[in]  _veterinario  O veterinario
-		 * @param[in]  _tratador     O tratador
-		 * @param[in]  _batismo      O nome de batismo
+		 * @param[in]  _id           - Variável do tipo int, que corresponde ao
+		 *                           ID do animal.
+		 * @param[in]  _classe       - Variável do tipo string, que corresponde
+		 *                           a familia que o animal pertence.
+		 * @param[in]  _tipo         - Variável do tipo string, que corresponde
+		 *                           ao tipo do animal.
+		 * @param[in]  _nome         - Variável do tipo string, que corresponde
+		 *                           ao nome do animal.
+		 * @param[in]  _cientifico   - Variável do tipo string, que corresponde
+		 *                           ao nome cientifico do animal.
+		 * @param[in]  _sexo         - Variável do tipo char, que corresponde
+		 *                           ao sexo do animal.
+		 * @param[in]  _tamanho      - Variável do tipo float, que corresponde
+		 *                           ao tamanho do animal.
+		 * @param[in]  _dieta        - Variável do tipo string, que corresponde
+		 *                           a dieta do animal.
+		 * @param[in]  _veterinario  - Variável do tipo apontador para
+		 *                           funcionario, que corresponde ao veterinario
+		 *                           que cuida do animal.
+		 * @param[in]  _tratador     - Variável do tipo apontador para
+		 *                           funcionario, que corresponde ao tratador
+		 *                           que cuida do animal.
+		 * @param[in]  _batismo      - Variável do tipo string, que corresponde
+		 *                           ao nome de batismo do animal.
 		 */
 		Animal(	int _id, std::string _classe, std::string _tipo, std::string _nome, std::string _cientifico, char _sexo, 
 				float _tamanho, std::string _dieta, F_pointer _veterinario, F_pointer _tratador, std::string _batismo )
@@ -75,137 +88,143 @@ namespace PetFera
 		{ /* Vazio */ }
 
 		/**
-		 * @brief      Destrutor da Classe Animal
+		 * @brief      Destrutor da Classe Animal.
 		 */
 		virtual ~Animal(){};
 
 		/**
-		 * @brief      Retorna o identifier.
+		 * @brief      Método get para o atributo m_id.
 		 *
-		 * @return     o identifier.
+		 * @return     O id.
 		 */
 		int 		get_id( void );
 		
 		/**
-		 * @brief      Retorna a classe.
+		 * @brief      Método get para o atributo m_classe.
 		 *
-		 * @return     a classe.
+		 * @return     A classe.
 		 */
 		std::string get_classe( void );
 		
 		/**
-		 * @brief      Retorna o tipo.
+		 * @brief      Método get para o atributo m_tipo.
 		 *
-		 * @return     o tipo.
+		 * @return     O tipo.
 		 */
 		std::string get_tipo( void );
 		
 		/**
-		 * @brief      Retorna o nome.
+		 * @brief      Método get para o atributo m_nome.
 		 *
-		 * @return     o nome.
+		 * @return     O nome.
 		 */
 		std::string get_nome( void );
 		
 		/**
-		 * @brief      Retorna o nome cientifico.
+		 * @brief      Método get para o atributo m_cientifico.
 		 *
-		 * @return     o nome cientifico.
+		 * @return     O nome cientifico.
 		 */
 		std::string get_cientifico( void );
 		
 		/**
-		 * @brief      Retorna o sexo.
+		 * @brief      Método get para o atributo m_sexo.
 		 *
-		 * @return     o sexo.
+		 * @return     O sexo.
 		 */
 		char 		get_sexo( void );
 		
 		/**
-		 * @brief      Retorna o tamanho.
+		 * @brief      Método get para o atributo m_tamanho.
 		 *
-		 * @return     o tamanho.
+		 * @return     O tamanho.
 		 */
 		float 		get_tamanho( void );
 		
 		/**
-		 * @brief      Retorna a dieta.
+		 * @brief      Método get para o atributo m_dieta.
 		 *
-		 * @return     a dieta.
+		 * @return     A dieta.
 		 */
 		std::string get_dieta( void );
 		
 		/**
-		 * @brief      Retorna o veterinario.
+		 * @brief      Método get para o atributo m_veterinario.
 		 *
-		 * @return     o veterinario.
+		 * @return     O veterinario associado.
 		 */
 		F_pointer	get_veterinario( void );
 		
 		/**
-		 * @brief      Retorna o tratador.
+		 * @brief      Método get para o atributo m_tratador.
 		 *
-		 * @return     o tratador.
+		 * @return     O tratador associado.
 		 */
 		F_pointer 	get_tratador( void );
 		
 		/**
-		 * @brief      Retorna o nome de batismo.
+		 * @brief      Método get para o atributo m_batismo.
 		 *
-		 * @return     o nome de  batismo.
+		 * @return     O nome de batismo.
 		 */
 		std::string get_batismo( void );
 
 		/**
-		 * @brief      Altera o nome.
+		 * @brief      Método para alterar o nome.
 		 *
-		 * @param[in]  new_nome  O novo nome
+		 * @param[in]  new_nome  - Variável do tipo string, que corresponde ao
+		 *                       novo nome.
 		 */
 		void set_nome( std::string new_nome );
 		
 		/**
-		 * @brief      Altera o tamanho.
+		 * @brief      Método para alterar o tamanho.
 		 *
-		 * @param[in]  new_tamanho  O novo tamanho
+		 * @param[in]  new_tamanho  - Variável do tipo string, que corresponde
+		 *                          ao novo tamanho.
 		 */
 		void set_tamanho( float new_tamanho );
 		
 		/**
-		 * @brief      Altera a dieta.
+		 * @brief      Método para alterar a dieta.
 		 *
-		 * @param[in]  new_dieta  A nova dieta
+		 * @param[in]  new_dieta  - Variável do tipo string, que corresponde a
+		 *                        nova dieta.
 		 */
 		void set_dieta( std::string new_dieta );
 		
 		/**
-		 * @brief      Altera o veterinario.
+		 * @brief      Método para alterar o veterinario.
 		 *
-		 * @param[in]  new_veterinario  O novo veterinario
+		 * @param[in]  new_veterinario  - Variável do tipo string, que
+		 *                              corresponde ao novo veterinario.
 		 */
 		void set_veterinario( F_pointer new_veterinario );
 		
 		/**
-		 * @brief      Altera o tratador.
+		 * @brief      Método para alterar o tratador.
 		 *
-		 * @param[in]  new_tratador  O novo tratador
+		 * @param[in]  new_tratador  - Variável do tipo string, que corresponde
+		 *                           ao novo tratador.
 		 */
 		void set_tratador( F_pointer new_tratador );
 
 		/**
-		 * @brief      Imprime os dados de um animal no ostram alvo
+		 * @brief      Sobrecarga do método print.
 		 *
-		 * @param      _os   o ostream alvo
+		 * @param      _os   - Variável do tipo ostream, que corresponde a saída
+		 *                   padrão.
 		 *
-		 * @return     O ostram já formatado com os devidos dados
+		 * @return     Um objeto do tipo ostream.
 		 */
 		virtual std::ostream& print( std::ostream & _os );
 
 		/**
-		 * @brief      Sobrecarga do operador <<
+		 * @brief      Sobrecarga do operador <<.
 		 *
-		 * @param      _os   o ostream alvo
+		 * @param      _os   o ostream alvo.
 		 *
-		 * @return     O ostram já formatado com os devidos dados
+		 * @return     O ostream já formatado com os devidos dados.
 		 */
 		inline friend std::ostream & operator << ( std::ostream & _os , Animal & _animal ) 
 		{

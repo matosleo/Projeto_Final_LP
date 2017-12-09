@@ -20,7 +20,7 @@ using namespace PetFera;
 namespace PetFera
 {
 	/**
-	 * @brief      Classe para anfibio.
+	 * @brief      Classe de anfibio.
 	 */
 	class Anfibio : public Animal
 	{
@@ -31,49 +31,66 @@ namespace PetFera
 	public:
 
 		/**
-		 * @brief      Retorna o total mudas.
+		 * @brief      Método get do atributo m_total_mudas.
 		 *
-		 * @return     O total mudas.
+		 * @return     O total de mudas.
 		 */
 		int get_total_mudas( void );
 		
 		/**
-		 * @brief      Retorna o ultima muda.
+		 * @brief      Método get do atributo m_ultima_muda.
 		 *
-		 * @return     O ultima muda.
+		 * @return     A data da ultima muda.
 		 */
 		std::string get_ultima_muda( void );
 
 		/**
-		 * @brief      Altera o total mudas.
+		 * @brief      Método set do atributo m_total_mudas.
 		 *
-		 * @param[in]  new_total  O novo total
+		 * @param[in]  new_total  - Variável do tipo int, que corresponde ao
+		 *                        novo total de mudas.
 		 */
 		void set_total_mudas( int new_total );
 		
 		/**
-		 * @brief      Altera a ultima muda.
+		 * @brief      Método set do atributo m_ultima_muda.
 		 *
-		 * @param[in]  new_muda  O nova muda
+		 * @param[in]  new_muda  - Variável do tipo string, que corresponde a
+		 *                       data da ultima muda.
 		 */
 		void set_ultima_muda( std::string new_muda );
 
 		/**
-		 * @brief      Construtor do Anfibio
+		 * @brief      Construtor da classe Anfibio.
 		 *
-		 * @param[in]  _id           O identifier
-		 * @param[in]  _classe       A classe
-		 * @param[in]  _tipo         O tipo
-		 * @param[in]  _nome         O nome
-		 * @param[in]  _cientifico   O nome cientifico
-		 * @param[in]  _sexo         O sexo
-		 * @param[in]  _tamanho      O tamanho
-		 * @param[in]  _dieta        A dieta
-		 * @param[in]  _veterinario  O veterinario
-		 * @param[in]  _tratador     O tratador
-		 * @param[in]  _batismo      O nome de batismo
-		 * @param[in]  _total_mudas  O total mudas
-		 * @param[in]  _ultima_muda  A ultima muda
+		 * @param[in]  _id           - Variável do tipo int, que corresponde ao
+		 *                           ID do animal.
+		 * @param[in]  _classe       - Variável do tipo string, que corresponde
+		 *                           a familia que o animal pertence.
+		 * @param[in]  _tipo         - Variável do tipo string, que corresponde
+		 *                           ao tipo do animal.
+		 * @param[in]  _nome         - Variável do tipo string, que corresponde
+		 *                           ao nome do animal.
+		 * @param[in]  _cientifico   - Variável do tipo string, que corresponde
+		 *                           ao nome cientifico do animal.
+		 * @param[in]  _sexo         - Variável do tipo char, que corresponde ao
+		 *                           sexo do animal.
+		 * @param[in]  _tamanho      - Variável do tipo float, que corresponde
+		 *                           ao tamanho do animal.
+		 * @param[in]  _dieta        - Variável do tipo string, que corresponde
+		 *                           a dieta do animal.
+		 * @param[in]  _veterinario  - Variável do tipo apontador para
+		 *                           funcionario, que corresponde ao veterinario
+		 *                           que cuida do animal.
+		 * @param[in]  _tratador     - Variável do tipo apontador para
+		 *                           funcionario, que corresponde ao tratador
+		 *                           que cuida do animal.
+		 * @param[in]  _batismo      - Variável do tipo string, que corresponde
+		 *                           ao nome de batismo do animal.
+		 * @param[in]  _total_mudas  - Variável do tipo int, que corresponde ao
+		 *                           total de mudas do animal.
+		 * @param[in]  _ultima_muda  - Variável do tipo string, que corresponde
+		 *                           a data da ultima muda do animal.
 		 */
 		Anfibio( int _id, std::string _classe, std::string _tipo, std::string _nome, std::string _cientifico, char _sexo, 
 				float _tamanho, std::string _dieta, F_pointer _veterinario, F_pointer _tratador, std::string _batismo,
@@ -83,21 +100,23 @@ namespace PetFera
 		{	/*	Vazio	*/	}
 
 		/**
-		 * @brief      Destrutor da Classe
+		 * @brief      Destrutor da Classe Anfibio.
 		 */
 		virtual ~Anfibio(){};
 
 		/**
-		 * @brief      Imprime os dados do Anfibio
+		 * @brief      Sobrecarga do método print.
 		 *
-		 * @param      _os   O Ostream alvo
+		 * @param      _os   - Variável do tipo ostream, que corresponde a saída
+		 *                   padrão.
 		 *
-		 * @return     { description_of_the_return_value }
+		 * @return     Um objeto do tipo ostream.
 		 */
 		virtual std::ostream& print( std::ostream & _os );
 
 		/**
-		 * @brief      Imprime os dados do anfibio
+		 * @brief      Método printAnimal, que serve para imprimir os dados de
+		 *             um Anfibio.
 		 */
 		void printAnimal(void);
 

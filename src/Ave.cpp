@@ -24,12 +24,12 @@ float Ave::get_envergadura( void )
 	return m_envergadura;
 }
 
-void Ave::set_tamanho_bico( int new_tamanho_bico )
+void Ave::set_tamanho_bico( float new_tamanho_bico )
 {
 	m_tamanho_bico = new_tamanho_bico;
 }
 
-void Ave::set_envergadura( int new_envergadura )
+void Ave::set_envergadura( float new_envergadura )
 {
 	m_envergadura = new_envergadura;
 }

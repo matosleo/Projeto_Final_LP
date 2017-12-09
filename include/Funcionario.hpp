@@ -20,7 +20,7 @@
 namespace PetFera
 {
 	/**
-	 * @brief      Class for funcionario.
+	 * @brief      Classe de Funcionario.
 	 */
 	class Funcionario
 	{
@@ -37,16 +37,28 @@ namespace PetFera
 	public:
 
 		/**
-		 * @brief      { function_description }
+		 * @brief      Construtor da classe Funcionario.
 		 *
-		 * @param[in]  _id             The identifier
-		 * @param[in]  _funcao         The funcao
-		 * @param[in]  _nome           The nome
-		 * @param[in]  _CPF            The cpf
-		 * @param[in]  _idade          The idade
-		 * @param[in]  _tipo_sangue    The tipo sangue
-		 * @param[in]  _fator_RH       The fator rh
-		 * @param[in]  _especialidade  The especialidade
+		 * @param[in]  _id             - Variável do tipo int, que corresponde
+		 *                             ao ID do funcionario.
+		 * @param[in]  _funcao         - Variável do tipo string, que
+		 *                             corresponde a funcao que o funcionario
+		 *                             exerce.
+		 * @param[in]  _nome           - Variável do tipo string, que
+		 *                             corresponde ao nome do funcionario.
+		 * @param[in]  _CPF            - Variável do tipo string, que
+		 *                             corresponde ao CPF do funcionario.
+		 * @param[in]  _idade          - Variável do tipo short, que corresponde
+		 *                             a idade do funcionario.
+		 * @param[in]  _tipo_sangue    - Variável do tipo string, que
+		 *                             corresponde ao tipo sanguineo do
+		 *                             funcionario.
+		 * @param[in]  _fator_RH       - Variável do tipo char, que corresponde
+		 *                             ao fator RH do tipo sanguineo do
+		 *                             funcionario.
+		 * @param[in]  _especialidade  - Variável do tipo string, que
+		 *                             corresponde a especialidade do
+		 *                             funcionario.
 		 */
 		Funcionario( int _id, std::string _funcao, std::string _nome, std::string _CPF, short _idade,
 					 std::string _tipo_sangue, char _fator_RH, std::string _especialidade )
@@ -61,97 +73,112 @@ namespace PetFera
 		{ /* Vazio */ }
 
 		/**
-		 * @brief      Destroys the object.
+		 * @brief      Destrutor da classe Funcionario.
 		 */
 		virtual ~Funcionario(){};
 		
 		/**
-		 * @brief      Gets the identifier.
+		 * @brief      Método get do atributo m_id.
 		 *
-		 * @return     The identifier.
+		 * @return     m_id.
 		 */
 		int get_id ( void );
 		
 		/**
-		 * @brief      Gets the nome.
+		 * @brief      Método get do atributo m_nome.
 		 *
-		 * @return     The nome.
+		 * @return     m_nome.
 		 */
 		std::string get_nome ( void );
 		
 		/**
-		 * @brief      Gets the funcao.
+		 * @brief      Método get do atributo m_funcao.
 		 *
-		 * @return     The funcao.
+		 * @return     m_funcao.
 		 */
 		std::string get_funcao ( void );
 		
 		/**
-		 * @brief      Gets the cpf.
+		 * @brief      Método get do atributo m_CPF.
 		 *
-		 * @return     The cpf.
+		 * @return     m_CPF.
 		 */
 		std::string get_CPF ( void );
 		
 		/**
-		 * @brief      Gets the idade.
+		 * @brief      Método get do atributo m_idade.
 		 *
-		 * @return     The idade.
+		 * @return     m_idade.
 		 */
 		short get_idade ( void );
 		
 		/**
-		 * @brief      Gets the t sangue.
+		 * @brief      Método get do atributo m_tipo_sangue.
 		 *
-		 * @return     The t sangue.
+		 * @return     m_tipo_sangue.
 		 */
 		std::string get_t_sangue ( void );
 		
 		/**
-		 * @brief      Gets the rh.
+		 * @brief      Método get do atributo m_fator_RH.
 		 *
-		 * @return     The rh.
+		 * @return     m_fator_RH.
 		 */
 		char get_RH ( void );
 		
 		/**
-		 * @brief      Gets the espec.
+		 * @brief      Método get do atributo m_especialidade.
 		 *
-		 * @return     The espec.
+		 * @return     m_especialidade.
 		 */
 		std::string get_espec ( void );
 
 		/**
-		 * @brief      Sets the idade.
+		 * @brief      Método set do atributo m_idade.
 		 *
-		 * @param[in]  _idade  The idade
+		 * @param[in]  _idade  - Variável do tipo short, que correponde a nova
+		 *                     idade do funcionário.
 		 */
 		void set_idade ( short _idade );
 
 		/**
-		 * @brief      { function_description }
+		 * @brief      Método printFuncionario, que serve para imprimir os dados
+		 *             de um Funcionário.
 		 */
 		void printFuncionario( void );
+
 	};
 
 	/**
-	 * @brief      Class for veterinario.
+	 * @brief      Classe de veterinario.
 	 */
 	class Veterinario : public Funcionario
 	{
 	public:
 
 		/**
-		 * @brief      { function_description }
+		 * @brief      Construtor da classe Veterinario.
 		 *
-		 * @param[in]  _id             The identifier
-		 * @param[in]  _funcao         The funcao
-		 * @param[in]  _nome           The nome
-		 * @param[in]  _CPF            The cpf
-		 * @param[in]  _idade          The idade
-		 * @param[in]  _tipo_sangue    The tipo sangue
-		 * @param[in]  _fator_RH       The fator rh
-		 * @param[in]  _especialidade  The especialidade
+		 * @param[in]  _id             - Variável do tipo int, que corresponde
+		 *                             ao ID do veterinário.
+		 * @param[in]  _funcao         - Variável do tipo string, que
+		 *                             corresponde a funcao que o veterinário
+		 *                             exerce.
+		 * @param[in]  _nome           - Variável do tipo string, que
+		 *                             corresponde ao nome do veterinário.
+		 * @param[in]  _CPF            - Variável do tipo string, que
+		 *                             corresponde ao CPF do veterinário.
+		 * @param[in]  _idade          - Variável do tipo short, que corresponde
+		 *                             a idade do veterinário.
+		 * @param[in]  _tipo_sangue    - Variável do tipo string, que
+		 *                             corresponde ao tipo sanguineo do
+		 *                             veterinário.
+		 * @param[in]  _fator_RH       - Variável do tipo char, que corresponde
+		 *                             ao fator RH do tipo sanguineo do
+		 *                             veterinário.
+		 * @param[in]  _especialidade  - Variável do tipo string, que
+		 *                             corresponde a especialidade do
+		 *                             veterinário.
 		 */
 		Veterinario( int _id, std::string _funcao, std::string _nome, std::string _CPF, short _idade,
 					 std::string _tipo_sangue, char _fator_RH, std::string _especialidade )
@@ -159,30 +186,42 @@ namespace PetFera
 		{ /* Vazio */ }
 
 		/**
-		 * @brief      Destroys the object.
+		 * @brief      Destrutor da classe Veterinario.
 		 */
 		~Veterinario(){};
 		
 	};
 
 	/**
-	 * @brief      Class for tratador.
+	 * @brief      Classe de tratador.
 	 */
 	class Tratador : public Funcionario
 	{
 	public:
 
 		/**
-		 * @brief      { function_description }
+		 * @brief      Construtor da classe Tratador.
 		 *
-		 * @param[in]  _id             The identifier
-		 * @param[in]  _funcao         The funcao
-		 * @param[in]  _nome           The nome
-		 * @param[in]  _CPF            The cpf
-		 * @param[in]  _idade          The idade
-		 * @param[in]  _tipo_sangue    The tipo sangue
-		 * @param[in]  _fator_RH       The fator rh
-		 * @param[in]  _especialidade  The especialidade
+		 * @param[in]  _id             - Variável do tipo int, que corresponde
+		 *                             ao ID do tratador.
+		 * @param[in]  _funcao         - Variável do tipo string, que
+		 *                             corresponde a funcao que o tratador
+		 *                             exerce.
+		 * @param[in]  _nome           - Variável do tipo string, que
+		 *                             corresponde ao nome do tratador.
+		 * @param[in]  _CPF            - Variável do tipo string, que
+		 *                             corresponde ao CPF do tratador.
+		 * @param[in]  _idade          - Variável do tipo short, que corresponde
+		 *                             a idade do tratador.
+		 * @param[in]  _tipo_sangue    - Variável do tipo string, que
+		 *                             corresponde ao tipo sanguineo do
+		 *                             tratador.
+		 * @param[in]  _fator_RH       - Variável do tipo char, que corresponde
+		 *                             ao fator RH do tipo sanguineo do
+		 *                             tratador.
+		 * @param[in]  _especialidade  - Variável do tipo string, que
+		 *                             corresponde a especialidade do
+		 *                             tratador.
 		 */
 		Tratador( int _id, std::string _funcao, std::string _nome, std::string _CPF, short _idade,
 					 std::string _tipo_sangue, char _fator_RH, std::string _especialidade )
@@ -190,7 +229,7 @@ namespace PetFera
 		{ /* Vazio */ }
 			
 		/**
-		 * @brief      Destroys the object.
+		 * @brief      Destrutor da classe Tratador.
 		 */
 		~Tratador(){};
 		

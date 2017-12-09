@@ -20,7 +20,7 @@ using namespace PetFera;
 namespace PetFera
 {
 	/**
-	 * @brief      Class for reptil.
+	 * @brief      Classe de Reptil.
 	 */
 	class Reptil : public Animal
 	{
@@ -31,35 +31,50 @@ namespace PetFera
 	public:
 
 		/**
-		 * @brief      Determines if venenoso.
+		 * @brief      Método que determina se o animal tem veneno.
 		 *
-		 * @return     True if venenoso, False otherwise.
+		 * @return     True se for venenoso, ou False caso contrário.
 		 */
 		bool is_venenoso( void );
 
 		/**
-		 * @brief      Gets the tipo veneno.
+		 * @brief      Método get do atributo m_tipo_veneno.
 		 *
-		 * @return     The tipo veneno.
+		 * @return     m_tipo_veneno.
 		 */
 		std::string get_tipo_veneno( void );
 
 		/**
-		 * @brief      { function_description }
+		 * @brief      Construtor da classe Reptil.
 		 *
-		 * @param[in]  _id           The identifier
-		 * @param[in]  _classe       The classe
-		 * @param[in]  _tipo         The tipo
-		 * @param[in]  _nome         The nome
-		 * @param[in]  _cientifico   The cientifico
-		 * @param[in]  _sexo         The sexo
-		 * @param[in]  _tamanho      The tamanho
-		 * @param[in]  _dieta        The dieta
-		 * @param[in]  _veterinario  The veterinario
-		 * @param[in]  _tratador     The tratador
-		 * @param[in]  _batismo      The batismo
-		 * @param[in]  _venenoso     The venenoso
-		 * @param[in]  _tipo_veneno  The tipo veneno
+		 * @param[in]  _id           - Variável do tipo int, que corresponde ao
+		 *                           ID do animal.
+		 * @param[in]  _classe       - Variável do tipo string, que corresponde
+		 *                           a familia que o animal pertence.
+		 * @param[in]  _tipo         - Variável do tipo string, que corresponde
+		 *                           ao tipo do animal.
+		 * @param[in]  _nome         - Variável do tipo string, que corresponde
+		 *                           ao nome do animal.
+		 * @param[in]  _cientifico   - Variável do tipo string, que corresponde
+		 *                           ao nome cientifico do animal.
+		 * @param[in]  _sexo         - Variável do tipo char, que corresponde
+		 *                           ao sexo do animal.
+		 * @param[in]  _tamanho      - Variável do tipo float, que corresponde
+		 *                           ao tamanho do animal.
+		 * @param[in]  _dieta        - Variável do tipo string, que corresponde
+		 *                           a dieta do animal.
+		 * @param[in]  _veterinario  - Variável do tipo apontador para
+		 *                           funcionario, que corresponde ao veterinario
+		 *                           que cuida do animal.
+		 * @param[in]  _tratador     - Variável do tipo apontador para
+		 *                           funcionario, que corresponde ao tratador
+		 *                           que cuida do animal.
+		 * @param[in]  _batismo      - Variável do tipo string, que corresponde
+		 *                           ao nome de batismo do animal.
+		 * @param[in]  _venenoso     - Variável do tipo bool, que diz se o
+		 *                           animal é venenoso ou não.
+		 * @param[in]  _tipo_veneno  - Variável do tipo string, que corresponde
+		 *                           ao tipo de veneno do animal.
 		 */
 		Reptil( int _id, std::string _classe, std::string _tipo, std::string _nome, std::string _cientifico, char _sexo, 
 				float _tamanho, std::string _dieta, F_pointer _veterinario, F_pointer _tratador, std::string _batismo,
@@ -69,21 +84,23 @@ namespace PetFera
 		{	/*	Vazio	*/	}
 
 		/**
-		 * @brief      Destroys the object.
+		 * @brief      Destrutor da classe Reptil.
 		 */
 		virtual ~Reptil(){};
 		
 		/**
-		 * @brief      { function_description }
+		 * @brief      Sobrecarga do método print.
 		 *
-		 * @param      _os   The operating system
+		 * @param      _os   - Variável do tipo ostream, que corresponde a saída
+		 *                   padrão.
 		 *
-		 * @return     { description_of_the_return_value }
+		 * @return     Um objeto do tipo ostream.
 		 */
 		virtual std::ostream& print( std::ostream & _os );
 
 		/**
-		 * @brief      { function_description }
+		 * @brief      Método printAnimal, que serve para imprimir os dados de
+		 *             um Reptil.
 		 */
 		void printAnimal(void);
 

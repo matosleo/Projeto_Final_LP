@@ -29,22 +29,23 @@ namespace PetFera
 	public:
 
 		/**
-		 * @brief      Gets the ibama.
+		 * @brief      Método get do atributo m_ibama.
 		 *
-		 * @return     The ibama.
+		 * @return     m_ibama.
 		 */
 		std::string get_ibama( void );
 
 		/**
 		 * @brief      Construtor do AnimalSilvestre
 		 *
-		 * @param[in]  _ibama  The ibama
+		 * @param[in]  _ibama  - Variável do tipo string, que corresponde ao
+		 *                     novo valor de m_ibama.
 		 */
 		AnimalSilvestre( std::string _ibama ) : m_ibama( _ibama )
 		{	/*	Vazio	*/	}
 
 		/**
-		 * @brief      Destroys the object.
+		 * @brief      Destrutor de AnimalSilvestre.
 		 */
 		virtual ~AnimalSilvestre(){};
 		
@@ -62,32 +63,37 @@ namespace PetFera
 	public:
 
 		/**
-		 * @brief      Gets the uf origem.
+		 * @brief      Método get do atributo m_uf_origem.
 		 *
-		 * @return     The uf origem.
+		 * @return     m_uf_origem.
 		 */
 		std::string get_uf_origem( void );
 
 		/**
-		 * @brief      Gets the autorizacao.
+		 * @brief      Método get do atributo m_autorizacao.
 		 *
-		 * @return     The autorizacao.
+		 * @return     m_autorizacao.
 		 */
 		std::string get_autorizacao( void );
 
 		/**
-		 * @brief      Sets the autorizacao.
+		 * @brief      Método set do atributo m_autorizacao.
 		 *
-		 * @param[in]  new_autorizacao  The new autorizacao
+		 * @param[in]  new_autorizacao  - Variável do tipo string, que
+		 *                              corresponde ao novo valor de
+		 *                              m_autorizacao.
 		 */
 		void set_autorizacao( std::string new_autorizacao );
 
 		/**
-		 * @brief      Construtor do Nativo
+		 * @brief      Construtor do Nativo.
 		 *
-		 * @param[in]  _ibama        The ibama
-		 * @param[in]  _uf_origem    The uf origem
-		 * @param[in]  _autorizacao  The autorizacao
+		 * @param[in]  _ibama        - Variável do tipo string, que corresponde
+		 *                           ao id de ibama.
+		 * @param[in]  _uf_origem    - Variável do tipo string, que corresponde
+		 *                           ao estado de origem.
+		 * @param[in]  _autorizacao  - Variável do tipo string, que corresponde
+		 *                           a autorização.
 		 */
 		Nativo( std::string _ibama, std::string _uf_origem, std::string _autorizacao )
 			: AnimalSilvestre( _ibama )
@@ -96,7 +102,7 @@ namespace PetFera
 			{	/*	Vazio	*/	}
 
 		/**
-		 * @brief      Destroys the object.
+		 * @brief      Destrutor do Nativo.
 		 */
 		virtual ~Nativo(){};
 		
@@ -113,17 +119,19 @@ namespace PetFera
 	public:
 
 		/**
-		 * @brief      Gets the pais origem.
+		 * @brief      Método get do atributo m_pais_origem.
 		 *
-		 * @return     The pais origem.
+		 * @return     m_pais_origem.
 		 */
 		std::string get_pais_origem( void );
 
 		/**
 		 * @brief      Construtor para o Exotico
 		 *
-		 * @param[in]  _ibama        The ibama
-		 * @param[in]  _pais_origem  The pais origem
+		 * @param[in]  _ibama        - Variável do tipo string, que corresponde
+		 *                           ao id de ibama.
+		 * @param[in]  _pais_origem  - Variável do tipo string, que corresponde
+		 *                           ao pais de origem do animal.
 		 */
 		Exotico( std::string _ibama, std::string _pais_origem )
 			: AnimalSilvestre( _ibama )
@@ -131,7 +139,7 @@ namespace PetFera
 			{	/*	Vazio	*/	}
 
 		/**
-		 * @brief      Destroys the object.
+		 * @brief      Destrutor do Exotico.
 		 */
 		virtual ~Exotico(){};
 		

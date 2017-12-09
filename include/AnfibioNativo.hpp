@@ -23,31 +23,50 @@ using namespace PetFera;
 namespace PetFera
 {
 	/**
-	 * @brief      Classe para anfibio nativo.
+	 * @brief      Classe de anfibio nativo.
 	 */
 	class AnfibioNativo : public Anfibio , public Nativo
 	{
 	public:
 
 		/**
-		 * @brief      Construtor da Classe
+		 * @brief      Construtor da classe AnfibioNativo.
 		 *
-		 * @param[in]  _id           O identifier
-		 * @param[in]  _classe       A classe
-		 * @param[in]  _tipo         O tipo
-		 * @param[in]  _nome         O nome
-		 * @param[in]  _cientifico   O nome cientifico
-		 * @param[in]  _sexo         O sexo
-		 * @param[in]  _tamanho      O tamanho
-		 * @param[in]  _dieta        A dieta
-		 * @param[in]  _veterinario  O veterinario
-		 * @param[in]  _tratador     O tratador
-		 * @param[in]  _batismo      O nome de batismo
-		 * @param[in]  _total_mudas  O total mudas
-		 * @param[in]  _ultima_muda  A ultima muda
-		 * @param[in]  _ibama        O ibama
-		 * @param[in]  _uf_origem    O uf origem
-		 * @param[in]  _autorizacao  A autorizacao
+		 * @param[in]  _id           - Variável do tipo int, que corresponde ao
+		 *                           ID do animal.
+		 * @param[in]  _classe       - Variável do tipo string, que corresponde
+		 *                           a familia que o animal pertence.
+		 * @param[in]  _tipo         - Variável do tipo string, que corresponde
+		 *                           ao tipo do animal.
+		 * @param[in]  _nome         - Variável do tipo string, que corresponde
+		 *                           ao nome do animal.
+		 * @param[in]  _cientifico   - Variável do tipo string, que corresponde
+		 *                           ao nome cientifico do animal.
+		 * @param[in]  _sexo         - Variável do tipo char, que corresponde ao
+		 *                           sexo do animal.
+		 * @param[in]  _tamanho      - Variável do tipo float, que corresponde
+		 *                           ao tamanho do animal.
+		 * @param[in]  _dieta        - Variável do tipo string, que corresponde
+		 *                           a dieta do animal.
+		 * @param[in]  _veterinario  - Variável do tipo apontador para
+		 *                           funcionario, que corresponde ao veterinario
+		 *                           que cuida do animal.
+		 * @param[in]  _tratador     - Variável do tipo apontador para
+		 *                           funcionario, que corresponde ao tratador
+		 *                           que cuida do animal.
+		 * @param[in]  _batismo      - Variável do tipo string, que corresponde
+		 *                           ao nome de batismo do animal.
+		 * @param[in]  _total_mudas  - Variável do tipo int, que corresponde ao
+		 *                           total de mudas do animal.
+		 * @param[in]  _ultima_muda  - Variável do tipo string, que corresponde
+		 *                           a data da ultima muda do animal.
+		 * @param[in]  _ibama        - Variável do tipo string, que corresponde
+		 *                           ao id do ibama associado ao animal.
+		 * @param[in]  _uf_origem    - Variável do tipo string, que corresponde
+		 *                           ao Estado de origem do animal.
+		 * @param[in]  _autorizacao  - Variável do tipo string, que corresponde
+		 *                           a autorização fornecida pelo ibama para a
+		 *                           comercialização do animal.
 		 */
 		AnfibioNativo( int _id, std::string _classe, std::string _tipo, std::string _nome, std::string _cientifico, char _sexo, 
 				float _tamanho, std::string _dieta, F_pointer _veterinario, F_pointer _tratador, std::string _batismo,
@@ -59,12 +78,13 @@ namespace PetFera
 			{	/*	Vazio	*/	}
 
 		/**
-		 * @brief      Destrutor da classe
+		 * @brief      Destrutor da classe AnfibioNativo.
 		 */
 		~AnfibioNativo(){};
 
 		/**
-		 * @brief      Imprime o animal
+		 * @brief      Método printAnimal, que serve para imprimir os dados de
+		 *             um Anfibio Nativo.
 		 */
 		void printAnimal(void);
 	};
