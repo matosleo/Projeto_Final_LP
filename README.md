@@ -52,7 +52,6 @@ Exemplo:
 
 	./exportar -c <classe> -v <veterinario> -t <tratador> <arquivo_saida>
 	
-
 ## Compilação
 Certifique-se que os diretorios necessarios foram criados, utilize o 'make dir'
 Para a compilação das questões utilize o comando 'make' no terminal do Linux.
@@ -73,5 +72,5 @@ Digite
 No terminal do Linux para executar a versão de cadastro
 ou Digite
 
-	./bin/filtrar
+	./bin/exportar
 No terminal do Linux para executar a versão de filtrar
